@@ -14,6 +14,10 @@
     <string name="grades">Voyez des Notes</string>
     <string name="progress">Progrès de Degré</string>
     <string name="signout">Déconnect</string>
+    <string name="newTerm">Ajouter une Terme</string>
+    <string name="newCourse">Ajouter une Cours</string>
+    <string name="editCourse">Modifier une  Cours</string>
+    <string name="enterGrades">Entrer des Notes</string>
     <string name="changepw">Change Mot de Passe</string>
     <string name="helpTitle">Aide: %1$s</string>
     <string name="helpMessage">Auteur: Johnny Console\nActivité: %1$s\nInformation: %2$s</string>
