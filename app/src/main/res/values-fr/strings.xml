@@ -25,6 +25,8 @@
     <string name="mainActivityInfo">Choisissez une boutton pour aller à l\'écran correspondant</string>
 
     <string name="studentWelcome">Bienvenue, %1$s!</string>
+    <string name="studentHome">Accueil Étudiant</string>
 
     <string name="adminWelcome">Bienvenue Administrateur!</string>
+    <string name="adminHome">Accueil Administrateur</string>
 </resources>

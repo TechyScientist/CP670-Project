@@ -27,8 +27,10 @@
 
     <!-- Strings for StudentHomeActivity -->
     <string name="studentWelcome">Welcome, %1$s!</string>
+    <string name="studentHome">Student Home</string>
 
     <!-- Strings for StudentHomeActivity -->
     <string name="adminWelcome">Welcome Administrator!</string>
+    <string name="adminHome">Administrator Home</string>
 
 </resources>
