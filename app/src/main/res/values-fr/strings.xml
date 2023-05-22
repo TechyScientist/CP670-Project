@@ -34,4 +34,5 @@
 
     <string name="adminWelcome">Bienvenue Administrateur!</string>
     <string name="adminHome">Accueil Administrateur</string>
+    <string name="confirmSignout">Êtes-vous sûr de vouloir se déconnecter?</string>
 </resources>

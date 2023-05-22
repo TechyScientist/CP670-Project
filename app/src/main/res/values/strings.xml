@@ -37,5 +37,6 @@
     <!-- Strings for StudentHomeActivity -->
     <string name="adminWelcome">Welcome Administrator!</string>
     <string name="adminHome">Administrator Home</string>
+    <string name="confirmSignout">Are you sure you want to sign out?</string>
 
 </resources>

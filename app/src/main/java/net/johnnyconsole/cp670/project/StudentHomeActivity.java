@@ -3,6 +3,7 @@ package net.johnnyconsole.cp670.project;
 import static net.johnnyconsole.cp670.project.ApplicationSession.first;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,6 +26,37 @@ public class StudentHomeActivity extends AppCompatActivity {
 
         setSupportActionBar(binding.toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle(getString(R.string.studentWelcome, first));
+
+        findViewById(R.id.btSchedule).setOnClickListener(view ->
+                startActivity(new Intent(this, CourseScheduleActivity.class))
+        );
+
+        /*
+         findViewById(R.id.btRegistration).setOnClickListener(view ->
+                startActivity(new Intent(this, RegistrationChangeActivity.class))
+        );
+
+         findViewById(R.id.btGrades).setOnClickListener(view ->
+                startActivity(new Intent(this, ViewGradesActivity.class))
+        );
+
+         findViewById(R.id.btProgress).setOnClickListener(view ->
+                startActivity(new Intent(this, DegreeProgressActivity.class))
+        );
+
+         findViewById(R.id.btChangepw).setOnClickListener(view ->
+                startActivity(new Intent(this, ChangePasswordActivity.class))
+        );
+        */
+         findViewById(R.id.btSignOut).setOnClickListener(view ->
+                new AlertDialog.Builder(this).setTitle(R.string.signout)
+                        .setMessage(R.string.confirmSignout)
+                        .setPositiveButton(R.string.exitYes, (dialog, id) -> finish())
+                        .setNegativeButton(R.string.exitNo, null)
+                        .create()
+                        .show()
+        );
+
     }
 
     @Override
