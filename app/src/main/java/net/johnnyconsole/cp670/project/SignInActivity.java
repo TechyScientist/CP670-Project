@@ -86,7 +86,7 @@ public class SignInActivity extends AppCompatActivity {
                     etUsername.getText().clear();
                     etPassword.getText().clear();
 
-                   /* //If the user is a student, show the student home page
+                    //If the user is a student, show the student home page
                     if(userType.equals("student")) {
                         startActivity(new Intent(this, StudentHomeActivity.class));
                     }
@@ -95,7 +95,7 @@ public class SignInActivity extends AppCompatActivity {
                     //and administrative users for purposes of grade entering, time-dependent.
                     else {
                         startActivity(new Intent(this, AdministratorHomeActivity.class));
-                    }*/
+                    }
                 }
                 //Show an error dialog if the user's password is incorrect
                 else {
