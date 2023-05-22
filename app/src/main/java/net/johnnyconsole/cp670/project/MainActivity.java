@@ -12,12 +12,13 @@ package net.johnnyconsole.cp670.project;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
 import net.johnnyconsole.cp670.project.databinding.ActivityMainBinding;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import java.util.Objects;
 import java.util.Scanner;

@@ -1,21 +1,25 @@
 package net.johnnyconsole.cp670.project;
 
+import static net.johnnyconsole.cp670.project.ApplicationSession.database;
+import static net.johnnyconsole.cp670.project.ApplicationSession.first;
+import static net.johnnyconsole.cp670.project.ApplicationSession.last;
+import static net.johnnyconsole.cp670.project.ApplicationSession.userType;
+import static net.johnnyconsole.cp670.project.ApplicationSession.username;
+
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import net.johnnyconsole.cp670.project.databinding.ActivitySignInBinding;
 
 import java.util.Objects;
-import static net.johnnyconsole.cp670.project.ApplicationSession.*;
 
 public class SignInActivity extends AppCompatActivity {
 

@@ -1,13 +1,13 @@
 package net.johnnyconsole.cp670.project;
 
+import static net.johnnyconsole.cp670.project.ApplicationSession.first;
+
 import android.app.AlertDialog;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.Menu;
 import android.view.MenuItem;
-import static net.johnnyconsole.cp670.project.ApplicationSession.*;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import net.johnnyconsole.cp670.project.databinding.ActivityStudentHomeBinding;
 
