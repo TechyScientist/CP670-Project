@@ -10,6 +10,8 @@
     <string name="exitYes">Oui, Quitter</string>
     <string name="exitNo">Non, Rester</string>
     <string name="help">Aide</string>
+    <string name="helpTitle">Aide: %1$s</string>
+    <string name="helpMessage">Auteur: Johnny Console\nActivité: %1$s\nInformation: %2$s</string>
 
     <string name="usernameLabel">Nom d\'Utilisateur:</string>
     <string name="usernameHint">Nom d\'Utilisateur</string>
@@ -18,6 +20,9 @@
     <string name="signinErrorTitle">Erreur de Connexion</string>
     <string name="signinErrorMessage">Identification Invalide, Essayer Plus s\'il Vous Plait</string>
     <string name="dismiss">Fermer</string>
+    <string name="profileInfo">Entrez votre nom d\'utilisateur et votre mot de passe ici pour faire de connexion</string>
+    <string name="scheduleInfo">Cherchez l\'horaire des cours pour le RNC, nom ou code dans chaque terme. Choisissez une cours dans la liste poir voir ses details.</string>
+    <string name="mainActivityInfo">Choisissez une boutton pour aller à l\'écran correspondant</string>
 
     <string name="studentWelcome">Bienvenue, %1$s!</string>
 

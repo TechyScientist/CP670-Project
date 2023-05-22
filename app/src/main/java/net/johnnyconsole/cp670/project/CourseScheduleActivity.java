@@ -1,5 +1,6 @@
 package net.johnnyconsole.cp670.project;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -42,7 +43,13 @@ public class CourseScheduleActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_help) {
+            new AlertDialog.Builder(this)
+                    .setTitle(getString(R.string.helpTitle, getString(R.string.schedule)))
+                    .setMessage(getString(R.string.helpMessage, getString(R.string.schedule), getString(R.string.scheduleInfo)))
+                    .setPositiveButton(R.string.dismiss, null)
+                    .create()
+                    .show();
             return true;
         }
         return super.onOptionsItemSelected(item);

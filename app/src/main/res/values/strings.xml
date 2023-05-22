@@ -10,6 +10,8 @@
     <string name="exitYes">Yes, Exit</string>
     <string name="exitNo">No, Stay</string>
     <string name="help">Help</string>
+    <string name="helpTitle">Help: %1$s</string>
+    <string name="helpMessage">Author: Johnny Console\nActivity: %1$s\nInformation: %2$s</string>
 
     <!-- Strings for SignInActivity -->
     <string name="usernameLabel">Username:</string>
@@ -19,6 +21,9 @@
     <string name="signinErrorTitle">Sign In Error</string>
     <string name="signinErrorMessage">Invalid Credentials, Please Try Again.</string>
     <string name="dismiss">Dismiss</string>
+    <string name="profileInfo">Enter your username and password here to sign in</string>
+    <string name="scheduleInfo">Search the course list by CRN, name or code by each term. Select a course from the list to view its details.</string>
+    <string name="mainActivityInfo">Choose a button to navigate to the corresponding screen</string>
 
     <!-- Strings for StudentHomeActivity -->
     <string name="studentWelcome">Welcome, %1$s!</string>

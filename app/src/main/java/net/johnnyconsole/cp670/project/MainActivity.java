@@ -59,7 +59,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_help) {
+            new android.app.AlertDialog.Builder(this)
+                    .setTitle(getString(R.string.helpTitle, getString(R.string.MainActivityTitle)))
+                    .setMessage(getString(R.string.helpMessage, getString(R.string.MainActivityTitle), getString(R.string.mainActivityInfo)))
+                    .setPositiveButton(R.string.dismiss, null)
+                    .create()
+                    .show();
             return true;
         }
         return super.onOptionsItemSelected(item);
