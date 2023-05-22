@@ -7,8 +7,8 @@
     <string name="profile">Connexion</string>
     <string name="exitTitle">Validation</string>
     <string name="exitMessage">Êtes-vous sûr de vouloir quitter?</string>
-    <string name="exitYes">Oui, Quitter</string>
-    <string name="exitNo">Non, Rester</string>
+    <string name="exitYes">Oui</string>
+    <string name="exitNo">Non</string>
     <string name="help">Aide</string>
     <string name="registration">Inscrivez pour les Courses</string>
     <string name="grades">Voyez des Notes</string>
