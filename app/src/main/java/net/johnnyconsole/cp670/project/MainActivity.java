@@ -9,23 +9,17 @@
  */
 package net.johnnyconsole.cp670.project;
 
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
-import com.google.android.material.snackbar.Snackbar;
-
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.View;
-
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
 import net.johnnyconsole.cp670.project.databinding.ActivityMainBinding;
-
 import android.view.Menu;
 import android.view.MenuItem;
+
+import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
@@ -38,29 +32,77 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.toolbar);
+        binding.toolbar.setTitle(R.string.MainActivityTitle);
+
+       /* findViewById(R.id.btSchedule).setOnClickListener(view ->
+                startActivity(new Intent(this, CourseScheduleActivity.class))
+        );
+
+        //Show the SignInActivity when the bottom button is pressed
+        findViewById(R.id.btProfile).setOnClickListener(view ->
+                startActivity(new Intent(this, SignInActivity.class))
+        ); */
+
+        //Create (or open) the database and save a reference to it
+        //in ApplicationSession variables
+        ApplicationSession.database = openDatabase();
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        //If the user presses the back button, prompt them to confirm
+        //before closing the app
+        new AlertDialog.Builder(this).setTitle(R.string.exitTitle)
+                .setMessage(R.string.exitMessage)
+                .setPositiveButton(R.string.exitYes, (dialogInterface, i) -> finish())
+                .setNegativeButton(R.string.exitNo, (dialogInterface, i) -> dialogInterface.dismiss())
+                .create()
+                .show();
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        //Close the database reference when finishing the activity
+        ApplicationSession.database.close();
+    }
+
+    /*
+        openDatabase()
+        Create or open the database for the app and
+        return a reference to it
+     */
+    private SQLiteDatabase openDatabase() {
+        SQLiteDatabase db = openOrCreateDatabase("cons3250_project", MODE_PRIVATE, null);
+        //This file defines the tables and some initial data for the database
+        Scanner sqlFile = new Scanner(getResources().openRawResource(R.raw.database));
+        //While there are statements to read, read and execute them
+        while(sqlFile.hasNextLine()) {
+            StringBuilder line = new StringBuilder(sqlFile.nextLine());
+            //Because SQL Statements can be done over multiple lines, until a semicolon is found,
+            //keep reading the current statement before executing it
+            while(sqlFile.hasNextLine() && !line.toString().contains(";")) {
+                line.append(sqlFile.nextLine());
+            }
+            db.execSQL(line.toString());
+        }
+        return db;
     }
 
 }
