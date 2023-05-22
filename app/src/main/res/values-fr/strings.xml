@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Inscription</string>
+
+    <string name="MainActivityTitle">Accueil</string>
+    <string name="schedule">Horaire des Cours</string>
+    <string name="profile">Connexion</string>
+    <string name="exitTitle">Validation</string>
+    <string name="exitMessage">Êtes-vous sûr de vouloir quitter?</string>
+    <string name="exitYes">Oui, Quitter</string>
+    <string name="exitNo">Non, Rester</string>
+
+    <string name="usernameLabel">Nom d\'Utilisateur:</string>
+    <string name="usernameHint">Nom d\'Utilisateur</string>
+    <string name="passwordLabel">Mot de Passe:</string>
+    <string name="passwordHint">Mot De Passe</string>
+    <string name="signinErrorTitle">Erreur de Connexion</string>
+    <string name="signinErrorMessage">Identification Invalide, Essayer Plus s\'il Vous Plait</string>
+    <string name="dismiss">Fermer</string>
+
+    <string name="studentWelcome">Bienvenue, %1$s!</string>
+
+    <string name="adminWelcome">Bienvenue Administrateur!</string>
+</resources>

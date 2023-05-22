@@ -1,19 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<?xml version="1.0" encoding="utf-8" ?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".MainActivity">
+    <Button
+        android:id="@+id/btSchedule"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="@string/schedule"
+        android:drawableTop="@drawable/schedule"
+        android:background="@color/transparent"
+        android:textColor="@color/lightPurple"
+        android:textAllCaps="false"
+        android:layout_marginBottom="50dp"/>
 
-    <fragment
-        android:id="@+id/nav_host_fragment_content_main"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:defaultNavHost="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/nav_graph" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/btProfile"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="@string/profile"
+        android:drawableTop="@drawable/profile"
+        android:background="@color/transparent"
+        android:textColor="@color/lightPurple"
+        android:textAllCaps="false"/>
+</LinearLayout>
