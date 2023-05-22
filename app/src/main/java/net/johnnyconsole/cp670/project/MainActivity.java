@@ -19,6 +19,7 @@ import net.johnnyconsole.cp670.project.databinding.ActivityMainBinding;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.toolbar);
-        binding.toolbar.setTitle(R.string.MainActivityTitle);
+        Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.MainActivityTitle);
 
         findViewById(R.id.btSchedule).setOnClickListener(view ->
                 startActivity(new Intent(this, CourseScheduleActivity.class))

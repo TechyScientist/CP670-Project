@@ -17,6 +17,8 @@ import androidx.navigation.ui.NavigationUI;
 
 import net.johnnyconsole.cp670.project.databinding.ActivitySignInBinding;
 
+import java.util.Objects;
+
 public class SignInActivity extends AppCompatActivity {
 
     private ActivitySignInBinding binding;
@@ -29,7 +31,7 @@ public class SignInActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.toolbar);
-        binding.toolbar.setTitle(R.string.profile);
+        Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.profile);
 
 
     }

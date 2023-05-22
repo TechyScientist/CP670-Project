@@ -17,6 +17,8 @@ import androidx.navigation.ui.NavigationUI;
 
 import net.johnnyconsole.cp670.project.databinding.ActivityCourseScheduleBinding;
 
+import java.util.Objects;
+
 public class CourseScheduleActivity extends AppCompatActivity {
     private ActivityCourseScheduleBinding binding;
 
@@ -28,7 +30,7 @@ public class CourseScheduleActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.toolbar);
-        binding.toolbar.setTitle(R.string.schedule);
+        Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.schedule);
     }
 
     @Override
