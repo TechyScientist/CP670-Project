@@ -9,6 +9,7 @@
     <string name="exitMessage">Êtes-vous sûr de vouloir quitter?</string>
     <string name="exitYes">Oui, Quitter</string>
     <string name="exitNo">Non, Rester</string>
+    <string name="help">Aide</string>
 
     <string name="usernameLabel">Nom d\'Utilisateur:</string>
     <string name="usernameHint">Nom d\'Utilisateur</string>

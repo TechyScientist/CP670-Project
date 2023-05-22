@@ -34,14 +34,14 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(binding.toolbar);
         binding.toolbar.setTitle(R.string.MainActivityTitle);
 
-       /* findViewById(R.id.btSchedule).setOnClickListener(view ->
+        findViewById(R.id.btSchedule).setOnClickListener(view ->
                 startActivity(new Intent(this, CourseScheduleActivity.class))
         );
 
         //Show the SignInActivity when the bottom button is pressed
         findViewById(R.id.btProfile).setOnClickListener(view ->
                 startActivity(new Intent(this, SignInActivity.class))
-        ); */
+        );
 
         //Create (or open) the database and save a reference to it
         //in ApplicationSession variables

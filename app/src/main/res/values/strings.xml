@@ -9,6 +9,7 @@
     <string name="exitMessage">Are you sure you want to exit?</string>
     <string name="exitYes">Yes, Exit</string>
     <string name="exitNo">No, Stay</string>
+    <string name="help">Help</string>
 
     <!-- Strings for SignInActivity -->
     <string name="usernameLabel">Username:</string>
