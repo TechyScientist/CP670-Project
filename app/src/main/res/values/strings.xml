@@ -10,6 +10,11 @@
     <string name="exitYes">Yes, Exit</string>
     <string name="exitNo">No, Stay</string>
     <string name="help">Help</string>
+    <string name="registration">Register for Courses</string>
+    <string name="grades">View Grades</string>
+    <string name="progress">Degree Progress</string>
+    <string name="signout">Sign Out</string>
+    <string name="changepw">Change Password</string>
     <string name="helpTitle">Help: %1$s</string>
     <string name="helpMessage">Author: Johnny Console\nActivity: %1$s\nInformation: %2$s</string>
 
