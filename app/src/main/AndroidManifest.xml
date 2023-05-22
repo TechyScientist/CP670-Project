@@ -16,6 +16,10 @@
             android:exported="false"
             android:theme="@style/Theme.Project.NoActionBar" />
         <activity
+            android:name=".AdministratorHomeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Project.NoActionBar" />
+        <activity
             android:name=".CourseScheduleActivity"
             android:exported="false"
             android:theme="@style/Theme.Project.NoActionBar" />
