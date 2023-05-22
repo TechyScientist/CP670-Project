@@ -79,4 +79,14 @@ public class StudentHomeActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this).setTitle(R.string.signout)
+                .setMessage(R.string.confirmSignout)
+                .setPositiveButton(R.string.exitYes, (dialog, id) -> finish())
+                .setNegativeButton(R.string.exitNo, null)
+                .create()
+                .show();
+    }
 }
