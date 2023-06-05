@@ -5,9 +5,6 @@ import static net.johnnyconsole.cp670.project.helper.ApplicationSession.database
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +13,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 
-import com.google.android.material.snackbar.Snackbar;
+import androidx.fragment.app.Fragment;
 
-import net.johnnyconsole.cp670.project.databinding.ActivityCourseScheduleBinding;
 import net.johnnyconsole.cp670.project.objects.Course;
 import net.johnnyconsole.cp670.project.objects.Term;
 

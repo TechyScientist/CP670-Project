@@ -1,28 +1,15 @@
 package net.johnnyconsole.cp670.project;
 
 import android.app.AlertDialog;
-import android.content.Context;
-import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.Spinner;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentContainerView;
 
-import com.google.android.material.snackbar.Snackbar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import net.johnnyconsole.cp670.project.databinding.ActivityCourseScheduleBinding;
-import net.johnnyconsole.cp670.project.objects.Course;
-import net.johnnyconsole.cp670.project.objects.Term;
 
-import java.util.ArrayList;
 import java.util.Objects;
-import static net.johnnyconsole.cp670.project.helper.ApplicationSession.*;
 
 /**
  * @author Johnny Console
