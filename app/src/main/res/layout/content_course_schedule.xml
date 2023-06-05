@@ -1,72 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <LinearLayout
+    <androidx.fragment.app.FragmentContainerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:id="@+id/llSearch"
-        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:id="@+id/fvFragment"
+        android:name="net.johnnyconsole.cp670.project.CourseListFragment"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent">
-        <LinearLayout
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/searchFor"
-            android:textColor="@color/darkPurple"/>
-        <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:entries="@array/searchBy"
-            android:id="@+id/spSearchField"/>
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:inputType="text"
-            android:id="@+id/etSearchText"
-            android:ems="8"
-            android:autofillHints="no"
-            android:hint="@string/search"/>
-        </LinearLayout>
-    <LinearLayout
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/searchTerm"
-            android:textColor="@color/darkPurple"/>
-        <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:id="@+id/spSearchTerm"/>
-    </LinearLayout>
-    </LinearLayout>
+        tools:layout="@layout/fragment_course_list" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/search"
-        android:id="@+id/btSearch"
-        android:layout_margin="10dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/llSearch" />
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/lvCourses"
-        android:layout_margin="10dp"
-        android:divider="@color/darkPurple"
-        android:dividerHeight="1dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btSearch"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
