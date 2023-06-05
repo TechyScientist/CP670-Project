@@ -39,4 +39,12 @@
     <string name="adminWelcome">Bienvenue Administrateur!</string>
     <string name="adminHome">Accueil Administrateur</string>
     <string name="confirmSignout">Êtes-vous sûr de vouloir se déconnecter?</string>
+
+    <string-array name="searchBy">
+        <item>NRC du Cours</item>
+        <item>Code du Cours</item>
+        <item>Titre du Cours</item>
+    </string-array>
+    <string name="searchFor">Cherchez pour:</string>
+    <string name="search">Cherchez</string>
 </resources>

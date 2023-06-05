@@ -43,4 +43,12 @@
     <string name="adminHome">Administrator Home</string>
     <string name="confirmSignout">Are you sure you want to sign out?</string>
 
+    <string-array name="searchBy">
+        <item>Course CRN</item>
+        <item>Course Code</item>
+        <item>Course Title</item>
+    </string-array>
+    <string name="searchFor">Search for:</string>
+    <string name="search">Search</string>
+
 </resources>
