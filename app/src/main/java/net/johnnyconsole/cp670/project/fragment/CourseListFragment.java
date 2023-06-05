@@ -1,4 +1,4 @@
-package net.johnnyconsole.cp670.project;
+package net.johnnyconsole.cp670.project.fragment;
 
 import static net.johnnyconsole.cp670.project.helper.ApplicationSession.database;
 
@@ -15,6 +15,7 @@ import android.widget.Spinner;
 
 import androidx.fragment.app.Fragment;
 
+import net.johnnyconsole.cp670.project.R;
 import net.johnnyconsole.cp670.project.objects.Course;
 import net.johnnyconsole.cp670.project.objects.Term;
 

@@ -6,7 +6,7 @@
  * the app to use the remaining features.
  * Last Modified: 22 May 2023
  */
-package net.johnnyconsole.cp670.project;
+package net.johnnyconsole.cp670.project.activity;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import net.johnnyconsole.cp670.project.R;
 import net.johnnyconsole.cp670.project.databinding.ActivityMainBinding;
 import net.johnnyconsole.cp670.project.helper.ApplicationSession;
 

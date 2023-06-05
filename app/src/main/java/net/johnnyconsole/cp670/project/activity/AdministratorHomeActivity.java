@@ -1,6 +1,4 @@
-package net.johnnyconsole.cp670.project;
-
-import static net.johnnyconsole.cp670.project.helper.ApplicationSession.first;
+package net.johnnyconsole.cp670.project.activity;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -10,30 +8,31 @@ import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import net.johnnyconsole.cp670.project.databinding.ActivityStudentHomeBinding;
+import net.johnnyconsole.cp670.project.R;
+import net.johnnyconsole.cp670.project.databinding.ActivityAdministratorHomeBinding;
 
 import java.util.Objects;
 
 /**
  * @author Johnny Console
- * Registration App StudentHomeActivity.java
- * Activity allowing student users to access the
- * student options of the app
+ * Registration App AdministratorHomeActivity.java
+ * Activity presenting the user options
+ * to view the course schedule or to access any
+ * of the app's administrator features
  * Last Modified: 22 May 2023
  */
-public class StudentHomeActivity extends AppCompatActivity {
-    private ActivityStudentHomeBinding binding;
+public class AdministratorHomeActivity extends AppCompatActivity {
+    private ActivityAdministratorHomeBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityStudentHomeBinding.inflate(getLayoutInflater());
+        binding = ActivityAdministratorHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle(getString(R.string.studentWelcome, first));
-
+        Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.adminWelcome);
         findViewById(R.id.btSchedule).setOnClickListener(view ->
                 startActivity(new Intent(this, CourseScheduleActivity.class))
         );
@@ -55,7 +54,7 @@ public class StudentHomeActivity extends AppCompatActivity {
                 startActivity(new Intent(this, ChangePasswordActivity.class))
         );
         */
-         findViewById(R.id.btSignOut).setOnClickListener(view ->
+        findViewById(R.id.btSignOut).setOnClickListener(view ->
                 new AlertDialog.Builder(this).setTitle(R.string.signout)
                         .setMessage(R.string.confirmSignout)
                         .setPositiveButton(R.string.exitYes, (dialog, id) -> finish())
@@ -63,7 +62,6 @@ public class StudentHomeActivity extends AppCompatActivity {
                         .create()
                         .show()
         );
-
     }
 
     @Override
@@ -77,8 +75,8 @@ public class StudentHomeActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.action_help) {
             new AlertDialog.Builder(this)
-                    .setTitle(getString(R.string.helpTitle, getString(R.string.studentHome)))
-                    .setMessage(getString(R.string.helpMessage, getString(R.string.studentHome), getString(R.string.mainActivityInfo)))
+                    .setTitle(getString(R.string.helpTitle, getString(R.string.schedule)))
+                    .setMessage(getString(R.string.helpMessage, getString(R.string.schedule), getString(R.string.scheduleInfo)))
                     .setPositiveButton(R.string.dismiss, null)
                     .create()
                     .show();

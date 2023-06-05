@@ -1,4 +1,4 @@
-package net.johnnyconsole.cp670.project;
+package net.johnnyconsole.cp670.project.activity;
 
 import static net.johnnyconsole.cp670.project.helper.ApplicationSession.database;
 import static net.johnnyconsole.cp670.project.helper.ApplicationSession.first;
@@ -17,6 +17,7 @@ import android.widget.EditText;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import net.johnnyconsole.cp670.project.R;
 import net.johnnyconsole.cp670.project.databinding.ActivitySignInBinding;
 
 import java.util.Objects;

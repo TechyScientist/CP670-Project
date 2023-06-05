@@ -1,4 +1,4 @@
-package net.johnnyconsole.cp670.project;
+package net.johnnyconsole.cp670.project.activity;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import net.johnnyconsole.cp670.project.R;
 import net.johnnyconsole.cp670.project.databinding.ActivityCourseScheduleBinding;
 
 import java.util.Objects;

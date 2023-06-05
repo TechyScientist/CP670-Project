@@ -1,4 +1,4 @@
-package net.johnnyconsole.cp670.project;
+package net.johnnyconsole.cp670.project.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.snackbar.Snackbar;
+
+import net.johnnyconsole.cp670.project.R;
 
 public class CourseInformationFragment extends Fragment {
 
