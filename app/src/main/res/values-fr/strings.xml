@@ -47,4 +47,5 @@
     </string-array>
     <string name="searchFor">Cherchez pour:</string>
     <string name="search">Cherchez</string>
+    <string name="searchTerm">Terme à Chercher:</string>
 </resources>

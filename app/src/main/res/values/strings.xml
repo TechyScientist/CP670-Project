@@ -50,5 +50,5 @@
     </string-array>
     <string name="searchFor">Search for:</string>
     <string name="search">Search</string>
-
+    <string name="searchTerm">Term to Search:</string>
 </resources>

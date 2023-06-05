@@ -10,8 +10,12 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:id="@+id/llSearch"
+        android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent">
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -30,6 +34,20 @@
             android:ems="8"
             android:autofillHints="no"
             android:hint="@string/search"/>
+        </LinearLayout>
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/searchTerm"
+            android:textColor="@color/darkPurple"/>
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:id="@+id/spSearchTerm"/>
+    </LinearLayout>
     </LinearLayout>
 
     <Button

@@ -3,6 +3,7 @@ package net.johnnyconsole.cp670.project;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -14,13 +15,14 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
-
+import static net.johnnyconsole.cp670.project.helper.ApplicationSession.*;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
 
 import net.johnnyconsole.cp670.project.databinding.ActivityCourseScheduleBinding;
 import net.johnnyconsole.cp670.project.objects.Course;
+import net.johnnyconsole.cp670.project.objects.Term;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -35,10 +37,11 @@ import java.util.Objects;
 public class CourseScheduleActivity extends AppCompatActivity {
     private ActivityCourseScheduleBinding binding;
 
-    private Spinner spSearchField;
+    private Spinner spSearchField, spSearchTerm;
     private EditText etSearchText;
     private ListView lvCourses;
     private ArrayList<Course> courses = new ArrayList<>();
+    private ArrayList<Term> terms = new ArrayList<>();
 
     private class CourseAdapter extends ArrayAdapter<String> {
 
@@ -52,6 +55,20 @@ public class CourseScheduleActivity extends AppCompatActivity {
 
         public String getItem(int position) {
             return courses.get(position).code + ": " + courses.get(position).title;
+        }
+    }
+
+    private class TermAdapter extends ArrayAdapter<String> {
+        public TermAdapter(Context context) {
+            super(context, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+        }
+
+        public int getCount() {
+            return terms.size();
+        }
+
+        public String getItem(int position) {
+            return terms.get(position).code + ": " + terms.get(position).title;
         }
     }
 
@@ -77,6 +94,16 @@ public class CourseScheduleActivity extends AppCompatActivity {
         spSearchField = findViewById(R.id.spSearchField);
         etSearchText = findViewById(R.id.etSearchText);
         lvCourses = findViewById(R.id.lvCourses);
+        spSearchTerm = findViewById(R.id.spSearchTerm);
+
+        Cursor cursor = database.rawQuery("SELECT * FROM terms;", null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()) {
+            terms.add(new Term(cursor.getString(0), cursor.getString(1)));
+            cursor.moveToNext();
+        }
+        cursor.close();
+        spSearchTerm.setAdapter(new TermAdapter(this));
 
         lvCourses.setAdapter(new CourseAdapter(this));
 
@@ -88,7 +115,7 @@ public class CourseScheduleActivity extends AppCompatActivity {
             intent.putExtra("crn", courses.get(position).crn);
             startActivity(intent);
              */
-            Snackbar.make(lvCourses, "Selected CRN " + courses.get(position).crn, Snackbar.LENGTH_LONG).show();
+            Snackbar.make(lvCourses, "Selected Term: " + terms.get(spSearchTerm.getSelectedItemPosition()).code + "\nSelected CRN: " + courses.get(position).crn, Snackbar.LENGTH_LONG).show();
         });
     }
 
