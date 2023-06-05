@@ -11,6 +11,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import net.johnnyconsole.cp670.project.databinding.ActivityAdministratorHomeBinding;
 import java.util.Objects;
 
+/**
+ * @author Johnny Console
+ * Registration App AdministratorHomeActivity.java
+ * Activity presenting the user options
+ * to view the course schedule or to access any
+ * of the app's administrator features
+ * Last Modified: 22 May 2023
+ */
 public class AdministratorHomeActivity extends AppCompatActivity {
     private ActivityAdministratorHomeBinding binding;
 

@@ -14,6 +14,13 @@ import net.johnnyconsole.cp670.project.databinding.ActivityStudentHomeBinding;
 
 import java.util.Objects;
 
+/**
+ * @author Johnny Console
+ * Registration App StudentHomeActivity.java
+ * Activity allowing student users to access the
+ * student options of the app
+ * Last Modified: 22 May 2023
+ */
 public class StudentHomeActivity extends AppCompatActivity {
     private ActivityStudentHomeBinding binding;
 

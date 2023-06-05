@@ -21,6 +21,13 @@ import net.johnnyconsole.cp670.project.databinding.ActivitySignInBinding;
 
 import java.util.Objects;
 
+/**
+ * @author Johnny Console
+ * Registration App SignInActivity.java
+ * Activity to collect and validate users
+ * to sign them in to the app and start a session
+ * Last Modified: 22 May 2023
+ */
 public class SignInActivity extends AppCompatActivity {
 
     private ActivitySignInBinding binding;

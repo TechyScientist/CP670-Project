@@ -4,7 +4,6 @@
  * Launcher activity presenting the user options
  * to view the course schedule or to sign in to
  * the app to use the remaining features.
- * Created: 22 May 2023
  * Last Modified: 22 May 2023
  */
 package net.johnnyconsole.cp670.project;

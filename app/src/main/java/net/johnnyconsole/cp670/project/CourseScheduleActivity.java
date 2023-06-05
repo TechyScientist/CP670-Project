@@ -11,6 +11,13 @@ import net.johnnyconsole.cp670.project.databinding.ActivityCourseScheduleBinding
 
 import java.util.Objects;
 
+/**
+ * @author Johnny Console
+ * Registration App CourseScheduleActivity.java
+ * Activity allowing the user to search the course
+ * schedule.
+ * Last Modified: 22 May 2023
+ */
 public class CourseScheduleActivity extends AppCompatActivity {
     private ActivityCourseScheduleBinding binding;
 
