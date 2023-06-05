@@ -30,7 +30,7 @@
     <string name="signinErrorMessage">Identification Invalide, Essayer Plus s\'il Vous Plait</string>
     <string name="dismiss">Fermer</string>
     <string name="profileInfo">Entrez votre nom d\'utilisateur et votre mot de passe ici pour faire de connexion</string>
-    <string name="scheduleInfo">Cherchez l\'horaire des cours pour le RNC, nom ou code dans chaque terme. Choisissez une cours dans la liste poir voir ses details.</string>
+    <string name="scheduleInfo">Cherchez l\'horaire des cours pour le NRC, nom ou code dans chaque terme. Choisissez une cours dans la liste poir voir ses details.</string>
     <string name="mainActivityInfo">Choisissez une boutton pour aller à l\'écran correspondant</string>
 
     <string name="studentWelcome">Bienvenue, %1$s!</string>
@@ -49,4 +49,10 @@
     <string name="search">Cherchez</string>
     <string name="searchTerm">Terme à Chercher:</string>
     <string name="backToCourseList">Retour à la Liste des Cours</string>
+    <string name="crn">Terme: %1$s, NRC: %2$d</string>
+    <string name="codeTitle">Code/Titre: %1$s: %2$s</string>
+    <string name="prerequistes">Prérequises: %1$s</string>
+    <string name="exclusions">Exclusions: %1$s</string>
+    <string name="instructor">Instructeur: %1$s</string>
+    <string name="daytime">Jours/Heures: %1$s</string>
 </resources>
