@@ -5,17 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
-import static net.johnnyconsole.cp670.project.helper.ApplicationSession.*;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -26,6 +21,7 @@ import net.johnnyconsole.cp670.project.objects.Term;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import static net.johnnyconsole.cp670.project.helper.ApplicationSession.*;
 
 /**
  * @author Johnny Console
