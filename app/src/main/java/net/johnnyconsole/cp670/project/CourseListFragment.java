@@ -61,12 +61,9 @@ public class CourseListFragment extends Fragment {
         }
     }
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
     }
 
     @Override
@@ -95,14 +92,10 @@ public class CourseListFragment extends Fragment {
 
         lvCourses.setOnItemClickListener((parent, v, position, id) -> {
 
-            //TODO: Decide on weather to use another activity or a set of fragments here!
-            /*
-            Intent intent = new Intent(this, CourseDetailsActivity.class);
-            intent.putExtra("term", terms.get(spSearchTerm.getSelectedItemPosition().code)
-            intent.putExtra("crn", courses.get(position).crn);
-            startActivity(intent);
-             */
-            Snackbar.make(lvCourses, "Selected Term: " + terms.get(spSearchTerm.getSelectedItemPosition()).code + "\nSelected CRN: " + courses.get(position).crn, Snackbar.LENGTH_LONG).show();
+          requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fvFragment,
+                  new CourseInformationFragment(terms.get(spSearchTerm.getSelectedItemPosition()).code
+                          , courses.get(position).crn, this)).commitNow();
+
         });
 
         view.findViewById(R.id.btSearch).setOnClickListener(v -> {

@@ -48,4 +48,5 @@
     <string name="searchFor">Cherchez pour:</string>
     <string name="search">Cherchez</string>
     <string name="searchTerm">Terme à Chercher:</string>
+    <string name="backToCourseList">Retour à la Liste des Cours</string>
 </resources>
