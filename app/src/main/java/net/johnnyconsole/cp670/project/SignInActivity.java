@@ -1,10 +1,10 @@
 package net.johnnyconsole.cp670.project;
 
-import static net.johnnyconsole.cp670.project.ApplicationSession.database;
-import static net.johnnyconsole.cp670.project.ApplicationSession.first;
-import static net.johnnyconsole.cp670.project.ApplicationSession.last;
-import static net.johnnyconsole.cp670.project.ApplicationSession.userType;
-import static net.johnnyconsole.cp670.project.ApplicationSession.username;
+import static net.johnnyconsole.cp670.project.helper.ApplicationSession.database;
+import static net.johnnyconsole.cp670.project.helper.ApplicationSession.first;
+import static net.johnnyconsole.cp670.project.helper.ApplicationSession.last;
+import static net.johnnyconsole.cp670.project.helper.ApplicationSession.userType;
+import static net.johnnyconsole.cp670.project.helper.ApplicationSession.username;
 
 import android.content.Intent;
 import android.database.Cursor;

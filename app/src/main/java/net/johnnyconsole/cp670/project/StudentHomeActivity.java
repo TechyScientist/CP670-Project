@@ -1,6 +1,6 @@
 package net.johnnyconsole.cp670.project;
 
-import static net.johnnyconsole.cp670.project.ApplicationSession.first;
+import static net.johnnyconsole.cp670.project.helper.ApplicationSession.first;
 
 import android.app.AlertDialog;
 import android.content.Intent;

@@ -18,6 +18,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import net.johnnyconsole.cp670.project.databinding.ActivityMainBinding;
+import net.johnnyconsole.cp670.project.helper.ApplicationSession;
 
 import java.util.Objects;
 import java.util.Scanner;
