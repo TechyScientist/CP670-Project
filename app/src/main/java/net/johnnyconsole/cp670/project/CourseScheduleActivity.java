@@ -1,14 +1,28 @@
 package net.johnnyconsole.cp670.project;
 
 import android.app.AlertDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import net.johnnyconsole.cp670.project.databinding.ActivityCourseScheduleBinding;
+import com.google.android.material.snackbar.Snackbar;
 
+import net.johnnyconsole.cp670.project.databinding.ActivityCourseScheduleBinding;
+import net.johnnyconsole.cp670.project.objects.Course;
+
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -16,10 +30,31 @@ import java.util.Objects;
  * Registration App CourseScheduleActivity.java
  * Activity allowing the user to search the course
  * schedule.
- * Last Modified: 22 May 2023
+ * Last Modified: 5 June 2023
  */
 public class CourseScheduleActivity extends AppCompatActivity {
     private ActivityCourseScheduleBinding binding;
+
+    private Spinner spSearchField;
+    private EditText etSearchText;
+    private ListView lvCourses;
+    private ArrayList<Course> courses = new ArrayList<>();
+
+    private class CourseAdapter extends ArrayAdapter<String> {
+
+        public CourseAdapter(Context context) {
+            super(context, R.layout.layout_list_item, R.id.tvCourse);
+        }
+
+        public int getCount() {
+            return courses.size();
+        }
+
+        public String getItem(int position) {
+            return courses.get(position).code + ": " + courses.get(position).title;
+        }
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +65,31 @@ public class CourseScheduleActivity extends AppCompatActivity {
 
         setSupportActionBar(binding.toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.schedule);
+
+
+        //TODO: Data for testing layout - to be removed later
+        courses.add(new Course(12345, "CP6701", "Android Appl. Development"));
+        courses.add(new Course(23456, "CP6702", "Android Appl. Development"));
+        courses.add(new Course(34567, "CP6703", "Android Appl. Development"));
+        courses.add(new Course(89012, "CP6704", "Android Appl. Development"));
+        courses.add(new Course(90123, "CP6705", "Android Appl. Development"));
+
+        spSearchField = findViewById(R.id.spSearchField);
+        etSearchText = findViewById(R.id.etSearchText);
+        lvCourses = findViewById(R.id.lvCourses);
+
+        lvCourses.setAdapter(new CourseAdapter(this));
+
+        lvCourses.setOnItemClickListener((parent, view, position, id) -> {
+
+            //TODO: Decide on weather to use another activity or a set of fragments here!
+            /*
+            Intent intent = new Intent(this, CourseDetailsActivity.class);
+            intent.putExtra("crn", courses.get(position).crn);
+            startActivity(intent);
+             */
+            Snackbar.make(lvCourses, "Selected CRN " + courses.get(position).crn, Snackbar.LENGTH_LONG).show();
+        });
     }
 
     @Override
