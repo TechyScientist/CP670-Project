@@ -1,4 +1,4 @@
-package net.johnnyconsole.cp670.project;
+package net.johnnyconsole.cp670.project.helper;
 
 import android.database.sqlite.SQLiteDatabase;
 
