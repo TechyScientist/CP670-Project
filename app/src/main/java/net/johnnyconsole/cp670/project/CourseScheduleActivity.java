@@ -79,14 +79,6 @@ public class CourseScheduleActivity extends AppCompatActivity {
         setSupportActionBar(binding.toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.schedule);
 
-
-        //TODO: Data for testing layout - to be removed later
-        courses.add(new Course(12345, "CP6701", "Android Appl. Development"));
-        courses.add(new Course(23456, "CP6702", "Android Appl. Development"));
-        courses.add(new Course(34567, "CP6703", "Android Appl. Development"));
-        courses.add(new Course(89012, "CP6704", "Android Appl. Development"));
-        courses.add(new Course(90123, "CP6705", "Android Appl. Development"));
-
         spSearchField = findViewById(R.id.spSearchField);
         etSearchText = findViewById(R.id.etSearchText);
         lvCourses = findViewById(R.id.lvCourses);
@@ -102,7 +94,8 @@ public class CourseScheduleActivity extends AppCompatActivity {
         cursor.close();
         spSearchTerm.setAdapter(new TermAdapter(this));
 
-        lvCourses.setAdapter(new CourseAdapter(this));
+        CourseAdapter adapter = new CourseAdapter(this);
+        lvCourses.setAdapter(adapter);
 
         lvCourses.setOnItemClickListener((parent, view, position, id) -> {
 
@@ -114,6 +107,39 @@ public class CourseScheduleActivity extends AppCompatActivity {
             startActivity(intent);
              */
             Snackbar.make(lvCourses, "Selected Term: " + terms.get(spSearchTerm.getSelectedItemPosition()).code + "\nSelected CRN: " + courses.get(position).crn, Snackbar.LENGTH_LONG).show();
+        });
+
+        findViewById(R.id.btSearch).setOnClickListener(view -> {
+            String searchValue = etSearchText.getText().toString(),
+                    termValue = terms.get(spSearchTerm.getSelectedItemPosition()).code;
+            int searchField = spSearchField.getSelectedItemPosition();
+            if(!searchValue.isEmpty()) {
+
+                String sql = "SELECT * FROM courses WHERE term=\"" + termValue + "\" ";
+                switch (searchField) {
+                    case 0:
+                        sql += "AND crn=" + searchValue + ";";
+                        break;
+                    case 1:
+                        sql += "AND code LIKE \"%" + searchValue + "%\";";
+                        break;
+                    case 2:
+                        sql += "AND title LIKE \"%" + searchValue + "%\";";
+                }
+                Cursor courseList = database.rawQuery(sql, null);
+
+                courses.clear();
+                if (courseList.moveToFirst()) {
+                    while (!courseList.isAfterLast()) {
+                        courses.add(new Course(courseList.getInt(0), courseList.getString(2), courseList.getString(3)));
+                        courseList.moveToNext();
+                    }
+                }
+                courseList.close();
+            } else {
+                courses.clear();
+            }
+            adapter.notifyDataSetChanged();
         });
     }
 
