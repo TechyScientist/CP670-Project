@@ -15,6 +15,8 @@ import android.widget.Spinner;
 
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import net.johnnyconsole.cp670.project.R;
 import net.johnnyconsole.cp670.project.objects.Course;
 import net.johnnyconsole.cp670.project.objects.Term;
@@ -25,9 +27,8 @@ public class CourseListFragment extends Fragment {
 
     private Spinner spSearchField, spSearchTerm;
     private EditText etSearchText;
-    private ListView lvCourses;
-    private ArrayList<Course> courses = new ArrayList<>();
-    private ArrayList<Term> terms = new ArrayList<>();
+    private final ArrayList<Course> courses = new ArrayList<>();
+    private final ArrayList<Term> terms = new ArrayList<>();
 
     private class CourseAdapter extends ArrayAdapter<String> {
 
@@ -71,7 +72,7 @@ public class CourseListFragment extends Fragment {
 
         spSearchField = view.findViewById(R.id.spSearchField);
         etSearchText = view.findViewById(R.id.etSearchText);
-        lvCourses = view.findViewById(R.id.lvCourses);
+        ListView lvCourses = view.findViewById(R.id.lvCourses);
         spSearchTerm = view.findViewById(R.id.spSearchTerm);
 
         //Get Terms from Database - required for term spinner items
@@ -100,7 +101,6 @@ public class CourseListFragment extends Fragment {
                     termValue = terms.get(spSearchTerm.getSelectedItemPosition()).code;
             int searchField = spSearchField.getSelectedItemPosition();
             if(!searchValue.isEmpty()) {
-
                 String sql = "SELECT * FROM courses WHERE term=\"" + termValue + "\" ";
                 switch (searchField) {
                     case 0:
@@ -120,6 +120,13 @@ public class CourseListFragment extends Fragment {
                         courses.add(new Course(courseList.getInt(0), courseList.getString(2), courseList.getString(3)));
                         courseList.moveToNext();
                     }
+                }
+                else {
+                    Snackbar error = Snackbar.make(view,
+                            R.string.noCourse, Snackbar.LENGTH_INDEFINITE);
+
+                    error.setAction(R.string.dismiss, view1 -> error.dismiss()).show();
+
                 }
                 courseList.close();
             } else {

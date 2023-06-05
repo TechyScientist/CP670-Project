@@ -58,4 +58,5 @@
     <string name="exclusions">Exclusions: %1$s</string>
     <string name="instructor">Instructor: %1$s</string>
     <string name="daytime">Days/Times: %1$s</string>
+    <string name="noCourse">No Courses Found</string>
 </resources>
