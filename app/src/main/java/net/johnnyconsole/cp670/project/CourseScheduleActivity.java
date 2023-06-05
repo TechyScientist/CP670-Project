@@ -96,6 +96,7 @@ public class CourseScheduleActivity extends AppCompatActivity {
         lvCourses = findViewById(R.id.lvCourses);
         spSearchTerm = findViewById(R.id.spSearchTerm);
 
+        //Get Terms from Database - required for term spinner items
         Cursor cursor = database.rawQuery("SELECT * FROM terms;", null);
         cursor.moveToFirst();
         while(!cursor.isAfterLast()) {
