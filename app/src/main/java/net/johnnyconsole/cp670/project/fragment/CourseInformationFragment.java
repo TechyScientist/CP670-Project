@@ -38,7 +38,7 @@ public class CourseInformationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view  =  inflater.inflate(R.layout.fragment_course_information, container, false);
+        View view = inflater.inflate(R.layout.fragment_course_information, container, false);
         view.findViewById(R.id.btBack).setOnClickListener(v ->
                 requireActivity().getSupportFragmentManager()
                         .beginTransaction().replace(R.id.fvFragment, callingFragment)
@@ -95,7 +95,6 @@ public class CourseInformationFragment extends Fragment {
         tv.setLayoutParams(params);
         layout.addView(tv);
 
-        Snackbar.make(container, "Selected Term: " + termCode + "\nSelected CRN: " + crn, Snackbar.LENGTH_LONG).show();
         return view;
     }
 }
