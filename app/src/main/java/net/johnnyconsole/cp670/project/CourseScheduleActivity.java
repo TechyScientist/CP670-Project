@@ -113,6 +113,7 @@ public class CourseScheduleActivity extends AppCompatActivity {
             //TODO: Decide on weather to use another activity or a set of fragments here!
             /*
             Intent intent = new Intent(this, CourseDetailsActivity.class);
+            intent.putExtra("term", terms.get(spSearchTerm.getSelectedItemPosition().code)
             intent.putExtra("crn", courses.get(position).crn);
             startActivity(intent);
              */
