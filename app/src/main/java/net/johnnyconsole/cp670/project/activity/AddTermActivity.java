@@ -13,7 +13,13 @@ import net.johnnyconsole.cp670.project.databinding.ActivityAddTermBinding;
 
 import java.util.Objects;
 
-
+/**
+ * @author Johnny Console
+ * Registration App AddTermActivity.java
+ * Collects information required to add a term
+ * entry into the databse, if it doesn't exist.
+ * Last Modified: 6 June 2023
+ */
 public class AddTermActivity extends AppCompatActivity {
     private ActivityAddTermBinding binding;
 
