@@ -58,4 +58,10 @@
     <string name="noCourse">Rien des Courses Trouvé</string>
     <string name="noSearchText">Entrez le Critères de la Cherche</string>
     <string name="none">Rien</string>
+    <string name="termTitleLabel">Titre de Terme:</string>
+    <string name="termTitle">Titre de Terme</string>
+    <string name="termCodeLabel">Code de Terme:</string>
+    <string name="termCode">Code de Terme</string>
+    <string name="addTerm">Ajouter Terme</string>
+    <string name="addTermInfo">Entrez le code et titre de terme pour l\'ajouter dans le base de donnés</string>
 </resources>

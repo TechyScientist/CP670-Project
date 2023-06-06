@@ -12,30 +12,35 @@
         android:theme="@style/Theme.Project"
         tools:targetApi="31">
         <activity
+            android:name=".activity.AddTermActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Project.NoActionBar" />
+        <activity
             android:name=".activity.StudentHomeActivity"
             android:exported="false"
-            android:theme="@style/Theme.Project.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Project.NoActionBar" />
         <activity
             android:name=".activity.AdministratorHomeActivity"
             android:exported="false"
-            android:theme="@style/Theme.Project.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Project.NoActionBar" />
         <activity
             android:name=".activity.CourseScheduleActivity"
             android:exported="false"
-            android:theme="@style/Theme.Project.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Project.NoActionBar" />
         <activity
             android:name=".activity.SignInActivity"
             android:exported="false"
-            android:theme="@style/Theme.Project.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Project.NoActionBar" />
         <activity
             android:name=".activity.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.Project.NoActionBar"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Project.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

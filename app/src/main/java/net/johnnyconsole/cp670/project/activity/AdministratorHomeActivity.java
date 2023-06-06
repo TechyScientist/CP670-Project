@@ -37,23 +37,10 @@ public class AdministratorHomeActivity extends AppCompatActivity {
                 startActivity(new Intent(this, CourseScheduleActivity.class))
         );
 
-        /*
-         findViewById(R.id.btRegistration).setOnClickListener(view ->
-                startActivity(new Intent(this, RegistrationChangeActivity.class))
+        findViewById(R.id.btNewTerm).setOnClickListener(view ->
+                startActivity(new Intent(this, AddTermActivity.class))
         );
 
-         findViewById(R.id.btGrades).setOnClickListener(view ->
-                startActivity(new Intent(this, ViewGradesActivity.class))
-        );
-
-         findViewById(R.id.btProgress).setOnClickListener(view ->
-                startActivity(new Intent(this, DegreeProgressActivity.class))
-        );
-
-         findViewById(R.id.btChangepw).setOnClickListener(view ->
-                startActivity(new Intent(this, ChangePasswordActivity.class))
-        );
-        */
         findViewById(R.id.btSignOut).setOnClickListener(view ->
                 new AlertDialog.Builder(this).setTitle(R.string.signout)
                         .setMessage(R.string.confirmSignout)

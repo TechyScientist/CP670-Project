@@ -61,4 +61,10 @@
     <string name="noCourse">No Courses Found</string>
     <string name="noSearchText">Please Enter Search Criteria</string>
     <string name="none">None</string>
+    <string name="termTitleLabel">Term Title:</string>
+    <string name="termTitle">Term Title</string>
+    <string name="termCodeLabel">Term Code:</string>
+    <string name="termCode">Term Code</string>
+    <string name="addTerm">Add Term</string>
+    <string name="addTermInfo">Enter the term code and title to add it to the database</string>
 </resources>
