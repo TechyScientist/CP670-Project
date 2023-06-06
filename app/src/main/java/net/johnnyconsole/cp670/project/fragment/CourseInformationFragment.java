@@ -12,8 +12,6 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import com.google.android.material.snackbar.Snackbar;
-
 import net.johnnyconsole.cp670.project.R;
 
 public class CourseInformationFragment extends Fragment {
@@ -72,25 +70,25 @@ public class CourseInformationFragment extends Fragment {
         layout.addView(tv);
 
         tv = new TextView(container.getContext());
-        tv.setText(getString(R.string.prerequistes, prerequisites == null ? "--" : prerequisites));
+        tv.setText(getString(R.string.prerequisites, prerequisites == null ? getString(R.string.none) : prerequisites));
         tv.setTextColor(getResources().getColor(R.color.darkPurple, null));
         tv.setLayoutParams(params);
         layout.addView(tv);
 
         tv = new TextView(container.getContext());
-        tv.setText(getString(R.string.exclusions, exclusions == null ? "--" : exclusions));
+        tv.setText(getString(R.string.exclusions, exclusions == null ? getString(R.string.none) : exclusions));
         tv.setTextColor(getResources().getColor(R.color.darkPurple, null));
         tv.setLayoutParams(params);
         layout.addView(tv);
 
         tv = new TextView(container.getContext());
-        tv.setText(getString(R.string.instructor, instructor == null ? "--" : instructor));
+        tv.setText(getString(R.string.instructor, instructor == null ? getString(R.string.none) : instructor));
         tv.setTextColor(getResources().getColor(R.color.darkPurple, null));
         tv.setLayoutParams(params);
         layout.addView(tv);
 
         tv = new TextView(container.getContext());
-        tv.setText(getString(R.string.daytime, daytime == null ? "--" : daytime));
+        tv.setText(getString(R.string.daytime, daytime == null ? getString(R.string.none) : daytime));
         tv.setTextColor(getResources().getColor(R.color.darkPurple, null));
         tv.setLayoutParams(params);
         layout.addView(tv);

@@ -48,12 +48,14 @@
     <string name="searchFor">Cherchez pour:</string>
     <string name="search">Cherchez</string>
     <string name="searchTerm">Terme à Chercher:</string>
-    <string name="backToCourseList">Retour à la Liste des Cours</string>
+    <string name="backToCourseList">Liste des Cours</string>
     <string name="crn">Terme: %1$s, NRC: %2$d</string>
     <string name="codeTitle">Code/Titre: %1$s: %2$s</string>
-    <string name="prerequistes">Prérequises: %1$s</string>
+    <string name="prerequisites">Prérequises: %1$s</string>
     <string name="exclusions">Exclusions: %1$s</string>
     <string name="instructor">Instructeur: %1$s</string>
     <string name="daytime">Jours/Heures: %1$s</string>
     <string name="noCourse">Rien des Courses Trouvé</string>
+    <string name="noSearchText">Entrez le Critères de la Cherche</string>
+    <string name="none">Rien</string>
 </resources>

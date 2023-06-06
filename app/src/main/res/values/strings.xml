@@ -51,12 +51,14 @@
     <string name="searchFor">Search for:</string>
     <string name="search">Search</string>
     <string name="searchTerm">Term to Search:</string>
-    <string name="backToCourseList">Back to Course List</string>
+    <string name="backToCourseList">Course List</string>
     <string name="crn">Term: %1$s, CRN: %2$d</string>
     <string name="codeTitle">Code/Title: %1$s: %2$s</string>
-    <string name="prerequistes">Prerequisites: %1$s</string>
+    <string name="prerequisites">Prerequisites: %1$s</string>
     <string name="exclusions">Exclusions: %1$s</string>
     <string name="instructor">Instructor: %1$s</string>
     <string name="daytime">Days/Times: %1$s</string>
     <string name="noCourse">No Courses Found</string>
+    <string name="noSearchText">Please Enter Search Criteria</string>
+    <string name="none">None</string>
 </resources>
