@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.snackbar.Snackbar;
 
 import net.johnnyconsole.cp670.project.R;
+import net.johnnyconsole.cp670.project.activity.CourseScheduleActivity;
 import net.johnnyconsole.cp670.project.objects.Course;
 import net.johnnyconsole.cp670.project.objects.Term;
 
@@ -68,6 +69,7 @@ public class CourseListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        ((CourseScheduleActivity) requireActivity()).notifyFragmentChanged(this);
         View view = inflater.inflate(R.layout.fragment_course_list, container, false);
 
         spSearchField = view.findViewById(R.id.spSearchField);

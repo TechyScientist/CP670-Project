@@ -13,11 +13,12 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import net.johnnyconsole.cp670.project.R;
+import net.johnnyconsole.cp670.project.activity.CourseScheduleActivity;
 
 public class CourseInformationFragment extends Fragment {
 
-    private final String termCode;
-    private final int crn;
+    public final String termCode;
+    public final int crn;
     private final CourseListFragment callingFragment;
 
     public CourseInformationFragment(String termCode, int crn, CourseListFragment callingFragment) {
@@ -35,6 +36,7 @@ public class CourseInformationFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        ((CourseScheduleActivity) requireActivity()).notifyFragmentChanged(this);
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_course_information, container, false);
         view.findViewById(R.id.btBack).setOnClickListener(v ->
