@@ -88,13 +88,11 @@ public class CourseListFragment extends Fragment {
         CourseAdapter adapter = new CourseAdapter(getActivity());
         lvCourses.setAdapter(adapter);
 
-        lvCourses.setOnItemClickListener((parent, v, position, id) -> {
-
+        lvCourses.setOnItemClickListener((parent, v, position, id) ->
           requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fvFragment,
                   new CourseInformationFragment(terms.get(spSearchTerm.getSelectedItemPosition()).code
-                          , courses.get(position).crn, this)).commitNow();
-
-        });
+                          , courses.get(position).crn, this)).commitNow()
+        );
 
         view.findViewById(R.id.btSearch).setOnClickListener(v -> {
             String searchValue = etSearchText.getText().toString(),
@@ -131,6 +129,10 @@ public class CourseListFragment extends Fragment {
                 courseList.close();
             } else {
                 courses.clear();
+                Snackbar error = Snackbar.make(view,
+                        R.string.noSearchText, Snackbar.LENGTH_INDEFINITE);
+
+                error.setAction(R.string.dismiss, view1 -> error.dismiss()).show();
             }
             adapter.notifyDataSetChanged();
         });
