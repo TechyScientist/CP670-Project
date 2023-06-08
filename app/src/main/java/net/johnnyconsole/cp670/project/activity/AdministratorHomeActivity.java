@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import net.johnnyconsole.cp670.project.R;
 import net.johnnyconsole.cp670.project.databinding.ActivityAdministratorHomeBinding;
@@ -24,6 +27,8 @@ import java.util.Objects;
 public class AdministratorHomeActivity extends AppCompatActivity {
     private ActivityAdministratorHomeBinding binding;
 
+    private final int REQUEST_NEW_TERM = 100;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +43,8 @@ public class AdministratorHomeActivity extends AppCompatActivity {
         );
 
         findViewById(R.id.btNewTerm).setOnClickListener(view ->
-                startActivity(new Intent(this, AddTermActivity.class))
+                startActivityForResult(new Intent(this, AddTermActivity.class),
+                        REQUEST_NEW_TERM)
         );
 
     }
@@ -81,5 +87,14 @@ public class AdministratorHomeActivity extends AppCompatActivity {
                 .setNegativeButton(R.string.exitNo, null)
                 .create()
                 .show();
+    }
+
+    @Override
+    protected void onActivityResult(int request, int result, Intent intent) {
+        if(request == REQUEST_NEW_TERM && result == RESULT_OK) {
+            String activityResult = intent.getStringExtra("result");
+            Snackbar.make(binding.getRoot(), activityResult, Snackbar.LENGTH_LONG).show();
+        }
+        else super.onActivityResult(request, result, intent);
     }
 }

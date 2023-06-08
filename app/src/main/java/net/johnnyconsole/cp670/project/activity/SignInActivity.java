@@ -133,7 +133,7 @@ public class SignInActivity extends AppCompatActivity {
         Used if there is an error during the sign in checking.
      */
     private void showErrorDialog() {
-        new AlertDialog.Builder(this).setTitle(getString(R.string.signinErrorTitle))
+        new AlertDialog.Builder(this).setTitle(getString(R.string.errorTitle))
                 .setMessage(getString(R.string.signinErrorMessage))
                 .setPositiveButton(getString(R.string.dismiss), null)
                 .create()

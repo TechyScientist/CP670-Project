@@ -26,7 +26,7 @@
     <string name="usernameHint">Nom d\'Utilisateur</string>
     <string name="passwordLabel">Mot de Passe:</string>
     <string name="passwordHint">Mot De Passe</string>
-    <string name="signinErrorTitle">Erreur de Connexion</string>
+    <string name="errorTitle">Erreur de Connexion</string>
     <string name="signinErrorMessage">Identification Invalide, Essayer Plus s\'il Vous Plait</string>
     <string name="dismiss">Fermer</string>
     <string name="profileInfo">Entrez votre nom d\'utilisateur et votre mot de passe ici pour faire de connexion</string>
@@ -66,4 +66,6 @@
     <string name="addTermInfo">Entrez le code et titre de terme pour l\'ajouter dans le base de donnés</string>
     <string name="newStudent">Ajouter Étudiant</string>
     <string name="editStudent">Modifier Étudiant</string>
+    <string name="addTermSuccess">Terme "%1$s" Créé</string>
+    <string name="termExists">Le terme %1$s déja existe. Éssayer une autre fois, s\'il vous plait.</string>
 </resources>

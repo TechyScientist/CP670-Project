@@ -1,9 +1,13 @@
 package net.johnnyconsole.cp670.project.activity;
 
 import android.app.AlertDialog;
+import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +16,8 @@ import net.johnnyconsole.cp670.project.R;
 import net.johnnyconsole.cp670.project.databinding.ActivityAddTermBinding;
 
 import java.util.Objects;
+
+import static net.johnnyconsole.cp670.project.helper.ApplicationSession.database;
 
 /**
  * @author Johnny Console
@@ -32,6 +38,29 @@ public class AddTermActivity extends AppCompatActivity {
 
         setSupportActionBar(binding.toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.addTerm);
+
+        EditText etTermCode = findViewById(R.id.etTermCode),
+                etTermTitle = findViewById(R.id.etTermTitle);
+
+        ((Button)(findViewById(R.id.btAddTerm))).setOnClickListener(view -> {
+            Cursor cursor = database.rawQuery("SELECT * FROM terms WHERE code=?;",
+                    new String[] {etTermCode.getText().toString()});
+
+            if(!cursor.moveToFirst()) {
+                database.execSQL("INSERT INTO terms (code, title) VALUES (?,?)",
+                        new String[]{etTermCode.getText().toString(), etTermTitle.getText().toString()});
+                setResult(RESULT_OK, new Intent().putExtra("result", getString(R.string.addTermSuccess, etTermCode.getText().toString())));
+                finish();
+            }
+            else {
+                new AlertDialog.Builder(this).setTitle(R.string.errorTitle)
+                        .setMessage(getString(R.string.termExists, etTermCode.getText().toString()))
+                        .setPositiveButton(R.string.dismiss, null)
+                        .create()
+                        .show();
+            }
+            cursor.close();
+        });
 
     }
 

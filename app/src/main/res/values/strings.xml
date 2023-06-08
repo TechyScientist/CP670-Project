@@ -27,7 +27,7 @@
     <string name="usernameHint">Username</string>
     <string name="passwordLabel">Password:</string>
     <string name="passwordHint">Password</string>
-    <string name="signinErrorTitle">Sign In Error</string>
+    <string name="errorTitle">Error</string>
     <string name="signinErrorMessage">Invalid Credentials, Please Try Again.</string>
     <string name="dismiss">Dismiss</string>
     <string name="profileInfo">Enter your username and password here to sign in</string>
@@ -69,4 +69,6 @@
     <string name="addTermInfo">Enter the term code and title to add it to the database</string>
     <string name="newStudent">Add Student</string>
     <string name="editStudent">Edit Student</string>
+    <string name="addTermSuccess">Term "%1$s" Created</string>
+    <string name="termExists">The term %1$s already exists. Please try again.</string>
 </resources>
