@@ -30,6 +30,7 @@ public class AdministratorHomeActivity extends AppCompatActivity {
 
     private final int REQUEST_NEW_TERM = 100;
     private final int REQUEST_NEW_STUDENT = 110;
+    private final int REQUEST_NEW_COURSE = 120;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,11 @@ public class AdministratorHomeActivity extends AppCompatActivity {
         findViewById(R.id.btNewStudent).setOnClickListener(view ->
                 startActivityForResult(new Intent(this, AddUserActivity.class),
                         REQUEST_NEW_STUDENT)
+        );
+
+        findViewById(R.id.btNewCourse).setOnClickListener(view ->
+                startActivityForResult(new Intent(this, AddCourseActivity.class),
+                        REQUEST_NEW_COURSE)
         );
 
     }
@@ -98,8 +104,8 @@ public class AdministratorHomeActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int request, int result, Intent intent) {
-        if((request == REQUEST_NEW_TERM || request == REQUEST_NEW_STUDENT)
-                && result == RESULT_OK) {
+        if((request == REQUEST_NEW_TERM || request == REQUEST_NEW_STUDENT ||
+                request == REQUEST_NEW_COURSE) && result == RESULT_OK) {
             String activityResult = intent.getStringExtra("result");
             Snackbar.make(binding.getRoot(), activityResult, Snackbar.LENGTH_LONG).show();
         }
