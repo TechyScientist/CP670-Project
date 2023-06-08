@@ -42,7 +42,17 @@ public class AddTermActivity extends AppCompatActivity {
         EditText etTermCode = findViewById(R.id.etTermCode),
                 etTermTitle = findViewById(R.id.etTermTitle);
 
-        ((Button)(findViewById(R.id.btAddTerm))).setOnClickListener(view -> {
+        findViewById(R.id.btAddTerm).setOnClickListener(view -> {
+            if(etTermCode.getText() == null || etTermCode.getText().toString().isEmpty() ||
+                etTermTitle.getText() == null || etTermCode.getText().toString().isEmpty()) {
+                new AlertDialog.Builder(this).setTitle(R.string.errorTitle)
+                        .setMessage(R.string.missingInput)
+                        .setPositiveButton(R.string.dismiss, null)
+                        .create()
+                        .show();
+                return;
+            }
+
             Cursor cursor = database.rawQuery("SELECT * FROM terms WHERE code=?;",
                     new String[] {etTermCode.getText().toString()});
 

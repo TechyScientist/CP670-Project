@@ -78,4 +78,5 @@
     <string name="userAdmin">Administrateur</string>
     <string name="addUserSuccess">Utilisateur "%1$s" Créé</string>
     <string name="userExists">Le Utilisateur %1$s déja existe. Éssayer une autre fois, s\'il vous plait.</string>
+    <string name="missingInput">Éntrée Manquante. Input. Éssayer une autre fois, s\'il vous plait.</string>
 </resources>

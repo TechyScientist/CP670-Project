@@ -43,10 +43,20 @@ public class AddUserActivity extends AppCompatActivity {
                 etLastName = findViewById(R.id.etLastName),
                 etPassword = findViewById(R.id.etPassword);
 
-        RadioButton rbUserStudent = findViewById(R.id.rbUserStudent),
-                rbUserAdmin = findViewById(R.id.rbUserAdmin);
+        RadioButton rbUserStudent = findViewById(R.id.rbUserStudent);
 
         findViewById(R.id.btAddUser).setOnClickListener(view -> {
+            if (etUsername.getText() == null || etUsername.getText().toString().isEmpty() ||
+                    etFirstName.getText() == null || etFirstName.getText().toString().isEmpty() ||
+                    etLastName.getText() == null || etLastName.getText().toString().isEmpty() ||
+                    etPassword.getText() == null || etPassword.getText().toString().isEmpty()) {
+                new AlertDialog.Builder(this).setTitle(R.string.errorTitle)
+                        .setMessage(R.string.missingInput)
+                        .setPositiveButton(R.string.dismiss, null)
+                        .create()
+                        .show();
+                return;
+            }
             Cursor cursor = database.rawQuery("SELECT * FROM users WHERE username=?;",
                     new String[] {etUsername.getText().toString()});
 

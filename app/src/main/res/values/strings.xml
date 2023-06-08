@@ -81,4 +81,5 @@
     <string name="userAdmin">Administrator</string>
     <string name="addUserSuccess">User "%1$s" Created</string>
     <string name="userExists">The user %1$s already exists. Please try again.</string>
+    <string name="missingInput">Missing Input. Please Try Again.</string>
 </resources>
