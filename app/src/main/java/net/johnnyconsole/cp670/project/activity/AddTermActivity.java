@@ -28,6 +28,15 @@ import static net.johnnyconsole.cp670.project.helper.ApplicationSession.database
  */
 public class AddTermActivity extends AppCompatActivity {
     private ActivityAddTermBinding binding;
+    private EditText etTermCode, etTermTitle;
+
+    private class InsertTermThread extends Thread {
+        @Override
+        public void run() {
+            database.execSQL("INSERT INTO terms (code, title) VALUES (?,?)",
+                    new String[]{etTermCode.getText().toString(), etTermTitle.getText().toString()});
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +48,8 @@ public class AddTermActivity extends AppCompatActivity {
         setSupportActionBar(binding.toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.addTerm);
 
-        EditText etTermCode = findViewById(R.id.etTermCode),
-                etTermTitle = findViewById(R.id.etTermTitle);
+        etTermCode = findViewById(R.id.etTermCode);
+        etTermTitle = findViewById(R.id.etTermTitle);
 
         findViewById(R.id.btAddTerm).setOnClickListener(view -> {
             if(etTermCode.getText() == null || etTermCode.getText().toString().isEmpty() ||
@@ -57,8 +66,7 @@ public class AddTermActivity extends AppCompatActivity {
                     new String[] {etTermCode.getText().toString()});
 
             if(!cursor.moveToFirst()) {
-                database.execSQL("INSERT INTO terms (code, title) VALUES (?,?)",
-                        new String[]{etTermCode.getText().toString(), etTermTitle.getText().toString()});
+                new InsertTermThread().start();
                 setResult(RESULT_OK, new Intent().putExtra("result", getString(R.string.addTermSuccess, etTermCode.getText().toString())));
                 finish();
             }

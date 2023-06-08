@@ -28,6 +28,19 @@ import java.util.Objects;
 public class AddUserActivity extends AppCompatActivity {
     private ActivityAddUserBinding binding;
 
+    private EditText etUsername, etFirstName, etLastName, etPassword;
+    private RadioButton rbUserStudent;
+
+    private class InsertUserThread extends Thread {
+        @Override
+        public void run() {
+            database.execSQL("INSERT INTO users (username, first, last, userType, password) VALUES (?,?,?,?,?)",
+                    new String[]{etUsername.getText().toString().toLowerCase(), etFirstName.getText().toString(),
+                            etLastName.getText().toString(), rbUserStudent.isChecked() ? "student" : "admin",
+                            etPassword.getText().toString()});
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,12 +51,12 @@ public class AddUserActivity extends AppCompatActivity {
         setSupportActionBar(binding.toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.newStudent);
 
-        EditText etUsername = findViewById(R.id.etUsername),
-                etFirstName = findViewById(R.id.etFirstName),
-                etLastName = findViewById(R.id.etLastName),
-                etPassword = findViewById(R.id.etPassword);
+        etUsername = findViewById(R.id.etUsername);
+        etFirstName = findViewById(R.id.etFirstName);
+        etLastName = findViewById(R.id.etLastName);
+        etPassword = findViewById(R.id.etPassword);
 
-        RadioButton rbUserStudent = findViewById(R.id.rbUserStudent);
+        rbUserStudent = findViewById(R.id.rbUserStudent);
 
         findViewById(R.id.btAddUser).setOnClickListener(view -> {
             if (etUsername.getText() == null || etUsername.getText().toString().isEmpty() ||
@@ -61,10 +74,7 @@ public class AddUserActivity extends AppCompatActivity {
                     new String[] {etUsername.getText().toString()});
 
             if(!cursor.moveToFirst()) {
-                database.execSQL("INSERT INTO users (username, first, last, userType, password) VALUES (?,?,?,?,?)",
-                        new String[]{etUsername.getText().toString(), etFirstName.getText().toString(),
-                        etLastName.getText().toString(), rbUserStudent.isChecked() ? "student" : "admin",
-                        etPassword.getText().toString()});
+                new InsertUserThread().start();
                 setResult(RESULT_OK, new Intent().putExtra("result", getString(R.string.addUserSuccess, etUsername.getText().toString())));
                 finish();
             }
