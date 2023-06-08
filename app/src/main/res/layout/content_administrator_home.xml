@@ -28,6 +28,26 @@
         android:textAllCaps="false"
         android:layout_marginBottom="10dp"/>
     <Button
+        android:id="@+id/btNewStudent"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="@string/newStudent"
+        android:drawableTop="@drawable/registration"
+        android:background="@color/transparent"
+        android:textColor="@color/lightPurple"
+        android:textAllCaps="false"
+        android:layout_marginBottom="10dp"/>
+    <Button
+        android:id="@+id/btEditStudent"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="@string/editStudent"
+        android:drawableTop="@drawable/registration"
+        android:background="@color/transparent"
+        android:textColor="@color/lightPurple"
+        android:textAllCaps="false"
+        android:layout_marginBottom="10dp"/>
+    <Button
         android:id="@+id/btNewCourse"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
@@ -67,15 +87,4 @@
         android:textColor="@color/lightPurple"
         android:textAllCaps="false"
         android:layout_marginBottom="10dp"/>
-    <Button
-        android:id="@+id/btSignOut"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="@string/signout"
-        android:drawableTop="@drawable/signout"
-        android:layout_columnSpan="2"
-        android:layout_gravity="center"
-        android:background="@color/transparent"
-        android:textColor="@color/lightPurple"
-        android:textAllCaps="false"/>
 </GridLayout>

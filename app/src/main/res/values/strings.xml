@@ -67,4 +67,6 @@
     <string name="termCode">Term Code</string>
     <string name="addTerm">Add Term</string>
     <string name="addTermInfo">Enter the term code and title to add it to the database</string>
+    <string name="newStudent">Add Student</string>
+    <string name="editStudent">Edit Student</string>
 </resources>

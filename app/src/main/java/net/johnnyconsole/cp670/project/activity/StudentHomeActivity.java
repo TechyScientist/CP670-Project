@@ -56,20 +56,12 @@ public class StudentHomeActivity extends AppCompatActivity {
                 startActivity(new Intent(this, ChangePasswordActivity.class))
         );
         */
-         findViewById(R.id.btSignOut).setOnClickListener(view ->
-                new AlertDialog.Builder(this).setTitle(R.string.signout)
-                        .setMessage(R.string.confirmSignout)
-                        .setPositiveButton(R.string.exitYes, (dialog, id) -> finish())
-                        .setNegativeButton(R.string.exitNo, null)
-                        .create()
-                        .show()
-        );
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_signout, menu);
         return true;
     }
 
@@ -81,6 +73,15 @@ public class StudentHomeActivity extends AppCompatActivity {
                     .setTitle(getString(R.string.helpTitle, getString(R.string.studentHome)))
                     .setMessage(getString(R.string.helpMessage, getString(R.string.studentHome), getString(R.string.mainActivityInfo)))
                     .setPositiveButton(R.string.dismiss, null)
+                    .create()
+                    .show();
+            return true;
+        }
+        else if(id == R.id.action_signout) {
+            new AlertDialog.Builder(this).setTitle(R.string.signout)
+                    .setMessage(R.string.confirmSignout)
+                    .setPositiveButton(R.string.exitYes, (dialog, i) -> finish())
+                    .setNegativeButton(R.string.exitNo, null)
                     .create()
                     .show();
             return true;

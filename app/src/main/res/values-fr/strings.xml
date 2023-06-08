@@ -18,7 +18,7 @@
     <string name="newCourse">Ajouter une Cours</string>
     <string name="editCourse">Modifier une  Cours</string>
     <string name="enterGrades">Entrer des Notes</string>
-    <string name="changepw">Change Mot de Passe</string>
+    <string name="changepw">Modifier Mot de Passe</string>
     <string name="helpTitle">Aide: %1$s</string>
     <string name="helpMessage">Auteur: Johnny Console\nActivité: %1$s\nInformation: %2$s</string>
 
@@ -64,4 +64,6 @@
     <string name="termCode">Code de Terme</string>
     <string name="addTerm">Ajouter Terme</string>
     <string name="addTermInfo">Entrez le code et titre de terme pour l\'ajouter dans le base de donnés</string>
+    <string name="newStudent">Ajouter Étudiant</string>
+    <string name="editStudent">Modifier Étudiant</string>
 </resources>
