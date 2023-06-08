@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -24,10 +23,13 @@ import java.util.Objects;
  * of the app's administrator features
  * Last Modified: 22 May 2023
  */
+
+@SuppressWarnings("deprecation")
 public class AdministratorHomeActivity extends AppCompatActivity {
     private ActivityAdministratorHomeBinding binding;
 
     private final int REQUEST_NEW_TERM = 100;
+    private final int REQUEST_NEW_STUDENT = 110;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,11 @@ public class AdministratorHomeActivity extends AppCompatActivity {
         findViewById(R.id.btNewTerm).setOnClickListener(view ->
                 startActivityForResult(new Intent(this, AddTermActivity.class),
                         REQUEST_NEW_TERM)
+        );
+
+        findViewById(R.id.btNewStudent).setOnClickListener(view ->
+                startActivityForResult(new Intent(this, AddUserActivity.class),
+                        REQUEST_NEW_STUDENT)
         );
 
     }
@@ -91,7 +98,8 @@ public class AdministratorHomeActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int request, int result, Intent intent) {
-        if(request == REQUEST_NEW_TERM && result == RESULT_OK) {
+        if((request == REQUEST_NEW_TERM || request == REQUEST_NEW_STUDENT)
+                && result == RESULT_OK) {
             String activityResult = intent.getStringExtra("result");
             Snackbar.make(binding.getRoot(), activityResult, Snackbar.LENGTH_LONG).show();
         }

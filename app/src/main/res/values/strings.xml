@@ -67,8 +67,18 @@
     <string name="termCode">Term Code</string>
     <string name="addTerm">Add Term</string>
     <string name="addTermInfo">Enter the term code and title to add it to the database</string>
-    <string name="newStudent">Add Student</string>
-    <string name="editStudent">Edit Student</string>
+    <string name="newStudent">Add User</string>
+    <string name="editStudent">Edit User</string>
     <string name="addTermSuccess">Term "%1$s" Created</string>
     <string name="termExists">The term %1$s already exists. Please try again.</string>
+    <string name="addStudentInfo">Add a user to the database by entering their information.</string>
+    <string name="firstNameLabel">First Name:</string>
+    <string name="firstName">First Name</string>
+    <string name="lastNameLabel">Last Name:</string>
+    <string name="lastName">Last Name</string>
+    <string name="userType">User Type:</string>
+    <string name="userStudent">Student</string>
+    <string name="userAdmin">Administrator</string>
+    <string name="addUserSuccess">User "%1$s" Created</string>
+    <string name="userExists">The user %1$s already exists. Please try again.</string>
 </resources>

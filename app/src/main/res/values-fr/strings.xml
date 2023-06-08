@@ -64,8 +64,18 @@
     <string name="termCode">Code de Terme</string>
     <string name="addTerm">Ajouter Terme</string>
     <string name="addTermInfo">Entrez le code et titre de terme pour l\'ajouter dans le base de donnés</string>
-    <string name="newStudent">Ajouter Étudiant</string>
-    <string name="editStudent">Modifier Étudiant</string>
+    <string name="newStudent">Ajouter Utilisateur</string>
+    <string name="editStudent">Modifier Utilisateur</string>
     <string name="addTermSuccess">Terme "%1$s" Créé</string>
     <string name="termExists">Le terme %1$s déja existe. Éssayer une autre fois, s\'il vous plait.</string>
+    <string name="addStudentInfo">Ajoutez un utilisateur dans le base de donnés par entrant les informations.</string>
+    <string name="firstNameLabel">Prenom:</string>
+    <string name="firstName">Prenom</string>
+    <string name="lastNameLabel">Surnom:</string>
+    <string name="lastName">Surnom</string>
+    <string name="userType">Type d\'Utilisateur:</string>
+    <string name="userStudent">Étudiant</string>
+    <string name="userAdmin">Administrateur</string>
+    <string name="addUserSuccess">Utilisateur "%1$s" Créé</string>
+    <string name="userExists">Le Utilisateur %1$s déja existe. Éssayer une autre fois, s\'il vous plait.</string>
 </resources>
