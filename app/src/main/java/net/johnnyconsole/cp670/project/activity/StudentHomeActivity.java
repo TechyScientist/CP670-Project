@@ -23,13 +23,12 @@ import java.util.Objects;
  * Last Modified: 22 May 2023
  */
 public class StudentHomeActivity extends AppCompatActivity {
-    private ActivityStudentHomeBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityStudentHomeBinding.inflate(getLayoutInflater());
+        net.johnnyconsole.cp670.project.databinding.ActivityStudentHomeBinding binding = ActivityStudentHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.toolbar);

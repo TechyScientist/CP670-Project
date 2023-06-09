@@ -27,7 +27,6 @@ import static net.johnnyconsole.cp670.project.helper.ApplicationSession.database
  * Last Modified: 6 June 2023
  */
 public class AddTermActivity extends AppCompatActivity {
-    private ActivityAddTermBinding binding;
     private EditText etTermCode, etTermTitle;
 
     private class InsertTermThread extends Thread {
@@ -42,7 +41,7 @@ public class AddTermActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityAddTermBinding.inflate(getLayoutInflater());
+        net.johnnyconsole.cp670.project.databinding.ActivityAddTermBinding binding = ActivityAddTermBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.toolbar);

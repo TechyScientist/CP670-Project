@@ -28,7 +28,6 @@ import java.util.Objects;
  * Last Modified: 5 June 2023
  */
 public class CourseScheduleActivity extends AppCompatActivity {
-    private ActivityCourseScheduleBinding binding;
     private Fragment fragment;
 
     @Override
@@ -36,7 +35,7 @@ public class CourseScheduleActivity extends AppCompatActivity {
         //Don't use the saved instance state to create the activity
         //onRestoreInstanceState handles doing it.
         super.onCreate(null);
-        binding = ActivityCourseScheduleBinding.inflate(getLayoutInflater());
+        net.johnnyconsole.cp670.project.databinding.ActivityCourseScheduleBinding binding = ActivityCourseScheduleBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.toolbar);

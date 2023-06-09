@@ -26,7 +26,6 @@ import java.util.Objects;
  * Last Modified: 8 June 2023
  */
 public class AddUserActivity extends AppCompatActivity {
-    private ActivityAddUserBinding binding;
 
     private EditText etUsername, etFirstName, etLastName, etPassword;
     private RadioButton rbUserStudent;
@@ -45,7 +44,7 @@ public class AddUserActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityAddUserBinding.inflate(getLayoutInflater());
+        net.johnnyconsole.cp670.project.databinding.ActivityAddUserBinding binding = ActivityAddUserBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.toolbar);

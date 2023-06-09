@@ -31,14 +31,13 @@ import java.util.Objects;
  */
 public class SignInActivity extends AppCompatActivity {
 
-    private ActivitySignInBinding binding;
     private EditText etUsername, etPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivitySignInBinding.inflate(getLayoutInflater());
+        net.johnnyconsole.cp670.project.databinding.ActivitySignInBinding binding = ActivitySignInBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.toolbar);
