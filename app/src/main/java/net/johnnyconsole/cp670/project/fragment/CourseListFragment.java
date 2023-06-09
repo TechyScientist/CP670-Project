@@ -104,6 +104,16 @@ public class CourseListFragment extends Fragment {
                 String sql = "SELECT * FROM courses WHERE term=\"" + termValue + "\" ";
                 switch (searchField) {
                     case 0:
+                        try {
+                            Integer.parseInt(etSearchText.getText().toString());
+                        } catch (NumberFormatException e) {
+                            courses.clear();
+                            Snackbar error = Snackbar.make(view,
+                                    R.string.noSearchText, Snackbar.LENGTH_INDEFINITE);
+
+                            error.setAction(R.string.dismiss, view1 -> error.dismiss()).show();
+                            return;
+                        }
                         sql += "AND crn=" + searchValue + ";";
                         break;
                     case 1:
