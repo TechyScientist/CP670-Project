@@ -82,4 +82,22 @@
     <string name="addUserSuccess">User "%1$s" Created</string>
     <string name="userExists">The user %1$s already exists. Please try again.</string>
     <string name="missingInput">Missing Input. Please Try Again.</string>
+    <string name="crnLabel">CRN:</string>
+    <string name="CRN">CRN</string>
+    <string name="courseTermLabel">Term:</string>
+    <string name="courseCodeLabel">Course Code:</string>
+    <string name="courseCode">Course Code</string>
+    <string name="courseTitleLabel">Course Title:</string>
+    <string name="courseTitle">Course Title</string>
+    <string name="prerequisitesLabel">Prerequisites:</string>
+    <string name="prerequisitesHint">Prerequisites</string>
+    <string name="exclusionsLabel">Exclusions:</string>
+    <string name="exclusionsHint">Exclusions</string>
+    <string name="instructorLabel">Instructor:</string>
+    <string name="instructorHint">Instructor</string>
+    <string name="dayTimeLabel">Days/Time:</string>
+    <string name="dateTimeHint">Days/Time</string>
+    <string name="newCourseInfo">Add a course to the database by entering its information.</string>
+    <string name="addCourseSuccess">Course %1$s %2$s (CRN %3$s) Created</string>
+    <string name="courseExists">Course CRN %1$s already exists in %2$s. Please Try Again.</string>
 </resources>

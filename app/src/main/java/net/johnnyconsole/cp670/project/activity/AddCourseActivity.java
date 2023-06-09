@@ -3,20 +3,23 @@ package net.johnnyconsole.cp670.project.activity;
 import static net.johnnyconsole.cp670.project.helper.ApplicationSession.database;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.RadioButton;
+import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import net.johnnyconsole.cp670.project.R;
 import net.johnnyconsole.cp670.project.databinding.ActivityAddCourseBinding;
-import net.johnnyconsole.cp670.project.databinding.ActivityAddUserBinding;
+import net.johnnyconsole.cp670.project.objects.Term;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -27,48 +30,126 @@ import java.util.Objects;
  * Last Modified: 8 June 2023
  */
 public class AddCourseActivity extends AppCompatActivity {
-    private ActivityAddCourseBinding binding;
 
+    private EditText etCRN,
+            etCourseCode,
+            etCourseTitle,
+            etPrerequisites,     //This field is nullable - it can have a null value in the database.
+            etExclusions,     //This field is nullable - it can have a null value in the database.
+            etInstructor,     //This field is nullable - it can have a null value in the database.
+            etDateTime;
+    private Spinner spCourseTerm;
+    private final ArrayList<Term> terms = new ArrayList<>();
+    private class CourseAdapter extends ArrayAdapter<String> {
+        public CourseAdapter(Context context) {
+            super(context, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+        }
+
+        @Override
+        public String getItem(int position) {
+            return terms.get(position).code + ": " + terms.get(position).title;
+        }
+
+        public int getCount() {
+            return terms.size();
+        }
+    }
+
+    private class InsertCourseThread extends Thread {
+        @Override
+        public void run() {
+            String prerequisites = etPrerequisites.getText() == null ||
+                    etPrerequisites.getText().toString().isEmpty() ? null :
+                    etPrerequisites.getText().toString(),
+                    exclusions = etExclusions.getText() == null ||
+                            etPrerequisites.getText().toString().isEmpty() ? null :
+                            etPrerequisites.getText().toString(),
+                    instructor = etInstructor.getText() == null ||
+                            etInstructor.getText().toString().isEmpty() ? null :
+                            etInstructor.getText().toString(),
+                    dateTime = etDateTime.getText() == null ||
+                            etDateTime.getText().toString().isEmpty() ? null :
+                            etDateTime.getText().toString();
+
+            database.execSQL("INSERT INTO courses (crn, term, code, title, prerequisites, exclusions, instructor, daytime) VALUES (?,?,?,?,?,?,?,?);",
+                    new String[]{
+                            etCRN.getText().toString(),
+                            terms.get(spCourseTerm.getSelectedItemPosition()).code,
+                            etCourseCode.getText().toString(),
+                            etCourseTitle.getText().toString(),
+                            prerequisites,
+                            exclusions,
+                            instructor,
+                            dateTime
+                    }
+            );
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityAddCourseBinding.inflate(getLayoutInflater());
+        net.johnnyconsole.cp670.project.databinding.ActivityAddCourseBinding binding = ActivityAddCourseBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.newCourse);
 
-//        findViewById(R.id.btAddUser).setOnClickListener(view -> {
-//            if (etUsername.getText() == null || etUsername.getText().toString().isEmpty() ||
-//                    etFirstName.getText() == null || etFirstName.getText().toString().isEmpty() ||
-//                    etLastName.getText() == null || etLastName.getText().toString().isEmpty() ||
-//                    etPassword.getText() == null || etPassword.getText().toString().isEmpty()) {
-//                new AlertDialog.Builder(this).setTitle(R.string.errorTitle)
-//                        .setMessage(R.string.missingInput)
-//                        .setPositiveButton(R.string.dismiss, null)
-//                        .create()
-//                        .show();
-//                return;
-//            }
-//            Cursor cursor = database.rawQuery("SELECT * FROM users WHERE username=?;",
-//                    new String[] {etUsername.getText().toString()});
-//
-//            if(!cursor.moveToFirst()) {
-//                new InsertUserThread().start();
-//                setResult(RESULT_OK, new Intent().putExtra("result", getString(R.string.addUserSuccess, etUsername.getText().toString())));
-//                finish();
-//            }
-//            else {
-//                new AlertDialog.Builder(this).setTitle(R.string.errorTitle)
-//                        .setMessage(getString(R.string.userExists, etUsername.getText().toString()))
-//                        .setPositiveButton(R.string.dismiss, null)
-//                        .create()
-//                        .show();
-//            }
-//            cursor.close();
-//        });
+        etCRN = findViewById(R.id.etCRN);
+        etCourseCode = findViewById(R.id.etCourseCode);
+        etCourseTitle = findViewById(R.id.etCourseTitle);
+        etPrerequisites = findViewById(R.id.etPrerequisites);     //This field is nullable - it can have a null value in the database.
+        etExclusions = findViewById(R.id.etExclusions);     //This field is nullable - it can have a null value in the database.
+        etInstructor = findViewById(R.id.etInstructor);     //This field is nullable - it can have a null value in the database.
+        etDateTime = findViewById(R.id.etDateTime);     //This field is nullable - it can have a null value in the database.
+
+        spCourseTerm = findViewById(R.id.spCourseTerm);
+        CourseAdapter adapter = new CourseAdapter(this);
+        spCourseTerm.setAdapter(adapter);
+
+        //Get Terms from Database - required for term spinner items
+        Cursor cursor = database.rawQuery("SELECT * FROM terms;", null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()) {
+            terms.add(new Term(cursor.getString(0), cursor.getString(1)));
+            cursor.moveToNext();
+        }
+        cursor.close();
+
+        adapter.notifyDataSetChanged();
+
+        findViewById(R.id.btAddCourse).setOnClickListener(view -> {
+            if (etCRN.getText() == null || etCRN.getText().toString().isEmpty() ||
+                etCourseCode.getText() == null || etCRN.getText().toString().isEmpty() ||
+                etCourseTitle.getText() == null || etCRN.getText().toString().isEmpty()) {
+                new AlertDialog.Builder(this).setTitle(R.string.errorTitle)
+                        .setMessage(R.string.missingInput)
+                        .setPositiveButton(R.string.dismiss, null)
+                        .create()
+                        .show();
+                return;
+            }
+            String sql = "SELECT * FROM courses WHERE crn=? AND term=?;";
+            Cursor crnCursor = database.rawQuery(sql,
+                    new String[] {terms.get(spCourseTerm.getSelectedItemPosition()).code, etCRN.getText().toString()});
+
+            if(!crnCursor.moveToFirst()) {
+                new InsertCourseThread().start();
+                setResult(RESULT_OK, new Intent().putExtra("result", getString(R.string.addCourseSuccess, etCourseCode.getText().toString(),
+                        terms.get(spCourseTerm.getSelectedItemPosition()).code, etCRN.getText().toString())));
+                finish();
+            }
+            else {
+                new AlertDialog.Builder(this).setTitle(R.string.errorTitle)
+                        .setMessage(getString(R.string.courseExists, etCRN.getText().toString(),
+                                terms.get(spCourseTerm.getSelectedItemPosition()).code))
+                        .setPositiveButton(R.string.dismiss, null)
+                        .create()
+                        .show();
+            }
+            crnCursor.close();
+        });
 
     }
 
@@ -83,8 +164,8 @@ public class AddCourseActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.action_help) {
             new AlertDialog.Builder(this)
-                    .setTitle(getString(R.string.helpTitle, getString(R.string.newStudent)))
-                    .setMessage(getString(R.string.helpMessage, getString(R.string.newStudent), getString(R.string.addStudentInfo)))
+                    .setTitle(getString(R.string.helpTitle, getString(R.string.newCourse)))
+                    .setMessage(getString(R.string.helpMessage, getString(R.string.newCourse), getString(R.string.newCourseInfo)))
                     .setPositiveButton(R.string.dismiss, null)
                     .create()
                     .show();

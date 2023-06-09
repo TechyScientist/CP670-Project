@@ -66,7 +66,7 @@
     <string name="addTermInfo">Entrez le code et titre de terme pour l\'ajouter dans le base de donnés</string>
     <string name="newStudent">Ajouter Utilisateur</string>
     <string name="editStudent">Modifier Utilisateur</string>
-    <string name="addTermSuccess">Terme "%1$s" Créé</string>
+    <string name="addTermSuccess">Terme %1$s Créé</string>
     <string name="termExists">Le terme %1$s déja existe. Éssayer une autre fois, s\'il vous plait.</string>
     <string name="addStudentInfo">Ajoutez un utilisateur dans le base de donnés par entrant les informations.</string>
     <string name="firstNameLabel">Prenom:</string>
@@ -76,7 +76,25 @@
     <string name="userType">Type d\'Utilisateur:</string>
     <string name="userStudent">Étudiant</string>
     <string name="userAdmin">Administrateur</string>
-    <string name="addUserSuccess">Utilisateur "%1$s" Créé</string>
+    <string name="addUserSuccess">Utilisateur %1$s Créé</string>
     <string name="userExists">Le Utilisateur %1$s déja existe. Éssayer une autre fois, s\'il vous plait.</string>
     <string name="missingInput">Éntrée Manquante. Input. Éssayer une autre fois, s\'il vous plait.</string>
+    <string name="crnLabel">NRC:</string>
+    <string name="CRN">NRC</string>
+    <string name="courseTermLabel">Terme:</string>
+    <string name="courseCodeLabel">Code de Cours:</string>
+    <string name="courseCode">Code de Cours</string>
+    <string name="courseTitleLabel">Titre de Cours:</string>
+    <string name="courseTitle">Titre de Cours</string>
+    <string name="prerequisitesLabel">Prérequises:</string>
+    <string name="prerequisitesHint">Prérequises</string>
+    <string name="exclusionsLabel">Exclusions:</string>
+    <string name="exclusionsHint">Exclusions</string>
+    <string name="instructorLabel">Instructeur:</string>
+    <string name="instructorHint">Instructeur</string>
+    <string name="dayTimeLabel">Jours/Heure:</string>
+    <string name="dateTimeHint">Hours/Heure</string>
+    <string name="newCourseInfo">Ajoutez un cours dans le base de donnés par entrant les informations.</string>
+    <string name="addCourseSuccess">Cours %1$s %2$s (NRC %3$s) Créé</string>
+    <string name="courseExists">Cours NRC déja existe dans %2$s. Éssayer une autre fois, s\'il vous plait.</string>
 </resources>
