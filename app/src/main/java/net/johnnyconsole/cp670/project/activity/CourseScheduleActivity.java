@@ -35,7 +35,7 @@ public class CourseScheduleActivity extends AppCompatActivity {
         //Don't use the saved instance state to create the activity
         //onRestoreInstanceState handles doing it.
         super.onCreate(null);
-        net.johnnyconsole.cp670.project.databinding.ActivityCourseScheduleBinding binding = ActivityCourseScheduleBinding.inflate(getLayoutInflater());
+        ActivityCourseScheduleBinding binding = ActivityCourseScheduleBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.toolbar);

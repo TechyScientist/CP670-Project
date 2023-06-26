@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import net.johnnyconsole.cp670.project.R;
 import net.johnnyconsole.cp670.project.databinding.ActivityAddUserBinding;
+import net.johnnyconsole.cp670.project.helper.DatabaseStatement;
+import net.johnnyconsole.cp670.project.helper.DatabaseTask;
 
 import static net.johnnyconsole.cp670.project.helper.ApplicationSession.database;
 
@@ -23,22 +25,12 @@ import java.util.Objects;
  * Registration App AddStudentActivity.java
  * Collects information required to add a student
  * entry into the databse, if they doesn't exist.
- * Last Modified: 8 June 2023
+ * Last Modified: 26 June 2023
  */
 public class AddUserActivity extends AppCompatActivity {
 
     private EditText etUsername, etFirstName, etLastName, etPassword;
     private RadioButton rbUserStudent;
-
-    private class InsertUserThread extends Thread {
-        @Override
-        public void run() {
-            database.execSQL("INSERT INTO users (username, first, last, userType, password) VALUES (?,?,?,?,?)",
-                    new String[]{etUsername.getText().toString().toLowerCase(), etFirstName.getText().toString(),
-                            etLastName.getText().toString(), rbUserStudent.isChecked() ? "student" : "admin",
-                            etPassword.getText().toString()});
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +65,10 @@ public class AddUserActivity extends AppCompatActivity {
                     new String[] {etUsername.getText().toString()});
 
             if(!cursor.moveToFirst()) {
-                new InsertUserThread().start();
+                new DatabaseTask().execute(new DatabaseStatement("INSERT INTO users (username, first, last, userType, password) VALUES (?,?,?,?,?)",
+                        new String[]{etUsername.getText().toString().toLowerCase(), etFirstName.getText().toString(),
+                                etLastName.getText().toString(), rbUserStudent.isChecked() ? "student" : "admin",
+                                etPassword.getText().toString()}));
                 setResult(RESULT_OK, new Intent().putExtra("result", getString(R.string.addUserSuccess, etUsername.getText().toString())));
                 finish();
             }

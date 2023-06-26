@@ -17,6 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import net.johnnyconsole.cp670.project.R;
 import net.johnnyconsole.cp670.project.databinding.ActivityAddCourseBinding;
+import net.johnnyconsole.cp670.project.helper.DatabaseStatement;
+import net.johnnyconsole.cp670.project.helper.DatabaseTask;
 import net.johnnyconsole.cp670.project.objects.Term;
 
 import java.util.ArrayList;
@@ -27,14 +29,14 @@ import java.util.Objects;
  * Registration App AddCourseActivity.java
  * Collects information required to add a course
  * entry into the databse, if they doesn't exist.
- * Last Modified: 8 June 2023
+ * Last Modified: 26 June 2023
  */
 public class AddCourseActivity extends AppCompatActivity {
 
     private EditText etCRN,
             etCourseCode,
             etCourseTitle,
-            etPrerequisites,     //This field is nullable - it can have a null value in the database.
+            etPrerequisites,   //This field is nullable - it can have a null value in the database.
             etExclusions,     //This field is nullable - it can have a null value in the database.
             etInstructor,     //This field is nullable - it can have a null value in the database.
             etDateTime;
@@ -52,37 +54,6 @@ public class AddCourseActivity extends AppCompatActivity {
 
         public int getCount() {
             return terms.size();
-        }
-    }
-
-    private class InsertCourseThread extends Thread {
-        @Override
-        public void run() {
-            String prerequisites = etPrerequisites.getText() == null ||
-                    etPrerequisites.getText().toString().isEmpty() ? null :
-                    etPrerequisites.getText().toString(),
-                    exclusions = etExclusions.getText() == null ||
-                            etPrerequisites.getText().toString().isEmpty() ? null :
-                            etPrerequisites.getText().toString(),
-                    instructor = etInstructor.getText() == null ||
-                            etInstructor.getText().toString().isEmpty() ? null :
-                            etInstructor.getText().toString(),
-                    dateTime = etDateTime.getText() == null ||
-                            etDateTime.getText().toString().isEmpty() ? null :
-                            etDateTime.getText().toString();
-
-            database.execSQL("INSERT INTO courses (crn, term, code, title, prerequisites, exclusions, instructor, daytime) VALUES (?,?,?,?,?,?,?,?);",
-                    new String[]{
-                            etCRN.getText().toString(),
-                            terms.get(spCourseTerm.getSelectedItemPosition()).code,
-                            etCourseCode.getText().toString(),
-                            etCourseTitle.getText().toString(),
-                            prerequisites,
-                            exclusions,
-                            instructor,
-                            dateTime
-                    }
-            );
         }
     }
 
@@ -135,7 +106,30 @@ public class AddCourseActivity extends AppCompatActivity {
                     new String[] {terms.get(spCourseTerm.getSelectedItemPosition()).code, etCRN.getText().toString()});
 
             if(!crnCursor.moveToFirst()) {
-                new InsertCourseThread().start();
+                String prerequisites = etPrerequisites.getText() == null ||
+                        etPrerequisites.getText().toString().isEmpty() ? null :
+                        etPrerequisites.getText().toString(),
+                        exclusions = etExclusions.getText() == null ||
+                                etPrerequisites.getText().toString().isEmpty() ? null :
+                                etPrerequisites.getText().toString(),
+                        instructor = etInstructor.getText() == null ||
+                                etInstructor.getText().toString().isEmpty() ? null :
+                                etInstructor.getText().toString(),
+                        dateTime = etDateTime.getText() == null ||
+                                etDateTime.getText().toString().isEmpty() ? null :
+                                etDateTime.getText().toString();
+
+                new DatabaseTask().execute(new DatabaseStatement("INSERT INTO courses (crn, term, code, title, prerequisites, exclusions, instructor, daytime) VALUES (?,?,?,?,?,?,?,?);",
+                        new String[]{
+                                etCRN.getText().toString(),
+                                terms.get(spCourseTerm.getSelectedItemPosition()).code,
+                                etCourseCode.getText().toString(),
+                                etCourseTitle.getText().toString(),
+                                prerequisites,
+                                exclusions,
+                                instructor,
+                                dateTime
+                        }));
                 setResult(RESULT_OK, new Intent().putExtra("result", getString(R.string.addCourseSuccess, etCourseCode.getText().toString(),
                         terms.get(spCourseTerm.getSelectedItemPosition()).code, etCRN.getText().toString())));
                 finish();

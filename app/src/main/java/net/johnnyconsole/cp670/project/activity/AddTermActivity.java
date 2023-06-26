@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import net.johnnyconsole.cp670.project.R;
 import net.johnnyconsole.cp670.project.databinding.ActivityAddTermBinding;
+import net.johnnyconsole.cp670.project.helper.DatabaseStatement;
+import net.johnnyconsole.cp670.project.helper.DatabaseTask;
 
 import java.util.Objects;
 
@@ -24,18 +26,10 @@ import static net.johnnyconsole.cp670.project.helper.ApplicationSession.database
  * Registration App AddTermActivity.java
  * Collects information required to add a term
  * entry into the databse, if it doesn't exist.
- * Last Modified: 6 June 2023
+ * Last Modified: 26 June 2023
  */
 public class AddTermActivity extends AppCompatActivity {
     private EditText etTermCode, etTermTitle;
-
-    private class InsertTermThread extends Thread {
-        @Override
-        public void run() {
-            database.execSQL("INSERT INTO terms (code, title) VALUES (?,?)",
-                    new String[]{etTermCode.getText().toString(), etTermTitle.getText().toString()});
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +59,8 @@ public class AddTermActivity extends AppCompatActivity {
                     new String[] {etTermCode.getText().toString()});
 
             if(!cursor.moveToFirst()) {
-                new InsertTermThread().start();
+                new DatabaseTask().execute(new DatabaseStatement("INSERT INTO terms (code, title) VALUES (?,?)",
+                        new String[]{etTermCode.getText().toString(), etTermTitle.getText().toString()}));
                 setResult(RESULT_OK, new Intent().putExtra("result", getString(R.string.addTermSuccess, etTermCode.getText().toString())));
                 finish();
             }
