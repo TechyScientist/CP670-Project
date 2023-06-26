@@ -24,7 +24,7 @@
     <string name="usernameHint">Nom d\'Utilisateur</string>
     <string name="passwordLabel">Mot de Passe:</string>
     <string name="passwordHint">Mot De Passe</string>
-    <string name="errorTitle">Erreur de Connexion</string>
+    <string name="errorTitle">Erreur</string>
     <string name="signinErrorMessage">Identification Invalide, Essayer Plus s\'il Vous Plait</string>
     <string name="dismiss">Fermer</string>
     <string name="profileInfo">Entrez votre nom d\'utilisateur et votre mot de passe ici pour faire de connexion</string>
@@ -101,4 +101,12 @@
     <string name="confirmPassword">Confirmer</string>
     <string name="invalidInput">Éntrée Invalide, Éssayer une autre fois, s\'il vous plait.</string>
     <string name="changePasswordSuccess">Votre Mot De Passe avait changé.</string>
+    <string name="selectUsernameLabel">Utilisateur à Modifier:</string>
+    <string name="saveChanges">Modifier</string>
+    <string name="deleteUser">Supprimer</string>
+    <string name="editStudentInfo">Entrez un nom d\'utilisateur pour lui modifier des informations. Souvenez de cliquez le boutton "modifier" avant de sortir!</string>
+    <string name="noStudent">Utilisateur Ne Pas Trouvé</string>
+    <string name="confirmDeleteUser">Êtes-vous sûr de vouloir supprimer le compte pour cet utilisateur?</string>
+    <string name="userDeleted">Utilisateur %1$s Supprimé</string>
+    <string name="userModified">Utilisateur Modifié</string>
 </resources>
