@@ -21,7 +21,7 @@ import java.util.Objects;
  * Activity presenting the user options
  * to view the course schedule or to access any
  * of the app's administrator features
- * Last Modified: 22 May 2023
+ * Last Modified: 26 June 2023
  */
 
 @SuppressWarnings("deprecation")
@@ -31,6 +31,8 @@ public class AdministratorHomeActivity extends AppCompatActivity {
     private final int REQUEST_NEW_TERM = 100;
     private final int REQUEST_NEW_STUDENT = 110;
     private final int REQUEST_NEW_COURSE = 120;
+
+    private final int REQUEST_CHANGE_PASSWORD = 130;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +60,11 @@ public class AdministratorHomeActivity extends AppCompatActivity {
         findViewById(R.id.btNewCourse).setOnClickListener(view ->
                 startActivityForResult(new Intent(this, AddCourseActivity.class),
                         REQUEST_NEW_COURSE)
+        );
+
+        findViewById(R.id.btChangePw).setOnClickListener(view ->
+                startActivityForResult(new Intent(this, ChangePasswordActivity.class),
+                        REQUEST_CHANGE_PASSWORD)
         );
 
     }
@@ -105,7 +112,8 @@ public class AdministratorHomeActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int request, int result, Intent intent) {
         if((request == REQUEST_NEW_TERM || request == REQUEST_NEW_STUDENT ||
-                request == REQUEST_NEW_COURSE) && result == RESULT_OK) {
+                request == REQUEST_NEW_COURSE || request == REQUEST_CHANGE_PASSWORD)
+                && result == RESULT_OK) {
             String activityResult = intent.getStringExtra("result");
             Snackbar.make(binding.getRoot(), activityResult, Snackbar.LENGTH_LONG).show();
         }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Inscription</string>
-
     <string name="MainActivityTitle">Accueil</string>
     <string name="schedule">Horaire des Cours</string>
     <string name="profile">Connexion</string>
@@ -21,7 +20,6 @@
     <string name="changepw">Modifier Mot de Passe</string>
     <string name="helpTitle">Aide: %1$s</string>
     <string name="helpMessage">Auteur: Johnny Console\nActivité: %1$s\nInformation: %2$s</string>
-
     <string name="usernameLabel">Nom d\'Utilisateur:</string>
     <string name="usernameHint">Nom d\'Utilisateur</string>
     <string name="passwordLabel">Mot de Passe:</string>
@@ -32,14 +30,11 @@
     <string name="profileInfo">Entrez votre nom d\'utilisateur et votre mot de passe ici pour faire de connexion</string>
     <string name="scheduleInfo">Cherchez l\'horaire des cours pour le NRC, nom ou code dans chaque terme. Choisissez une cours dans la liste poir voir ses details.</string>
     <string name="mainActivityInfo">Choisissez une boutton pour aller à l\'écran correspondant</string>
-
     <string name="studentWelcome">Bienvenue, %1$s!</string>
     <string name="studentHome">Accueil Étudiant</string>
-
     <string name="adminWelcome">Bienvenue Administrateur!</string>
     <string name="adminHome">Accueil Administrateur</string>
     <string name="confirmSignout">Êtes-vous sûr de vouloir se déconnecter?</string>
-
     <string-array name="searchBy">
         <item>NRC du Cours</item>
         <item>Code du Cours</item>
@@ -78,7 +73,7 @@
     <string name="userAdmin">Administrateur</string>
     <string name="addUserSuccess">Utilisateur %1$s Créé</string>
     <string name="userExists">Le Utilisateur %1$s déja existe. Éssayer une autre fois, s\'il vous plait.</string>
-    <string name="missingInput">Éntrée Manquante. Input. Éssayer une autre fois, s\'il vous plait.</string>
+    <string name="missingInput">Éntrée Manquante. Éssayer une autre fois, s\'il vous plait.</string>
     <string name="crnLabel">NRC:</string>
     <string name="CRN">NRC</string>
     <string name="courseTermLabel">Terme:</string>
@@ -93,8 +88,17 @@
     <string name="instructorLabel">Instructeur:</string>
     <string name="instructorHint">Instructeur</string>
     <string name="dayTimeLabel">Jours/Heure:</string>
-    <string name="dateTimeHint">Hours/Heure</string>
+    <string name="dateTimeHint">Jours/Heure</string>
     <string name="newCourseInfo">Ajoutez un cours dans le base de donnés par entrant les informations.</string>
     <string name="addCourseSuccess">Cours %1$s %2$s (NRC %3$s) Créé</string>
     <string name="courseExists">Cours NRC déja existe dans %2$s. Éssayer une autre fois, s\'il vous plait.</string>
+    <string name="changepwInfo">Entrez votre mot de passe actuel et nouveau pour le changer.</string>
+    <string name="currentPasswordLabel">Mot de Passe Actuel:</string>
+    <string name="currentPassword">Mot de Passe Actuel</string>
+    <string name="newPasswordLabel">Nouveau Mot de Passe:</string>
+    <string name="newPassword">Nouveau Mot de Passe</string>
+    <string name="confirmPasswordLabel">Confirmer:</string>
+    <string name="confirmPassword">Confirmer</string>
+    <string name="invalidInput">Éntrée Invalide, Éssayer une autre fois, s\'il vous plait.</string>
+    <string name="changePasswordSuccess">Votre Mot De Passe avait changé.</string>
 </resources>

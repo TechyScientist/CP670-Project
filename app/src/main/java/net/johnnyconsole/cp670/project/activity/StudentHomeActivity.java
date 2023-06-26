@@ -8,7 +8,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import net.johnnyconsole.cp670.project.R;
 import net.johnnyconsole.cp670.project.databinding.ActivityStudentHomeBinding;
@@ -20,15 +23,19 @@ import java.util.Objects;
  * Registration App StudentHomeActivity.java
  * Activity allowing student users to access the
  * student options of the app
- * Last Modified: 22 May 2023
+ * Last Modified: 26 June 2023
  */
 public class StudentHomeActivity extends AppCompatActivity {
+
+    private final int REQUEST_CHANGE_PASSWORD = 130;
+
+    private ActivityStudentHomeBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        net.johnnyconsole.cp670.project.databinding.ActivityStudentHomeBinding binding = ActivityStudentHomeBinding.inflate(getLayoutInflater());
+        binding = ActivityStudentHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.toolbar);
@@ -49,12 +56,12 @@ public class StudentHomeActivity extends AppCompatActivity {
 
          findViewById(R.id.btProgress).setOnClickListener(view ->
                 startActivity(new Intent(this, DegreeProgressActivity.class))
-        );
+        );*/
 
-         findViewById(R.id.btChangepw).setOnClickListener(view ->
-                startActivity(new Intent(this, ChangePasswordActivity.class))
+         findViewById(R.id.btChangePw).setOnClickListener(view ->
+                startActivityForResult(new Intent(this, ChangePasswordActivity.class),
+                        REQUEST_CHANGE_PASSWORD)
         );
-        */
 
     }
 
@@ -96,5 +103,14 @@ public class StudentHomeActivity extends AppCompatActivity {
                 .setNegativeButton(R.string.exitNo, null)
                 .create()
                 .show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        if(requestCode == REQUEST_CHANGE_PASSWORD && resultCode == RESULT_OK) {
+            String activityResult = intent.getStringExtra("result");
+            Snackbar.make(binding.getRoot(), activityResult, Snackbar.LENGTH_LONG).show();
+        }
+        super.onActivityResult(requestCode, resultCode, intent);
     }
 }

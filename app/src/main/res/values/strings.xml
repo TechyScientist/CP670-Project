@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">Registration</string>
-
-    <!-- Strings for MainActivity -->
     <string name="MainActivityTitle">Home</string>
     <string name="schedule">Course Schedule</string>
     <string name="profile">Sign In</string>
@@ -21,8 +19,6 @@
     <string name="editCourse">Edit Course</string>
     <string name="enterGrades">Enter Grades</string>
     <string name="helpMessage">Author: Johnny Console\nActivity: %1$s\nInformation: %2$s</string>
-
-    <!-- Strings for SignInActivity -->
     <string name="usernameLabel">Username:</string>
     <string name="usernameHint">Username</string>
     <string name="passwordLabel">Password:</string>
@@ -33,16 +29,11 @@
     <string name="profileInfo">Enter your username and password here to sign in</string>
     <string name="scheduleInfo">Search the course list by CRN, name or code by each term. Select a course from the list to view its details.</string>
     <string name="mainActivityInfo">Choose a button to navigate to the corresponding screen</string>
-
-    <!-- Strings for StudentHomeActivity -->
     <string name="studentWelcome">Welcome, %1$s!</string>
     <string name="studentHome">Student Home</string>
-
-    <!-- Strings for StudentHomeActivity -->
     <string name="adminWelcome">Welcome Administrator!</string>
     <string name="adminHome">Administrator Home</string>
     <string name="confirmSignout">Are you sure you want to sign out?</string>
-
     <string-array name="searchBy">
         <item>Course CRN</item>
         <item>Course Code</item>
@@ -100,4 +91,13 @@
     <string name="newCourseInfo">Add a course to the database by entering its information.</string>
     <string name="addCourseSuccess">Course %1$s %2$s (CRN %3$s) Created</string>
     <string name="courseExists">Course CRN %1$s already exists in %2$s. Please Try Again.</string>
+    <string name="changepwInfo">Enter your current password and new password to change your account password.</string>
+    <string name="currentPasswordLabel">Current Password:</string>
+    <string name="currentPassword">Current Password</string>
+    <string name="newPasswordLabel">New Password:</string>
+    <string name="newPassword">New Password</string>
+    <string name="confirmPasswordLabel">Confirm:</string>
+    <string name="confirmPassword">Confirm</string>
+    <string name="invalidInput">Invalid Input, Please Try Again.</string>
+    <string name="changePasswordSuccess">Your password has been changed.</string>
 </resources>
