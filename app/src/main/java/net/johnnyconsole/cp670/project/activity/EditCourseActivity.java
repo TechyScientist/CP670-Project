@@ -27,7 +27,7 @@ import java.util.Objects;
 
 /**
  * @author Johnny Console
- * Registration App EditUserActivity.java
+ * Registration App EditCourseActivity.java
  * Allows administrators to modify the information
  * for a course record (other than the term and CRN) in the database.
  * Last Modified: 21 July 2023
