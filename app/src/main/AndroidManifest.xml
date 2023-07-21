@@ -18,6 +18,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Project.NoActionBar" />
         <activity
+            android:name=".activity.EditCourseActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Project.NoActionBar" />
+        <activity
             android:name=".activity.ChangePasswordActivity"
             android:exported="false"
             android:screenOrientation="portrait"

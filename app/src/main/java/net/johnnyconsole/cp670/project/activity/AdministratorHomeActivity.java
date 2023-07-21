@@ -33,7 +33,9 @@ public class AdministratorHomeActivity extends AppCompatActivity {
     private final int REQUEST_NEW_COURSE = 120;
 
     private final int REQUEST_EDIT_STUDENT = 130;
+    private final int REQUEST_EDIT_COURSE = 140;
     private final int REQUEST_CHANGE_PASSWORD = 200;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,12 +62,17 @@ public class AdministratorHomeActivity extends AppCompatActivity {
 
         findViewById(R.id.btEditStudent).setOnClickListener(view ->
                 startActivityForResult(new Intent(this, EditUserActivity.class),
-                        REQUEST_NEW_STUDENT)
+                        REQUEST_EDIT_STUDENT)
         );
 
         findViewById(R.id.btNewCourse).setOnClickListener(view ->
                 startActivityForResult(new Intent(this, AddCourseActivity.class),
                         REQUEST_NEW_COURSE)
+        );
+
+        findViewById(R.id.btEditCourse).setOnClickListener(view ->
+                startActivityForResult(new Intent(this, EditCourseActivity.class),
+                        REQUEST_EDIT_COURSE)
         );
 
         findViewById(R.id.btChangePw).setOnClickListener(view ->
@@ -119,7 +126,7 @@ public class AdministratorHomeActivity extends AppCompatActivity {
     protected void onActivityResult(int request, int result, Intent intent) {
         if((request == REQUEST_NEW_TERM || request == REQUEST_NEW_STUDENT ||
                 request == REQUEST_NEW_COURSE || request == REQUEST_CHANGE_PASSWORD ||
-                request == REQUEST_EDIT_STUDENT)
+                request == REQUEST_EDIT_STUDENT || request == REQUEST_EDIT_COURSE)
                 && result == RESULT_OK) {
             String activityResult = intent.getStringExtra("result");
             Snackbar.make(binding.getRoot(), activityResult, Snackbar.LENGTH_LONG).show();

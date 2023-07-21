@@ -109,4 +109,6 @@
     <string name="confirmDeleteUser">Êtes-vous sûr de vouloir supprimer le compte pour cet utilisateur?</string>
     <string name="userDeleted">Utilisateur %1$s Supprimé</string>
     <string name="userModified">Utilisateur Modifié</string>
+    <string name="deleteCourse">Supprimer le Cours</string>
+    <string name="editCourseInfo" />
 </resources>
