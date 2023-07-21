@@ -48,4 +48,4 @@ CREATE TABLE IF NOT EXISTS registrations (
 INSERT OR IGNORE INTO users (username, last, first, userType, password) VALUES ("wluadmin", "Administrator", "WLU", "admin", "WLUAdmin!");
 INSERT OR IGNORE INTO users (username, last, first, userType, password) VALUES ("cons3250", "Console", "Johnny", "student", "WLUStudent!");
 INSERT OR IGNORE INTO terms(code, title) VALUES ("23SP", "2023 Spring");
-INSERT OR IGNORE INTO courses(crn, term, code, title, exclusions, instructor) VALUES (12345, "23SP", "CP670", "Android Appl. Programming", "CP469", "Dr. Abdul-Rahman Malwood-Yunis");
+INSERT OR IGNORE INTO courses(crn, term, code, title, exclusions, instructor) VALUES (12345, "23SP", "CP670", "Android Appl. Programming", "CP470", "Dr. Abdul-Rahman Malwood-Yunis");

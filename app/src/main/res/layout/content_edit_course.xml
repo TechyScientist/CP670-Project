@@ -81,6 +81,27 @@
             android:hint="@string/courseTitle"
             android:autofillHints="no"/>
     </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/llCourseCode"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/courseCodeLabel"
+                android:textColor="@color/darkPurple"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:id="@+id/etCourseCode"
+                android:ems="13"
+                android:inputType="text"
+                android:hint="@string/courseCode"
+                android:autofillHints="no"/>
+        </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"

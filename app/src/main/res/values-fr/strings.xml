@@ -110,5 +110,8 @@
     <string name="userDeleted">Utilisateur %1$s Supprimé</string>
     <string name="userModified">Utilisateur Modifié</string>
     <string name="deleteCourse">Supprimer le Cours</string>
-    <string name="editCourseInfo" />
+    <string name="editCourseInfo">Choissisez un NRC et entrez un NRC pour le modifier des informations. Souvenez de cliquez le boutton "modifier" avant de sortir!</string>
+    <string name="confirmDeleteCourse">Êtes-vous sûr de vouloir supprimer ce cours?</string>
+    <string name="courseModified">Cours Modifié</string>
+    <string name="courseDeleted">NRC %1$s dans %2$s Supprimé</string>
 </resources>
