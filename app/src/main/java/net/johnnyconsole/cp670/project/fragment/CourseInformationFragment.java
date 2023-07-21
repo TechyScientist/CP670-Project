@@ -72,25 +72,25 @@ public class CourseInformationFragment extends Fragment {
         layout.addView(tv);
 
         tv = new TextView(container.getContext());
-        tv.setText(getString(R.string.prerequisites, prerequisites == null ? getString(R.string.none) : prerequisites));
+        tv.setText(getString(R.string.prerequisites, prerequisites == null || prerequisites.isEmpty() ? getString(R.string.none) : prerequisites));
         tv.setTextColor(getResources().getColor(R.color.darkPurple, null));
         tv.setLayoutParams(params);
         layout.addView(tv);
 
         tv = new TextView(container.getContext());
-        tv.setText(getString(R.string.exclusions, exclusions == null ? getString(R.string.none) : exclusions));
+        tv.setText(getString(R.string.exclusions, exclusions == null  || exclusions .isEmpty() ? getString(R.string.none) : exclusions));
         tv.setTextColor(getResources().getColor(R.color.darkPurple, null));
         tv.setLayoutParams(params);
         layout.addView(tv);
 
         tv = new TextView(container.getContext());
-        tv.setText(getString(R.string.instructor, instructor == null ? getString(R.string.none) : instructor));
+        tv.setText(getString(R.string.instructor, instructor == null  || instructor.isEmpty() ? getString(R.string.none) : instructor));
         tv.setTextColor(getResources().getColor(R.color.darkPurple, null));
         tv.setLayoutParams(params);
         layout.addView(tv);
 
         tv = new TextView(container.getContext());
-        tv.setText(getString(R.string.daytime, daytime == null ? getString(R.string.none) : daytime));
+        tv.setText(getString(R.string.daytime, daytime == null || daytime.isEmpty() ? getString(R.string.none) : daytime));
         tv.setTextColor(getResources().getColor(R.color.darkPurple, null));
         tv.setLayoutParams(params);
         layout.addView(tv);
