@@ -110,7 +110,7 @@
     <string name="userDeleted">Utilisateur %1$s Supprimé</string>
     <string name="userModified">Utilisateur Modifié</string>
     <string name="deleteCourse">Supprimer le Cours</string>
-    <string name="editCourseInfo">Choissisez un NRC et entrez un NRC pour le modifier des informations. Souvenez de cliquez le boutton "modifier" avant de sortir!</string>
+    <string name="editCourseInfo">Choissisez un terme et entrez un NRC pour le modifier des informations. Souvenez de cliquez le boutton "modifier" avant de sortir!</string>
     <string name="confirmDeleteCourse">Êtes-vous sûr de vouloir supprimer ce cours?</string>
     <string name="courseModified">Cours Modifié</string>
     <string name="courseDeleted">NRC %1$s dans %2$s Supprimé</string>
@@ -118,5 +118,6 @@
     <string name="gradeStudent">Étudiant: %1$s, %2$s (Nom de Utilisateur: %3$s)</string>
     <string name="studentGradeListItem">Étudiant: %1$s, %2$s (Nom de Utilisateur: %3$s) [%4$s]</string>
     <string name="grade">Choissisez le Note:</string>
-    <string name="enterGradesInfo" />
+    <string name="enterGradesInfo">Choissisez un terme et entrez un NRC pour voir les étudiants qui sont enrégistré. Choissisez un étudiant pour modifier sa note. Souvenez de cliquez le boutton "modifier" avant de sortir!</string>
+    <string name="gradesModified">Notes Modifié</string>
 </resources>
