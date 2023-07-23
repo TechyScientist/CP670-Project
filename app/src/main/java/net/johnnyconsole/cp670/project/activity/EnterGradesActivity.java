@@ -132,6 +132,8 @@ public class EnterGradesActivity extends AppCompatActivity {
                         students.add(student);
                     }
                     studentsList.close();
+                    lvStudentList.setVisibility(View.VISIBLE);
+                    findViewById(R.id.btSaveChanges).setVisibility(View.VISIBLE);
                     adapter.notifyDataSetChanged();
                 }
                 else {
