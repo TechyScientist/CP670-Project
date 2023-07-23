@@ -53,6 +53,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/lvStudentList"
+        android:divider="@color/darkPurple"
+        android:dividerHeight="1dp"
+        android:visibility="invisible"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btSearch"
@@ -68,7 +71,8 @@
         android:background="@color/transparent"
         android:textColor="@color/lightPurple"
         android:textAllCaps="false"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        app:layout_constraintLeft_toLeftOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
