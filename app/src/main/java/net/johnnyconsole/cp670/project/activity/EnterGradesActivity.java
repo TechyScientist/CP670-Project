@@ -4,14 +4,12 @@ import static net.johnnyconsole.cp670.project.helper.ApplicationSession.database
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -63,6 +61,7 @@ public class EnterGradesActivity extends AppCompatActivity {
         public int getCount() {
             return students.size();
         }
+
         public String getItem(int position) {
             Student s = students.get(position);
             return getString(R.string.studentGradeListItem, s.lastName, s.firstName, s.username, s.grade);
@@ -93,7 +92,7 @@ public class EnterGradesActivity extends AppCompatActivity {
         etCRN = findViewById(R.id.etCRN);
 
         Cursor c = database.rawQuery("SELECT code FROM terms;", null);
-        while(c.moveToNext()) {
+        while (c.moveToNext()) {
             terms.add(c.getString(0));
         }
         c.close();
@@ -120,13 +119,13 @@ public class EnterGradesActivity extends AppCompatActivity {
                     etCRN.setEnabled(false);
                     Cursor studentsList = database.rawQuery("SELECT users.first, users.last, users.username, registrations.grade FROM users JOIN registrations ON  registrations.term=? AND registrations.crn=? AND users.username = registrations.student;", new String[]{
                             term, CRN});
-                    while(studentsList.moveToNext()) {
+                    while (studentsList.moveToNext()) {
                         String first = studentsList.getString(0),
                                 last = studentsList.getString(1),
                                 username = studentsList.getString(2),
                                 grade = studentsList.getString(3);
                         Student student = new Student(first, last, username);
-                        if(grade != null) {
+                        if (grade != null) {
                             student.grade = grade;
                         }
                         students.add(student);
@@ -135,8 +134,7 @@ public class EnterGradesActivity extends AppCompatActivity {
                     lvStudentList.setVisibility(View.VISIBLE);
                     findViewById(R.id.btSaveChanges).setVisibility(View.VISIBLE);
                     adapter.notifyDataSetChanged();
-                }
-                else {
+                } else {
                     Snackbar error = Snackbar.make(view,
                             R.string.noCourse, Snackbar.LENGTH_INDEFINITE);
                     error.setAction(R.string.dismiss, view1 -> error.dismiss()).show();
@@ -155,7 +153,7 @@ public class EnterGradesActivity extends AppCompatActivity {
                     .setTitle(R.string.enterGrades)
                     .setView(gradeView)
                     .setPositiveButton(R.string.saveChanges, (dialog, i) -> {
-                        s.grade = (String)(((Spinner)gradeView.findViewById(R.id.spGrade)).getSelectedItem());
+                        s.grade = (String) (((Spinner) gradeView.findViewById(R.id.spGrade)).getSelectedItem());
                         adapter.notifyDataSetChanged();
                     })
                     .setNegativeButton(R.string.dismiss, null)
@@ -164,7 +162,7 @@ public class EnterGradesActivity extends AppCompatActivity {
         });
 
         findViewById(R.id.btSaveChanges).setOnClickListener(view -> {
-            for(Student s: students) {
+            for (Student s : students) {
                 new DatabaseTask().execute(new DatabaseStatement("UPDATE registrations SET grade=? WHERE student=? AND term=? AND crn=?;",
                         new String[]{s.grade, s.username, term, CRN}));
             }

@@ -1,24 +1,24 @@
 package net.johnnyconsole.cp670.project.activity;
 
+import static net.johnnyconsole.cp670.project.helper.ApplicationSession.database;
+import static net.johnnyconsole.cp670.project.helper.ApplicationSession.username;
+
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
-import net.johnnyconsole.cp670.project.databinding.ActivityChangePasswordBinding;
+import androidx.appcompat.app.AppCompatActivity;
 
 import net.johnnyconsole.cp670.project.R;
+import net.johnnyconsole.cp670.project.databinding.ActivityChangePasswordBinding;
 import net.johnnyconsole.cp670.project.helper.DatabaseStatement;
 import net.johnnyconsole.cp670.project.helper.DatabaseTask;
 
 import java.util.Objects;
-import static net.johnnyconsole.cp670.project.helper.ApplicationSession.*;
 
 /**
  * @author Johnny Console
@@ -28,6 +28,7 @@ import static net.johnnyconsole.cp670.project.helper.ApplicationSession.*;
  */
 public class ChangePasswordActivity extends AppCompatActivity {
     private ActivityChangePasswordBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +39,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
         setSupportActionBar(binding.toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.changepw);
 
-        Cursor cursor = database.rawQuery("SELECT password FROM users WHERE username=?",new String[] {username});
+        Cursor cursor = database.rawQuery("SELECT password FROM users WHERE username=?", new String[]{username});
         cursor.moveToFirst();
         String currentpw = cursor.getString(0);
         cursor.close();
@@ -48,23 +49,21 @@ public class ChangePasswordActivity extends AppCompatActivity {
                     newpw = ((EditText) findViewById(R.id.etNewPassword)).getText().toString(),
                     confirm = ((EditText) findViewById(R.id.etConfirmPassword)).getText().toString();
 
-            if(current.isEmpty() || newpw.isEmpty() || confirm.isEmpty()) {
+            if (current.isEmpty() || newpw.isEmpty() || confirm.isEmpty()) {
                 new AlertDialog.Builder(this).setTitle(R.string.errorTitle)
                         .setMessage(R.string.missingInput)
                         .setPositiveButton(R.string.dismiss, null)
                         .create()
                         .show();
-            }
-            else if(!current.equals(currentpw) || !newpw.equals(confirm) || currentpw.equals(newpw)) {
+            } else if (!current.equals(currentpw) || !newpw.equals(confirm) || currentpw.equals(newpw)) {
                 new AlertDialog.Builder(this).setTitle(R.string.errorTitle)
                         .setMessage(R.string.invalidInput)
                         .setPositiveButton(R.string.dismiss, null)
                         .create()
                         .show();
-            }
-            else {
+            } else {
                 new DatabaseTask().execute(new DatabaseStatement("UPDATE users SET password=? WHERE username=?",
-                        new String[] {newpw, username}));
+                        new String[]{newpw, username}));
                 setResult(RESULT_OK, new Intent().putExtra("result", getString(R.string.changePasswordSuccess)));
                 finish();
             }

@@ -1,14 +1,11 @@
 package net.johnnyconsole.cp670.project.activity;
 
 import android.app.AlertDialog;
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -16,7 +13,6 @@ import net.johnnyconsole.cp670.project.R;
 import net.johnnyconsole.cp670.project.databinding.ActivityCourseScheduleBinding;
 import net.johnnyconsole.cp670.project.fragment.CourseInformationFragment;
 import net.johnnyconsole.cp670.project.fragment.CourseListFragment;
-import net.johnnyconsole.cp670.project.objects.Course;
 
 import java.util.Objects;
 
@@ -46,16 +42,17 @@ public class CourseScheduleActivity extends AppCompatActivity {
 
     public void onSaveInstanceState(@NonNull Bundle instanceState) {
         super.onSaveInstanceState(instanceState);
-        if(fragment instanceof CourseInformationFragment) {
+        if (fragment instanceof CourseInformationFragment) {
             instanceState.putString("term", ((CourseInformationFragment) fragment).termCode);
             instanceState.putInt("crn", ((CourseInformationFragment) fragment).crn);
         }
     }
+
     @Override
     public void onRestoreInstanceState(Bundle instanceState) {
         super.onRestoreInstanceState(instanceState);
         fragment = new CourseListFragment();
-        if(instanceState.getString("term", null) != null) {
+        if (instanceState.getString("term", null) != null) {
             fragment = new CourseInformationFragment(instanceState.getString("term"),
                     instanceState.getInt("crn"), (CourseListFragment) fragment);
         }

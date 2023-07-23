@@ -42,6 +42,7 @@ public class AddCourseActivity extends AppCompatActivity {
             etDateTime;
     private Spinner spCourseTerm;
     private final ArrayList<Term> terms = new ArrayList<>();
+
     private class CourseAdapter extends ArrayAdapter<String> {
         public CourseAdapter(Context context) {
             super(context, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
@@ -82,7 +83,7 @@ public class AddCourseActivity extends AppCompatActivity {
         //Get Terms from Database - required for term spinner items
         Cursor cursor = database.rawQuery("SELECT * FROM terms;", null);
         cursor.moveToFirst();
-        while(!cursor.isAfterLast()) {
+        while (!cursor.isAfterLast()) {
             terms.add(new Term(cursor.getString(0), cursor.getString(1)));
             cursor.moveToNext();
         }
@@ -92,8 +93,8 @@ public class AddCourseActivity extends AppCompatActivity {
 
         findViewById(R.id.btAddCourse).setOnClickListener(view -> {
             if (etCRN.getText() == null || etCRN.getText().toString().isEmpty() ||
-                etCourseCode.getText() == null || etCRN.getText().toString().isEmpty() ||
-                etCourseTitle.getText() == null || etCRN.getText().toString().isEmpty()) {
+                    etCourseCode.getText() == null || etCRN.getText().toString().isEmpty() ||
+                    etCourseTitle.getText() == null || etCRN.getText().toString().isEmpty()) {
                 new AlertDialog.Builder(this).setTitle(R.string.errorTitle)
                         .setMessage(R.string.missingInput)
                         .setPositiveButton(R.string.dismiss, null)
@@ -103,9 +104,9 @@ public class AddCourseActivity extends AppCompatActivity {
             }
             String sql = "SELECT * FROM courses WHERE crn=? AND term=?;";
             Cursor crnCursor = database.rawQuery(sql,
-                    new String[] {terms.get(spCourseTerm.getSelectedItemPosition()).code, etCRN.getText().toString()});
+                    new String[]{terms.get(spCourseTerm.getSelectedItemPosition()).code, etCRN.getText().toString()});
 
-            if(!crnCursor.moveToFirst()) {
+            if (!crnCursor.moveToFirst()) {
                 String prerequisites = etPrerequisites.getText() == null ||
                         etPrerequisites.getText().toString().isEmpty() ? null :
                         etPrerequisites.getText().toString(),
@@ -133,8 +134,7 @@ public class AddCourseActivity extends AppCompatActivity {
                 setResult(RESULT_OK, new Intent().putExtra("result", getString(R.string.addCourseSuccess, etCourseCode.getText().toString(),
                         terms.get(spCourseTerm.getSelectedItemPosition()).code, etCRN.getText().toString())));
                 finish();
-            }
-            else {
+            } else {
                 new AlertDialog.Builder(this).setTitle(R.string.errorTitle)
                         .setMessage(getString(R.string.courseExists, etCRN.getText().toString(),
                                 terms.get(spCourseTerm.getSelectedItemPosition()).code))

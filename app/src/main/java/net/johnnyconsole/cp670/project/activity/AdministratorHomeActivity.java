@@ -103,8 +103,7 @@ public class AdministratorHomeActivity extends AppCompatActivity {
                     .create()
                     .show();
             return true;
-        }
-        else if(id == R.id.action_signout) {
+        } else if (id == R.id.action_signout) {
             new AlertDialog.Builder(this).setTitle(R.string.signout)
                     .setMessage(R.string.confirmSignout)
                     .setPositiveButton(R.string.exitYes, (dialog, i) -> finish())
@@ -128,13 +127,12 @@ public class AdministratorHomeActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int request, int result, Intent intent) {
-        if((request == REQUEST_NEW_TERM || request == REQUEST_NEW_STUDENT ||
+        if ((request == REQUEST_NEW_TERM || request == REQUEST_NEW_STUDENT ||
                 request == REQUEST_NEW_COURSE || request == REQUEST_CHANGE_PASSWORD ||
                 request == REQUEST_EDIT_STUDENT || request == REQUEST_EDIT_COURSE ||
                 request == REQUEST_ENTER_GRADES) && result == RESULT_OK) {
             String activityResult = intent.getStringExtra("result");
             Snackbar.make(binding.getRoot(), activityResult, Snackbar.LENGTH_LONG).show();
-        }
-        else super.onActivityResult(request, result, intent);
+        } else super.onActivityResult(request, result, intent);
     }
 }

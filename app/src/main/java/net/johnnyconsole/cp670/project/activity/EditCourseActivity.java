@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -53,6 +54,7 @@ public class EditCourseActivity extends AppCompatActivity {
     private Spinner spCourseTerm;
     private EditText etCRN, etCourseCode, etCourseTitle, etPrerequisites,
             etExclusions, etInstructor, etDayTime;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,7 +75,7 @@ public class EditCourseActivity extends AppCompatActivity {
         etDayTime = findViewById(R.id.etDayTime);
 
         Cursor c = database.rawQuery("SELECT code FROM terms;", null);
-        while(c.moveToNext()) {
+        while (c.moveToNext()) {
             terms.add(c.getString(0));
         }
         c.close();
@@ -81,16 +83,15 @@ public class EditCourseActivity extends AppCompatActivity {
 
 
         findViewById(R.id.btSearch).setOnClickListener(view -> {
-            if(etCRN.getText().toString().isEmpty()) {
+            if (etCRN.getText().toString().isEmpty()) {
                 Snackbar error = Snackbar.make(view,
                         R.string.noSearchText, Snackbar.LENGTH_INDEFINITE);
                 error.setAction(R.string.dismiss, view1 -> error.dismiss()).show();
-            }
-            else {
-                Cursor cursor = database.rawQuery("SELECT * FROM courses WHERE term=? AND crn=?", new String[] {
-                        ((TermAdapter)(spCourseTerm.getAdapter())).getItem(spCourseTerm.getSelectedItemPosition()),
+            } else {
+                Cursor cursor = database.rawQuery("SELECT * FROM courses WHERE term=? AND crn=?", new String[]{
+                        ((TermAdapter) (spCourseTerm.getAdapter())).getItem(spCourseTerm.getSelectedItemPosition()),
                         etCRN.getText().toString()});
-                if(cursor.moveToFirst()) {
+                if (cursor.moveToFirst()) {
                     spCourseTerm.setEnabled(false);
                     etCRN.setEnabled(false);
                     etCourseTitle.setText(cursor.getString(2));
@@ -100,8 +101,7 @@ public class EditCourseActivity extends AppCompatActivity {
                     etInstructor.setText(cursor.getString(6));
                     etDayTime.setText(cursor.getString(7));
                     findViewById(R.id.llWrapper).setVisibility(View.VISIBLE);
-                }
-                else {
+                } else {
                     Snackbar error = Snackbar.make(view,
                             R.string.noCourse, Snackbar.LENGTH_INDEFINITE);
                     error.setAction(R.string.dismiss, view1 -> error.dismiss()).show();
@@ -111,7 +111,7 @@ public class EditCourseActivity extends AppCompatActivity {
         });
 
         findViewById(R.id.btSaveChanges).setOnClickListener(view -> {
-            if(etCourseCode.getText().toString().isEmpty() || etCourseTitle.getText().toString().isEmpty()) {
+            if (etCourseCode.getText().toString().isEmpty() || etCourseTitle.getText().toString().isEmpty()) {
                 new AlertDialog.Builder(this).setTitle(R.string.errorTitle)
                         .setMessage(R.string.missingInput)
                         .setPositiveButton(R.string.dismiss, null)
@@ -128,7 +128,7 @@ public class EditCourseActivity extends AppCompatActivity {
                             etExclusions.getText().toString(),
                             etInstructor.getText().toString(),
                             etDayTime.getText().toString(),
-                            ((TermAdapter)(spCourseTerm.getAdapter())).getItem(spCourseTerm.getSelectedItemPosition()),
+                            ((TermAdapter) (spCourseTerm.getAdapter())).getItem(spCourseTerm.getSelectedItemPosition()),
                             etCRN.getText().toString()
                     }));
             setResult(RESULT_OK, new Intent().putExtra("result", getString(R.string.courseModified)));
@@ -139,14 +139,14 @@ public class EditCourseActivity extends AppCompatActivity {
                 new AlertDialog.Builder(this).setTitle(R.string.deleteUser)
                         .setMessage(R.string.confirmDeleteCourse)
                         .setPositiveButton(R.string.exitYes, (dialog, i) -> {
-                                new DatabaseTask().execute(new DatabaseStatement("DELETE FROM courses WHERE term=? AND crn=?",
-                                        new String[] {
-                                                ((TermAdapter)(spCourseTerm.getAdapter())).getItem(spCourseTerm.getSelectedItemPosition()),
-                                                etCRN.getText().toString()
-                                                }));
-                                setResult(RESULT_OK, new Intent().putExtra("result", getString(R.string.courseDeleted, etCRN.getText().toString(),
-                                        ((TermAdapter)(spCourseTerm.getAdapter())).getItem(spCourseTerm.getSelectedItemPosition()))));
-                                finish();
+                            new DatabaseTask().execute(new DatabaseStatement("DELETE FROM courses WHERE term=? AND crn=?",
+                                    new String[]{
+                                            ((TermAdapter) (spCourseTerm.getAdapter())).getItem(spCourseTerm.getSelectedItemPosition()),
+                                            etCRN.getText().toString()
+                                    }));
+                            setResult(RESULT_OK, new Intent().putExtra("result", getString(R.string.courseDeleted, etCRN.getText().toString(),
+                                    ((TermAdapter) (spCourseTerm.getAdapter())).getItem(spCourseTerm.getSelectedItemPosition()))));
+                            finish();
                         })
                         .setNegativeButton(R.string.exitNo, null)
                         .create()

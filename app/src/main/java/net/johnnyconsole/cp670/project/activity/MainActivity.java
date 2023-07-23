@@ -101,11 +101,11 @@ public class MainActivity extends AppCompatActivity {
         //This file defines the tables and some initial data for the database
         Scanner sqlFile = new Scanner(getResources().openRawResource(R.raw.database));
         //While there are statements to read, read and execute them
-        while(sqlFile.hasNextLine()) {
+        while (sqlFile.hasNextLine()) {
             StringBuilder line = new StringBuilder(sqlFile.nextLine());
             //Because SQL Statements can be done over multiple lines, until a semicolon is found,
             //keep reading the current statement before executing it
-            while(sqlFile.hasNextLine() && !line.toString().contains(";")) {
+            while (sqlFile.hasNextLine() && !line.toString().contains(";")) {
                 line.append(sqlFile.nextLine());
             }
             db.execSQL(line.toString());

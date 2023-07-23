@@ -1,5 +1,7 @@
 package net.johnnyconsole.cp670.project.activity;
 
+import static net.johnnyconsole.cp670.project.helper.ApplicationSession.database;
+
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.database.Cursor;
@@ -15,8 +17,6 @@ import net.johnnyconsole.cp670.project.R;
 import net.johnnyconsole.cp670.project.databinding.ActivityAddUserBinding;
 import net.johnnyconsole.cp670.project.helper.DatabaseStatement;
 import net.johnnyconsole.cp670.project.helper.DatabaseTask;
-
-import static net.johnnyconsole.cp670.project.helper.ApplicationSession.database;
 
 import java.util.Objects;
 
@@ -62,17 +62,16 @@ public class AddUserActivity extends AppCompatActivity {
                 return;
             }
             Cursor cursor = database.rawQuery("SELECT * FROM users WHERE username=?;",
-                    new String[] {etUsername.getText().toString()});
+                    new String[]{etUsername.getText().toString()});
 
-            if(!cursor.moveToFirst()) {
+            if (!cursor.moveToFirst()) {
                 new DatabaseTask().execute(new DatabaseStatement("INSERT INTO users (username, first, last, userType, password) VALUES (?,?,?,?,?)",
                         new String[]{etUsername.getText().toString().toLowerCase(), etFirstName.getText().toString(),
                                 etLastName.getText().toString(), rbUserStudent.isChecked() ? "student" : "admin",
                                 etPassword.getText().toString()}));
                 setResult(RESULT_OK, new Intent().putExtra("result", getString(R.string.addUserSuccess, etUsername.getText().toString())));
                 finish();
-            }
-            else {
+            } else {
                 new AlertDialog.Builder(this).setTitle(R.string.errorTitle)
                         .setMessage(getString(R.string.userExists, etUsername.getText().toString()))
                         .setPositiveButton(R.string.dismiss, null)

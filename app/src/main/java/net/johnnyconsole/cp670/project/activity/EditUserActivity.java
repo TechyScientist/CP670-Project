@@ -11,14 +11,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.RadioButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
 
 import net.johnnyconsole.cp670.project.R;
-import net.johnnyconsole.cp670.project.databinding.ActivityAddUserBinding;
 import net.johnnyconsole.cp670.project.databinding.ActivityEditUserBinding;
 import net.johnnyconsole.cp670.project.helper.DatabaseStatement;
 import net.johnnyconsole.cp670.project.helper.DatabaseTask;
@@ -35,6 +33,7 @@ import java.util.Objects;
 public class EditUserActivity extends AppCompatActivity {
 
     private EditText etUsername, etFirstName, etLastName, etPassword;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,28 +50,25 @@ public class EditUserActivity extends AppCompatActivity {
         etPassword = findViewById(R.id.etPassword);
 
         findViewById(R.id.btSearch).setOnClickListener(view -> {
-            if(etUsername.getText().toString().isEmpty()) {
+            if (etUsername.getText().toString().isEmpty()) {
                 Snackbar error = Snackbar.make(view,
                         R.string.noSearchText, Snackbar.LENGTH_INDEFINITE);
                 error.setAction(R.string.dismiss, view1 -> error.dismiss()).show();
-            }
-            else if(etUsername.getText().toString().equals(username)) {
+            } else if (etUsername.getText().toString().equals(username)) {
                 new AlertDialog.Builder(this).setTitle(R.string.errorTitle)
                         .setMessage(R.string.invalidInput)
                         .setPositiveButton(R.string.dismiss, null)
                         .create()
                         .show();
-            }
-            else {
-                Cursor cursor = database.rawQuery("SELECT * FROM users WHERE username=?", new String[] {etUsername.getText().toString()});
-                if(cursor.moveToFirst()) {
+            } else {
+                Cursor cursor = database.rawQuery("SELECT * FROM users WHERE username=?", new String[]{etUsername.getText().toString()});
+                if (cursor.moveToFirst()) {
                     etUsername.setEnabled(false);
                     etLastName.setText(cursor.getString(1));
                     etFirstName.setText(cursor.getString(2));
                     etPassword.setText(cursor.getString(4));
                     findViewById(R.id.llWrapper).setVisibility(View.VISIBLE);
-                }
-                else {
+                } else {
                     Snackbar error = Snackbar.make(view,
                             R.string.noStudent, Snackbar.LENGTH_INDEFINITE);
                     error.setAction(R.string.dismiss, view1 -> error.dismiss()).show();
@@ -82,8 +78,8 @@ public class EditUserActivity extends AppCompatActivity {
         });
 
         findViewById(R.id.btSaveChanges).setOnClickListener(view -> {
-            if(etFirstName.getText().toString().isEmpty() || etLastName.getText().toString().isEmpty() ||
-            etPassword.getText().toString().isEmpty()) {
+            if (etFirstName.getText().toString().isEmpty() || etLastName.getText().toString().isEmpty() ||
+                    etPassword.getText().toString().isEmpty()) {
                 new AlertDialog.Builder(this).setTitle(R.string.errorTitle)
                         .setMessage(R.string.missingInput)
                         .setPositiveButton(R.string.dismiss, null)
@@ -106,9 +102,9 @@ public class EditUserActivity extends AppCompatActivity {
                 new AlertDialog.Builder(this).setTitle(R.string.deleteUser)
                         .setMessage(R.string.confirmDeleteUser)
                         .setPositiveButton(R.string.exitYes, (dialog, i) -> {
-                                new DatabaseTask().execute(new DatabaseStatement("DELETE FROM users WHERE username=?", new String[]{etUsername.getText().toString()}));
-                                setResult(RESULT_OK, new Intent().putExtra("result", getString(R.string.userDeleted, etUsername.getText().toString())));
-                                finish();
+                            new DatabaseTask().execute(new DatabaseStatement("DELETE FROM users WHERE username=?", new String[]{etUsername.getText().toString()}));
+                            setResult(RESULT_OK, new Intent().putExtra("result", getString(R.string.userDeleted, etUsername.getText().toString())));
+                            finish();
                         })
                         .setNegativeButton(R.string.exitNo, null)
                         .create()

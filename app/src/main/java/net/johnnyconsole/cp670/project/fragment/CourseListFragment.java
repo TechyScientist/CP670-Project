@@ -80,7 +80,7 @@ public class CourseListFragment extends Fragment {
         //Get Terms from Database - required for term spinner items
         Cursor cursor = database.rawQuery("SELECT * FROM terms;", null);
         cursor.moveToFirst();
-        while(!cursor.isAfterLast()) {
+        while (!cursor.isAfterLast()) {
             terms.add(new Term(cursor.getString(0), cursor.getString(1)));
             cursor.moveToNext();
         }
@@ -91,16 +91,16 @@ public class CourseListFragment extends Fragment {
         lvCourses.setAdapter(adapter);
 
         lvCourses.setOnItemClickListener((parent, v, position, id) ->
-          requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fvFragment,
-                  new CourseInformationFragment(terms.get(spSearchTerm.getSelectedItemPosition()).code
-                          , courses.get(position).crn, this)).commitNow()
+                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fvFragment,
+                        new CourseInformationFragment(terms.get(spSearchTerm.getSelectedItemPosition()).code
+                                , courses.get(position).crn, this)).commitNow()
         );
 
         view.findViewById(R.id.btSearch).setOnClickListener(v -> {
             String searchValue = etSearchText.getText().toString(),
                     termValue = terms.get(spSearchTerm.getSelectedItemPosition()).code;
             int searchField = spSearchField.getSelectedItemPosition();
-            if(!searchValue.isEmpty()) {
+            if (!searchValue.isEmpty()) {
                 String sql = "SELECT * FROM courses WHERE term=\"" + termValue + "\" ";
                 switch (searchField) {
                     case 0:
@@ -130,8 +130,7 @@ public class CourseListFragment extends Fragment {
                         courses.add(new Course(courseList.getInt(0), courseList.getString(2), courseList.getString(3)));
                         courseList.moveToNext();
                     }
-                }
-                else {
+                } else {
                     Snackbar error = Snackbar.make(view,
                             R.string.noCourse, Snackbar.LENGTH_INDEFINITE);
 

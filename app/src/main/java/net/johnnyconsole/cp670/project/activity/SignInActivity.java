@@ -82,17 +82,16 @@ public class SignInActivity extends AppCompatActivity {
                 password = etPassword.getText().toString();
 
         //If the username or password are empty, show an error dialog
-        if(user.isEmpty() || password.isEmpty()) {
+        if (user.isEmpty() || password.isEmpty()) {
             showErrorDialog();
-        }
-        else {
+        } else {
             //Check the database for the entered username
-            Cursor c = database.rawQuery("SELECT * FROM users WHERE username=?;", new String[] {user});
+            Cursor c = database.rawQuery("SELECT * FROM users WHERE username=?;", new String[]{user});
 
             //If there is a row, check the password.
-            if(c.moveToFirst()) {
+            if (c.moveToFirst()) {
                 //If the password matches, set up the session variables in ApplicationSession
-                if(password.equals(c.getString(4))) {
+                if (password.equals(c.getString(4))) {
                     username = user;
                     first = c.getString(2);
                     last = c.getString(1);
@@ -104,7 +103,7 @@ public class SignInActivity extends AppCompatActivity {
                     etPassword.getText().clear();
 
                     //If the user is a student, show the student home page
-                    if(userType.equals("student")) {
+                    if (userType.equals("student")) {
                         startActivity(new Intent(this, StudentHomeActivity.class));
                     }
                     //Otherwise, we know that the user must be an administrator, so show the

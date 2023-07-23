@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -61,7 +60,7 @@ public class StudentHomeActivity extends AppCompatActivity {
                 startActivity(new Intent(this, DegreeProgressActivity.class))
         );*/
 
-         findViewById(R.id.btChangePw).setOnClickListener(view ->
+        findViewById(R.id.btChangePw).setOnClickListener(view ->
                 startActivityForResult(new Intent(this, ChangePasswordActivity.class),
                         REQUEST_CHANGE_PASSWORD)
         );
@@ -85,8 +84,7 @@ public class StudentHomeActivity extends AppCompatActivity {
                     .create()
                     .show();
             return true;
-        }
-        else if(id == R.id.action_signout) {
+        } else if (id == R.id.action_signout) {
             new AlertDialog.Builder(this).setTitle(R.string.signout)
                     .setMessage(R.string.confirmSignout)
                     .setPositiveButton(R.string.exitYes, (dialog, i) -> finish())
@@ -110,7 +108,7 @@ public class StudentHomeActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        if(requestCode == REQUEST_CHANGE_PASSWORD && resultCode == RESULT_OK) {
+        if (requestCode == REQUEST_CHANGE_PASSWORD && resultCode == RESULT_OK) {
             String activityResult = intent.getStringExtra("result");
             Snackbar.make(binding.getRoot(), activityResult, Snackbar.LENGTH_LONG).show();
         }

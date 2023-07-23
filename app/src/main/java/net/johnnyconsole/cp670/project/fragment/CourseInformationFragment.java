@@ -78,13 +78,13 @@ public class CourseInformationFragment extends Fragment {
         layout.addView(tv);
 
         tv = new TextView(container.getContext());
-        tv.setText(getString(R.string.exclusions, exclusions == null  || exclusions .isEmpty() ? getString(R.string.none) : exclusions));
+        tv.setText(getString(R.string.exclusions, exclusions == null || exclusions.isEmpty() ? getString(R.string.none) : exclusions));
         tv.setTextColor(getResources().getColor(R.color.darkPurple, null));
         tv.setLayoutParams(params);
         layout.addView(tv);
 
         tv = new TextView(container.getContext());
-        tv.setText(getString(R.string.instructor, instructor == null  || instructor.isEmpty() ? getString(R.string.none) : instructor));
+        tv.setText(getString(R.string.instructor, instructor == null || instructor.isEmpty() ? getString(R.string.none) : instructor));
         tv.setTextColor(getResources().getColor(R.color.darkPurple, null));
         tv.setLayoutParams(params);
         layout.addView(tv);
