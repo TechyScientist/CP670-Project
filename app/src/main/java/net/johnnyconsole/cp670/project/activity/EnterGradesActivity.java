@@ -164,8 +164,11 @@ public class EnterGradesActivity extends AppCompatActivity {
         });
 
         findViewById(R.id.btSaveChanges).setOnClickListener(view -> {
-
-            setResult(RESULT_OK, new Intent().putExtra("result", getString(R.string.courseModified)));
+            for(Student s: students) {
+                new DatabaseTask().execute(new DatabaseStatement("UPDATE registrations SET grade=? WHERE student=? AND term=? AND crn=?;",
+                        new String[]{s.grade, s.username, term, CRN}));
+            }
+            setResult(RESULT_OK, new Intent().putExtra("result", getString(R.string.gradesModified)));
             finish();
         });
     }
