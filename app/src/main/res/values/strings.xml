@@ -117,6 +117,7 @@
     <string name="gradeStudent">Student: %1$s, %2$s (%3$s)</string>
     <string name="studentGradeListItem">%1$s, %2$s (%3$s) [%4$s]</string>
     <string-array name="grades">
+        <item>--</item>
         <item>A+</item>
         <item>A</item>
         <item>A-</item>
