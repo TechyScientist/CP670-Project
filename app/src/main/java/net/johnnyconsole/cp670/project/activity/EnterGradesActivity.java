@@ -4,16 +4,19 @@ import static net.johnnyconsole.cp670.project.helper.ApplicationSession.database
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -106,9 +109,10 @@ public class EnterGradesActivity extends AppCompatActivity {
                         R.string.noSearchText, Snackbar.LENGTH_INDEFINITE);
                 error.setAction(R.string.dismiss, view1 -> error.dismiss()).show();
             } else {
+                students.clear();
                 term = ((TermAdapter) (spCourseTerm.getAdapter())).getItem(spCourseTerm.getSelectedItemPosition());
                 CRN = etCRN.getText().toString();
-                Cursor cursor = database.rawQuery("SELECT title FROM courses WHERE term=? AND crn=?", new String[]{
+                Cursor cursor = database.rawQuery("SELECT code FROM courses WHERE term=? AND crn=?", new String[]{
                         term, CRN});
                 if (cursor.moveToFirst()) {
                     code = cursor.getString(0);
@@ -137,6 +141,24 @@ public class EnterGradesActivity extends AppCompatActivity {
                 }
                 cursor.close();
             }
+        });
+
+        lvStudentList.setOnItemClickListener((adapterView, view, position, id) -> {
+            Student s = students.get(position);
+            View gradeView = View.inflate(view.getContext(), R.layout.grade_dialog, null);
+            ((TextView) gradeView.findViewById(R.id.tvCourse)).setText(getString(R.string.gradeCourse, code, term, CRN));
+            ((TextView) gradeView.findViewById(R.id.tvStudent)).setText(getString(R.string.gradeStudent, s.lastName, s.firstName, s.username));
+
+            new AlertDialog.Builder(view.getContext())
+                    .setTitle(R.string.enterGrades)
+                    .setView(gradeView)
+                    .setPositiveButton(R.string.saveChanges, (dialog, i) -> {
+                        s.grade = (String)(((Spinner)gradeView.findViewById(R.id.spGrade)).getSelectedItem());
+                        adapter.notifyDataSetChanged();
+                    })
+                    .setNegativeButton(R.string.dismiss, null)
+                    .create()
+                    .show();
         });
 
         findViewById(R.id.btSaveChanges).setOnClickListener(view -> {
