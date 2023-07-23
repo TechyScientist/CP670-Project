@@ -114,4 +114,7 @@
     <string name="confirmDeleteCourse">Êtes-vous sûr de vouloir supprimer ce cours?</string>
     <string name="courseModified">Cours Modifié</string>
     <string name="courseDeleted">NRC %1$s dans %2$s Supprimé</string>
+    <string name="gradeCourse">Code de Cours: %1$s %2$s (NRC: %3$s)</string>
+    <string name="gradeStudent">Étudiant: %1$s (Nom de Utilisateur: %2$s)</string>
+    <string name="grade">Choissisez le Note:</string>
 </resources>

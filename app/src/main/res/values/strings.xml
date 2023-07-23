@@ -113,4 +113,36 @@
     <string name="confirmDeleteCourse">Are you sure you want to delete this course?</string>
     <string name="courseModified">Course Modified</string>
     <string name="courseDeleted">CRN %1$s in %2$s deleted</string>
+    <string name="gradeCourse">Course Code: %1$s %2$s (CRN: %3$s)</string>
+    <string name="gradeStudent">Student: %1$s (Username: %2$s)</string>
+    <string-array name="grades">
+        <item>A+</item>
+        <item>A</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B</item>
+        <item>B-</item>
+        <item>C+</item>
+        <item>C</item>
+        <item>C-</item>
+        <item>D+</item>
+        <item>D</item>
+        <item>D-</item>
+        <item>F</item>
+        <item>CR</item>
+        <item>XA+</item>
+        <item>XA</item>
+        <item>XA-</item>
+        <item>XB+</item>
+        <item>XB</item>
+        <item>XB-</item>
+        <item>XC+</item>
+        <item>XC</item>
+        <item>XC-</item>
+        <item>XD+</item>
+        <item>XD</item>
+        <item>XD-</item>
+        <item>XF</item>
+    </string-array>
+    <string name="grade">Select Grade:</string>
 </resources>
