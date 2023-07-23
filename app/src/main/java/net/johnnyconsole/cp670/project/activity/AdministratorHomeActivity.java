@@ -28,13 +28,13 @@ import java.util.Objects;
 public class AdministratorHomeActivity extends AppCompatActivity {
     private ActivityAdministratorHomeBinding binding;
 
-    private final int REQUEST_NEW_TERM = 100;
-    private final int REQUEST_NEW_STUDENT = 110;
-    private final int REQUEST_NEW_COURSE = 120;
-
-    private final int REQUEST_EDIT_STUDENT = 130;
-    private final int REQUEST_EDIT_COURSE = 140;
-    private final int REQUEST_CHANGE_PASSWORD = 200;
+    private final int REQUEST_NEW_TERM = 100,
+            REQUEST_NEW_STUDENT = 110,
+            REQUEST_NEW_COURSE = 120,
+            REQUEST_EDIT_STUDENT = 130,
+            REQUEST_EDIT_COURSE = 140,
+            REQUEST_ENTER_GRADES = 150,
+            REQUEST_CHANGE_PASSWORD = 200;
 
 
     @Override
@@ -75,7 +75,9 @@ public class AdministratorHomeActivity extends AppCompatActivity {
                         REQUEST_EDIT_COURSE)
         );
 
-        //TODO: Enter Grades/Grading Guidelines
+        findViewById(R.id.btGrades).setOnClickListener(view ->
+                startActivityForResult(new Intent(this, EnterGradesActivity.class),
+                        REQUEST_ENTER_GRADES));
 
         findViewById(R.id.btChangePw).setOnClickListener(view ->
                 startActivityForResult(new Intent(this, ChangePasswordActivity.class),
@@ -128,8 +130,8 @@ public class AdministratorHomeActivity extends AppCompatActivity {
     protected void onActivityResult(int request, int result, Intent intent) {
         if((request == REQUEST_NEW_TERM || request == REQUEST_NEW_STUDENT ||
                 request == REQUEST_NEW_COURSE || request == REQUEST_CHANGE_PASSWORD ||
-                request == REQUEST_EDIT_STUDENT || request == REQUEST_EDIT_COURSE)
-                && result == RESULT_OK) {
+                request == REQUEST_EDIT_STUDENT || request == REQUEST_EDIT_COURSE ||
+                request == REQUEST_ENTER_GRADES) && result == RESULT_OK) {
             String activityResult = intent.getStringExtra("result");
             Snackbar.make(binding.getRoot(), activityResult, Snackbar.LENGTH_LONG).show();
         }
