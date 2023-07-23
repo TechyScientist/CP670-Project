@@ -114,7 +114,8 @@
     <string name="courseModified">Course Modified</string>
     <string name="courseDeleted">CRN %1$s in %2$s deleted</string>
     <string name="gradeCourse">Course Code: %1$s %2$s (CRN: %3$s)</string>
-    <string name="gradeStudent">Student: %1$s (Username: %2$s)</string>
+    <string name="gradeStudent">Student: %1$s, %2$s (%3$s)</string>
+    <string name="studentGradeListItem">%1$s, %2$s (%3$s) [%4$s]</string>
     <string-array name="grades">
         <item>A+</item>
         <item>A</item>
@@ -145,4 +146,5 @@
         <item>XF</item>
     </string-array>
     <string name="grade">Select Grade:</string>
+    <string name="enterGradesInfo" />
 </resources>
