@@ -75,6 +75,8 @@ public class AdministratorHomeActivity extends AppCompatActivity {
                         REQUEST_EDIT_COURSE)
         );
 
+        //TODO: Enter Grades/Grading Guidelines
+
         findViewById(R.id.btChangePw).setOnClickListener(view ->
                 startActivityForResult(new Intent(this, ChangePasswordActivity.class),
                         REQUEST_CHANGE_PASSWORD)

@@ -45,15 +45,18 @@ public class StudentHomeActivity extends AppCompatActivity {
                 startActivity(new Intent(this, CourseScheduleActivity.class))
         );
 
+        //TODO: Register for Courses
         /*
          findViewById(R.id.btRegistration).setOnClickListener(view ->
                 startActivity(new Intent(this, RegistrationChangeActivity.class))
         );
 
+        //TODO: View Grades
          findViewById(R.id.btGrades).setOnClickListener(view ->
                 startActivity(new Intent(this, ViewGradesActivity.class))
         );
 
+        //TODO: Degree Progress
          findViewById(R.id.btProgress).setOnClickListener(view ->
                 startActivity(new Intent(this, DegreeProgressActivity.class))
         );*/
