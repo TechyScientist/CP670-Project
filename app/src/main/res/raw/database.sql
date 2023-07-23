@@ -24,21 +24,11 @@ CREATE TABLE IF NOT EXISTS users (
 	password TEXT NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS grades (
-	crn INT NOT NULL,
-	term TEXT NOT NULL,
-	student TEXT NOT NULL,
-	PRIMARY KEY(crn, term, student),
-	FOREIGN KEY(crn) REFERENCES courses(crn),
-	FOREIGN KEY(term) REFERENCES terms(code),
-	FOREIGN KEY(student) REFERENCES users(username)
-);
-
 CREATE TABLE IF NOT EXISTS registrations (
 	crn INT NOT NULL,
 	term TEXT NOT NULL,
 	student TEXT NOT NULL,
-	status TEXT,
+	grade TEXT,
 	PRIMARY KEY(crn, term, student),
 	FOREIGN KEY(crn) REFERENCES courses(crn),
 	FOREIGN KEY(term) REFERENCES terms(code),
