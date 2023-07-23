@@ -149,4 +149,5 @@
     <string name="grade">Select Grade:</string>
     <string name="enterGradesInfo">Select a term code and enter a CRN to view students registered in that course. Select a student to change their grade. Remember to click the save button before exiting!</string>
     <string name="gradesModified">Grades Saved.</string>
+    <string name="adminHomeInfo">Choose a button to navigate to the corresponding screen</string>
 </resources>

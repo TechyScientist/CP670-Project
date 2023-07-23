@@ -97,8 +97,8 @@ public class AdministratorHomeActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.action_help) {
             new AlertDialog.Builder(this)
-                    .setTitle(getString(R.string.helpTitle, getString(R.string.schedule)))
-                    .setMessage(getString(R.string.helpMessage, getString(R.string.schedule), getString(R.string.scheduleInfo)))
+                    .setTitle(getString(R.string.helpTitle, getString(R.string.adminHome)))
+                    .setMessage(getString(R.string.helpMessage, getString(R.string.adminHome), getString(R.string.adminHomeInfo)))
                     .setPositiveButton(R.string.dismiss, null)
                     .create()
                     .show();
