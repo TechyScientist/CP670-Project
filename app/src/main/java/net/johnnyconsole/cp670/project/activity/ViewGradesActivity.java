@@ -42,7 +42,7 @@ public class ViewGradesActivity extends AppCompatActivity {
 
     private ListView lvGradesList;
     private TextView tvCoursesAttempted, tvCoursesPassed, tvPercentComplete;
-    private ProgressBar pbDegreeProgress;
+    private ProgressBar pbProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +53,12 @@ public class ViewGradesActivity extends AppCompatActivity {
 
         setSupportActionBar(binding.toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.grades);
+
+        lvGradesList = findViewById(R.id.lvGradesList);
+        tvCoursesAttempted = findViewById(R.id.tvCoursesAttempted);
+        tvCoursesPassed = findViewById(R.id.tvCoursesPassed);
+        tvPercentComplete = findViewById(R.id.tvPercentComplete);
+        pbProgress = findViewById(R.id.pbProgress);
 
     }
 
