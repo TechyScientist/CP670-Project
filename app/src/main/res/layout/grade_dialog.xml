@@ -10,29 +10,33 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:id="@+id/tvCourse"
-        android:textColor="@color/darkPurple"/>
+        android:textColor="@color/darkPurple" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:id="@+id/tvStudent"
-        android:textColor="@color/darkPurple"/>
+        android:textColor="@color/darkPurple" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/grade"
-            android:textColor="@color/darkPurple"/>
+            android:textColor="@color/darkPurple" />
+
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:entries="@array/grades"
             android:id="@+id/spGrade"
-            android:layout_marginStart="10dp"/>
+            android:layout_marginStart="10dp" />
     </LinearLayout>
 </LinearLayout>

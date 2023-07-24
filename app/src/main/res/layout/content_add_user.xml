@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/usernameLabel"
-            android:textColor="@color/darkPurple"/>
+            android:textColor="@color/darkPurple" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -26,7 +26,7 @@
             android:ems="13"
             android:inputType="text"
             android:hint="@string/usernameHint"
-            android:autofillHints="no"/>
+            android:autofillHints="no" />
 
     </LinearLayout>
 
@@ -42,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/firstNameLabel"
-            android:textColor="@color/darkPurple"/>
+            android:textColor="@color/darkPurple" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
             android:ems="13"
             android:inputType="text"
             android:hint="@string/firstName"
-            android:autofillHints="no"/>
+            android:autofillHints="no" />
     </LinearLayout>
 
     <LinearLayout
@@ -66,7 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/lastNameLabel"
-            android:textColor="@color/darkPurple"/>
+            android:textColor="@color/darkPurple" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -75,7 +75,7 @@
             android:ems="13"
             android:inputType="text"
             android:hint="@string/lastName"
-            android:autofillHints="no"/>
+            android:autofillHints="no" />
     </LinearLayout>
 
     <LinearLayout
@@ -91,7 +91,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/userType"
-            android:textColor="@color/darkPurple"/>
+            android:textColor="@color/darkPurple" />
 
         <RadioGroup
             android:layout_width="wrap_content"
@@ -103,14 +103,14 @@
                 android:text="@string/userStudent"
                 android:checked="true"
                 android:id="@+id/rbUserStudent"
-                android:buttonTint="@color/darkPurple"/>
+                android:buttonTint="@color/darkPurple" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/userAdmin"
                 android:id="@+id/rbUserAdmin"
-                android:buttonTint="@color/darkPurple"/>
+                android:buttonTint="@color/darkPurple" />
         </RadioGroup>
 
     </LinearLayout>
@@ -127,7 +127,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/passwordLabel"
-            android:textColor="@color/darkPurple"/>
+            android:textColor="@color/darkPurple" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -136,7 +136,7 @@
             android:ems="13"
             android:inputType="textPassword"
             android:hint="@string/passwordHint"
-            android:autofillHints="no"/>
+            android:autofillHints="no" />
     </LinearLayout>
 
     <Button
@@ -149,5 +149,5 @@
         android:textColor="@color/lightPurple"
         android:textAllCaps="false"
         app:layout_constraintTop_toBottomOf="@id/llPassword"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        app:layout_constraintLeft_toLeftOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -45,12 +45,12 @@ public class StudentHomeActivity extends AppCompatActivity {
                 startActivity(new Intent(this, CourseScheduleActivity.class))
         );
 
-         findViewById(R.id.btRegistration).setOnClickListener(view ->
+        findViewById(R.id.btRegistration).setOnClickListener(view ->
                 startActivityForResult(new Intent(this, RegisterActivity.class),
                         REQUEST_REGISTER_COURSES)
         );
 
-         findViewById(R.id.btGrades).setOnClickListener(view ->
+        findViewById(R.id.btGrades).setOnClickListener(view ->
                 startActivity(new Intent(this, ViewGradesActivity.class))
         );
 

@@ -11,7 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/usernameLabel"
-        android:textColor="@color/lightPurple"/>
+        android:textColor="@color/lightPurple" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="48dp"
@@ -21,13 +22,14 @@
         android:hint="@string/usernameHint"
         android:ems="15"
         android:autofillHints="none"
-        android:layout_marginBottom="15dp"/>
+        android:layout_marginBottom="15dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/passwordLabel"
         android:textColor="@color/lightPurple" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="48dp"
@@ -38,7 +40,7 @@
         android:ems="15"
         android:autofillHints="none"
         android:layout_marginBottom="30dp"
-        android:importantForAccessibility="no"/>
+        android:importantForAccessibility="no" />
 
     <Button
         android:layout_width="match_parent"
@@ -47,6 +49,6 @@
         android:background="@color/transparent"
         android:textColor="@color/lightPurple"
         android:textAllCaps="false"
-        android:onClick="onSignInClicked"/>
+        android:onClick="onSignInClicked" />
 
 </LinearLayout>

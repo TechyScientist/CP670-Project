@@ -16,7 +16,8 @@
         android:background="@color/transparent"
         android:textColor="@color/lightPurple"
         android:textAllCaps="false"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp" />
+
     <Button
         android:id="@+id/btNewTerm"
         android:layout_width="200dp"
@@ -26,7 +27,8 @@
         android:background="@color/transparent"
         android:textColor="@color/lightPurple"
         android:textAllCaps="false"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp" />
+
     <Button
         android:id="@+id/btNewStudent"
         android:layout_width="200dp"
@@ -36,7 +38,8 @@
         android:background="@color/transparent"
         android:textColor="@color/lightPurple"
         android:textAllCaps="false"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp" />
+
     <Button
         android:id="@+id/btEditStudent"
         android:layout_width="200dp"
@@ -46,7 +49,8 @@
         android:background="@color/transparent"
         android:textColor="@color/lightPurple"
         android:textAllCaps="false"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp" />
+
     <Button
         android:id="@+id/btNewCourse"
         android:layout_width="200dp"
@@ -56,7 +60,8 @@
         android:background="@color/transparent"
         android:textColor="@color/lightPurple"
         android:textAllCaps="false"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp" />
+
     <Button
         android:id="@+id/btEditCourse"
         android:layout_width="200dp"
@@ -66,7 +71,8 @@
         android:background="@color/transparent"
         android:textColor="@color/lightPurple"
         android:textAllCaps="false"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp" />
+
     <Button
         android:id="@+id/btGrades"
         android:layout_width="200dp"
@@ -76,7 +82,8 @@
         android:background="@color/transparent"
         android:textColor="@color/lightPurple"
         android:textAllCaps="false"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp" />
+
     <Button
         android:id="@+id/btChangePw"
         android:layout_width="200dp"
@@ -86,5 +93,5 @@
         android:background="@color/transparent"
         android:textColor="@color/lightPurple"
         android:textAllCaps="false"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp" />
 </GridLayout>

@@ -54,6 +54,7 @@ public class ViewGradesActivity extends AppCompatActivity {
             return c.code + " " + c.term + ": " + c.title + (c.grade != null && !c.grade.equals("--") ? " (" + c.grade + ")" : "");
         }
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,8 +71,8 @@ public class ViewGradesActivity extends AppCompatActivity {
         tvPercentComplete = findViewById(R.id.tvPercentComplete);
         pbProgress = findViewById(R.id.pbProgress);
 
-        Cursor cursor = database.rawQuery("SELECT registrations.*, courses.code, courses.title FROM registrations JOIN courses ON registrations.term = courses.term AND registrations.crn = courses.crn WHERE registrations.student=? ORDER BY registrations.grade DESC, registrations.term DESC", new String[] {username});
-        while(cursor.moveToNext()) {
+        Cursor cursor = database.rawQuery("SELECT registrations.*, courses.code, courses.title FROM registrations JOIN courses ON registrations.term = courses.term AND registrations.crn = courses.crn WHERE registrations.student=? ORDER BY registrations.grade DESC, registrations.term DESC", new String[]{username});
+        while (cursor.moveToNext()) {
             int crn = cursor.getInt(0);
             String term = cursor.getString(1),
                     grade = cursor.getString(3),
@@ -82,15 +83,15 @@ public class ViewGradesActivity extends AppCompatActivity {
             c.term = term;
             registrations.add(c);
 
-            if(isPassingGrade(c.grade)) {
+            if (isPassingGrade(c.grade)) {
                 completed++;
             }
         }
         percent = (completed / registrations.size()) * 100.0;
-        pbProgress.setProgress((int)percent);
+        pbProgress.setProgress((int) percent);
 
         tvCoursesAttempted.setText(registrations.size() + "");
-        tvCoursesPassed.setText(((int)completed) + "");
+        tvCoursesPassed.setText(((int) completed) + "");
         tvPercentComplete.setText(getString(R.string.percentComplete, percent, '%'));
         lvGradesList.setAdapter(new GradesListAdapter(this));
 
@@ -119,8 +120,8 @@ public class ViewGradesActivity extends AppCompatActivity {
     }
 
     private boolean isPassingGrade(String grade) {
-        if(grade == null) return false;
-        switch(grade) {
+        if (grade == null) return false;
+        switch (grade) {
             case "F":
             case "XF":
             case "--":

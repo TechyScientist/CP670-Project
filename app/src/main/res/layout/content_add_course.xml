@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/crnLabel"
-            android:textColor="@color/darkPurple"/>
+            android:textColor="@color/darkPurple" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -26,7 +26,7 @@
             android:ems="13"
             android:inputType="number"
             android:hint="@string/CRN"
-            android:autofillHints="no"/>
+            android:autofillHints="no" />
 
     </LinearLayout>
 
@@ -42,12 +42,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/courseTermLabel"
-            android:textColor="@color/darkPurple"/>
+            android:textColor="@color/darkPurple" />
 
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:id="@+id/spCourseTerm"/>
+            android:id="@+id/spCourseTerm" />
     </LinearLayout>
 
     <LinearLayout
@@ -58,20 +58,20 @@
         app:layout_constraintTop_toBottomOf="@id/llCourseTerm"
         app:layout_constraintLeft_toLeftOf="parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/courseCodeLabel"
-        android:textColor="@color/darkPurple"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/courseCodeLabel"
+            android:textColor="@color/darkPurple" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:id="@+id/etCourseCode"
-        android:ems="13"
-        android:inputType="text"
-        android:hint="@string/courseCode"
-        android:autofillHints="no"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:id="@+id/etCourseCode"
+            android:ems="13"
+            android:inputType="text"
+            android:hint="@string/courseCode"
+            android:autofillHints="no" />
 
     </LinearLayout>
 
@@ -87,7 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/courseTitleLabel"
-            android:textColor="@color/darkPurple"/>
+            android:textColor="@color/darkPurple" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -96,7 +96,7 @@
             android:ems="13"
             android:inputType="text"
             android:hint="@string/courseTitle"
-            android:autofillHints="no"/>
+            android:autofillHints="no" />
 
     </LinearLayout>
 
@@ -112,7 +112,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/prerequisitesLabel"
-            android:textColor="@color/darkPurple"/>
+            android:textColor="@color/darkPurple" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -121,7 +121,7 @@
             android:ems="13"
             android:inputType="text"
             android:hint="@string/prerequisitesHint"
-            android:autofillHints="no"/>
+            android:autofillHints="no" />
 
     </LinearLayout>
 
@@ -137,7 +137,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/exclusionsLabel"
-            android:textColor="@color/darkPurple"/>
+            android:textColor="@color/darkPurple" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -146,7 +146,7 @@
             android:ems="13"
             android:inputType="text"
             android:hint="@string/exclusionsHint"
-            android:autofillHints="no"/>
+            android:autofillHints="no" />
 
     </LinearLayout>
 
@@ -162,7 +162,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/instructorLabel"
-            android:textColor="@color/darkPurple"/>
+            android:textColor="@color/darkPurple" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -171,9 +171,10 @@
             android:ems="13"
             android:inputType="text"
             android:hint="@string/instructorHint"
-            android:autofillHints="no"/>
+            android:autofillHints="no" />
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -186,7 +187,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/dayTimeLabel"
-            android:textColor="@color/darkPurple"/>
+            android:textColor="@color/darkPurple" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -195,7 +196,7 @@
             android:ems="13"
             android:inputType="text"
             android:hint="@string/dateTimeHint"
-            android:autofillHints="no"/>
+            android:autofillHints="no" />
 
     </LinearLayout>
 
@@ -210,5 +211,5 @@
         android:textColor="@color/lightPurple"
         android:textAllCaps="false"
         app:layout_constraintTop_toBottomOf="@id/llDates"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        app:layout_constraintLeft_toLeftOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

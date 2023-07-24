@@ -22,9 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.snackbar.Snackbar;
 
 import net.johnnyconsole.cp670.project.R;
-import net.johnnyconsole.cp670.project.databinding.ActivityEditCourseBinding;
 import net.johnnyconsole.cp670.project.databinding.ActivityRegisterBinding;
-import net.johnnyconsole.cp670.project.fragment.CourseListFragment;
 import net.johnnyconsole.cp670.project.helper.DatabaseStatement;
 import net.johnnyconsole.cp670.project.helper.DatabaseTask;
 import net.johnnyconsole.cp670.project.objects.Course;
@@ -62,6 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
             return courseList.get(position).code + ": " + courseList.get(position).title;
         }
     }
+
     private class MyCourseListAdapter extends ArrayAdapter<String> {
 
         public MyCourseListAdapter(Context context) {
@@ -180,13 +179,13 @@ public class RegisterActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 myCourses.clear();
                 Cursor c = database.rawQuery("SELECT courses.crn, courses.title, courses.code, registrations.grade FROM courses JOIN registrations ON courses.term=registrations.term AND courses.crn=registrations.crn WHERE registrations.term=? AND registrations.student=?;",
-                        new String[] {terms.get(spSearchTerm.getSelectedItemPosition()).code, username});
-                while(c.moveToNext()) {
+                        new String[]{terms.get(spSearchTerm.getSelectedItemPosition()).code, username});
+                while (c.moveToNext()) {
                     int crn = c.getInt(0);
                     String title = c.getString(1),
                             code = c.getString(2),
                             grade = c.getString(3);
-                    if(grade == null || grade.equals("--")) {
+                    if (grade == null || grade.equals("--")) {
                         myCourses.add(new Course(crn, code, title));
                     }
                 }
@@ -200,13 +199,13 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        lvCourseList.setOnItemClickListener((adapterView, view, position, id) ->  {
+        lvCourseList.setOnItemClickListener((adapterView, view, position, id) -> {
             myCourses.add(courseList.remove(position));
             courseListAdapter.notifyDataSetChanged();
             myCourseListAdapter.notifyDataSetChanged();
         });
 
-        lvMyCourses.setOnItemClickListener((adapterView, view, position, id) ->  {
+        lvMyCourses.setOnItemClickListener((adapterView, view, position, id) -> {
             courseList.add(myCourses.remove(position));
             courseListAdapter.notifyDataSetChanged();
             myCourseListAdapter.notifyDataSetChanged();

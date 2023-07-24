@@ -14,19 +14,23 @@
         android:id="@+id/llSearch"
         android:orientation="vertical"
         android:layout_margin="10dp">
+
         <LinearLayout
             android:layout_height="wrap_content"
             android:layout_width="match_parent">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/searchFor"
-                android:textColor="@color/darkPurple"/>
+                android:textColor="@color/darkPurple" />
+
             <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:entries="@array/searchBy"
-                android:id="@+id/spSearchField"/>
+                android:id="@+id/spSearchField" />
+
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
@@ -34,21 +38,24 @@
                 android:id="@+id/etSearchText"
                 android:ems="10"
                 android:autofillHints="no"
-                android:hint="@string/search"/>
+                android:hint="@string/search" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:layout_marginTop="10dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/searchTerm"
-                android:textColor="@color/darkPurple"/>
+                android:textColor="@color/darkPurple" />
+
             <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
-                android:id="@+id/spSearchTerm"/>
+                android:id="@+id/spSearchTerm" />
 
             <Button
                 android:id="@+id/btSearch"
@@ -67,7 +74,7 @@
         android:id="@+id/lvCourseList"
         android:layout_margin="10dp"
         android:divider="@color/darkPurple"
-        android:dividerHeight="1dp"/>
+        android:dividerHeight="1dp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -85,7 +92,7 @@
         android:id="@+id/lvMyCourses"
         android:layout_margin="10dp"
         android:divider="@color/darkPurple"
-        android:dividerHeight="1dp"/>
+        android:dividerHeight="1dp" />
 
     <Button
         android:id="@+id/btSaveChanges"
@@ -96,7 +103,6 @@
         android:textAllCaps="false"
         android:textColor="@color/lightPurple"
         android:layout_marginBottom="20dp" />
-
 
 
 </LinearLayout>

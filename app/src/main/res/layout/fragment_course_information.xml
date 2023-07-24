@@ -15,5 +15,5 @@
         android:textColor="@color/lightPurple"
         android:textAllCaps="false"
         android:drawableLeft="@drawable/ic_arrow_back"
-        android:id="@+id/btBack"/>
+        android:id="@+id/btBack" />
 </LinearLayout>
