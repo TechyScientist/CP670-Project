@@ -70,7 +70,7 @@ public class EnterGradesActivity extends AppCompatActivity {
 
 
     private ArrayList<String> terms = new ArrayList<>();
-    private ArrayList<Student> students = new ArrayList();
+    private ArrayList<Student> students = new ArrayList<>();
     private Spinner spCourseTerm;
     private ListView lvStudentList;
     private EditText etCRN;
@@ -117,7 +117,7 @@ public class EnterGradesActivity extends AppCompatActivity {
                     code = cursor.getString(0);
                     spCourseTerm.setEnabled(false);
                     etCRN.setEnabled(false);
-                    Cursor studentsList = database.rawQuery("SELECT users.first, users.last, users.username, registrations.grade FROM users JOIN registrations ON  registrations.term=? AND registrations.crn=? AND users.username = registrations.student;", new String[]{
+                    Cursor studentsList = database.rawQuery("SELECT users.first, users.last, users.username, registrations.grade FROM users JOIN registrations ON registrations.term=? AND registrations.crn=? AND users.username = registrations.student;", new String[]{
                             term, CRN});
                     while (studentsList.moveToNext()) {
                         String first = studentsList.getString(0),

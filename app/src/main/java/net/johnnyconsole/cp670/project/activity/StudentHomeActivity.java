@@ -52,7 +52,6 @@ public class StudentHomeActivity extends AppCompatActivity {
                         REQUEST_REGISTER_COURSES)
         );*/
 
-        //TODO: Finish View Grades/Degree Progress
          findViewById(R.id.btGrades).setOnClickListener(view ->
                 startActivity(new Intent(this, ViewGradesActivity.class))
         );

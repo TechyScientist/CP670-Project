@@ -5,6 +5,7 @@ public class Course {
 
     public final int crn;
     public final String title, code;
+    public String grade = "--", term;
 
     public Course(int crn, String code, String title) {
         this.crn = crn;
