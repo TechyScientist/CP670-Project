@@ -122,4 +122,7 @@
     <string name="gradesModified">Notes Modifié</string>
     <string name="adminHomeInfo">Choisissez une boutton pour aller à l\'écran correspondant</string>
     <string name="viewGradesInfo">s</string>
+    <string name="attempted">Attempted:</string>
+    <string name="passed">Passed:</string>
+    <string name="percentComplete">(%1$s\\%)</string>
 </resources>
