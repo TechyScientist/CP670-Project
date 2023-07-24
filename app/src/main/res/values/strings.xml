@@ -155,5 +155,6 @@
     <string name="passed">Passed:</string>
     <string name="percentComplete">(%1$.2f%2$c)</string>
     <string name="myCourses">My Courses:</string>
-    <string name="registrationInfo"></string>
+    <string name="registrationInfo">Use this screen to update your registration. You can add courses to your registration by searching in that term by the course CRN, code or title and selecting it in the first list. You can remove a course from your list by selecting the term to modify, then selecting the course in your list. Remember to click the save button before exiting!</string>
+    <string name="registrationChanged">Registration Updated.</string>
 </resources>

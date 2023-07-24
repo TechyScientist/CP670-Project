@@ -126,5 +126,6 @@
     <string name="passed">Passé:</string>
     <string name="percentComplete">(%1$.2f%2$c)</string>
     <string name="myCourses">Mes Courses:</string>
-    <string name="registrationInfo"></string>
+    <string name="registrationInfo">Utilisez cet écran pour modifier votres inscriptions. Vous pouvez ajoutez un cours en cherchant dans le terme du cours pour le NRC, code ou titre du cours, puis cliquez-le dans le primiere liste. Vous pouvez supprimer un cours de votre liste par chosissant le terme du cours, puis cliquez-le dans votre liste. Souvenez de cliquez le boutton "modifier" avant de sortir!</string>
+    <string name="registrationChanged">Inscriptions Modifiées.</string>
 </resources>
