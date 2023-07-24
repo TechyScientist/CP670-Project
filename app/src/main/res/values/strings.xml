@@ -154,4 +154,6 @@
     <string name="attempted">Attempted:</string>
     <string name="passed">Passed:</string>
     <string name="percentComplete">(%1$.2f%2$c)</string>
+    <string name="myCourses">My Courses:</string>
+    <string name="registrationInfo"></string>
 </resources>

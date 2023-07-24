@@ -27,7 +27,7 @@ import java.util.Objects;
 public class StudentHomeActivity extends AppCompatActivity {
 
     private final int REQUEST_CHANGE_PASSWORD = 130;
-    //private final int REQUEST_REGISTER_COURSES = 300;
+    private final int REQUEST_REGISTER_COURSES = 300;
 
     private ActivityStudentHomeBinding binding;
 
@@ -45,12 +45,10 @@ public class StudentHomeActivity extends AppCompatActivity {
                 startActivity(new Intent(this, CourseScheduleActivity.class))
         );
 
-        //TODO: Register for Courses
-        /*
          findViewById(R.id.btRegistration).setOnClickListener(view ->
-                startActivityForResult(new Intent(this, RegistrationChangeActivity.class),
+                startActivityForResult(new Intent(this, RegisterActivity.class),
                         REQUEST_REGISTER_COURSES)
-        );*/
+        );
 
          findViewById(R.id.btGrades).setOnClickListener(view ->
                 startActivity(new Intent(this, ViewGradesActivity.class))
@@ -104,7 +102,8 @@ public class StudentHomeActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        if (requestCode == REQUEST_CHANGE_PASSWORD && resultCode == RESULT_OK) {
+        if ((requestCode == REQUEST_CHANGE_PASSWORD || requestCode == REQUEST_REGISTER_COURSES)
+                && resultCode == RESULT_OK) {
             String activityResult = intent.getStringExtra("result");
             Snackbar.make(binding.getRoot(), activityResult, Snackbar.LENGTH_LONG).show();
         }
