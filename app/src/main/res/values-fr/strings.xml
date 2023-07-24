@@ -121,4 +121,5 @@
     <string name="enterGradesInfo">Choissisez un terme et entrez un NRC pour voir les étudiants qui sont enrégistré. Choissisez un étudiant pour modifier sa note. Souvenez de cliquez le boutton "modifier" avant de sortir!</string>
     <string name="gradesModified">Notes Modifié</string>
     <string name="adminHomeInfo">Choisissez une boutton pour aller à l\'écran correspondant</string>
+    <string name="viewGradesInfo">s</string>
 </resources>

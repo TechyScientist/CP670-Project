@@ -27,6 +27,7 @@ import java.util.Objects;
 public class StudentHomeActivity extends AppCompatActivity {
 
     private final int REQUEST_CHANGE_PASSWORD = 130;
+    //private final int REQUEST_REGISTER_COURSES = 300;
 
     private ActivityStudentHomeBinding binding;
 
@@ -47,13 +48,14 @@ public class StudentHomeActivity extends AppCompatActivity {
         //TODO: Register for Courses
         /*
          findViewById(R.id.btRegistration).setOnClickListener(view ->
-                startActivity(new Intent(this, RegistrationChangeActivity.class))
-        );
+                startActivityForResult(new Intent(this, RegistrationChangeActivity.class),
+                        REQUEST_REGISTER_COURSES)
+        );*/
 
-        //TODO: View Grades/Degree Progress
+        //TODO: Finish View Grades/Degree Progress
          findViewById(R.id.btGrades).setOnClickListener(view ->
                 startActivity(new Intent(this, ViewGradesActivity.class))
-        );*/
+        );
 
         findViewById(R.id.btChangePw).setOnClickListener(view ->
                 startActivityForResult(new Intent(this, ChangePasswordActivity.class),
