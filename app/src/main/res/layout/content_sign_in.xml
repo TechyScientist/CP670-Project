@@ -46,6 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/profile"
+        android:id="@+id/btSignIn"
         android:background="@color/transparent"
         android:textColor="@color/lightPurple"
         android:textAllCaps="false"

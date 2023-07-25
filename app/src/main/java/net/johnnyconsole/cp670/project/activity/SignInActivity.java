@@ -31,7 +31,7 @@ import java.util.Objects;
  */
 public class SignInActivity extends AppCompatActivity {
 
-    private EditText etUsername, etPassword;
+    public EditText etUsername, etPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
