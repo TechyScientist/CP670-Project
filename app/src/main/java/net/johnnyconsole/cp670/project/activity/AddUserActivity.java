@@ -64,7 +64,7 @@ public class AddUserActivity extends AppCompatActivity {
             Cursor cursor = database.rawQuery("SELECT * FROM users WHERE username=?;",
                     new String[]{etUsername.getText().toString()});
 
-            if (cursor.getCount() != 0) {
+            if (cursor.getCount() == 0) {
                 new DatabaseTask().execute(new DatabaseStatement("INSERT INTO users (username, first, last, userType, password) VALUES (?,?,?,?,?)",
                         new String[]{etUsername.getText().toString().toLowerCase(), etFirstName.getText().toString(),
                                 etLastName.getText().toString(), rbUserStudent.isChecked() ? "student" : "admin",

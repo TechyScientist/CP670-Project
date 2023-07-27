@@ -44,7 +44,7 @@ public class AddTermActivity extends AppCompatActivity {
 
         findViewById(R.id.btAddTerm).setOnClickListener(view -> {
             if (etTermCode.getText() == null || etTermCode.getText().toString().isEmpty() ||
-                    etTermTitle.getText() == null || etTermCode.getText().toString().isEmpty()) {
+                    etTermTitle.getText() == null || etTermTitle.getText().toString().isEmpty()) {
                 new AlertDialog.Builder(this).setTitle(R.string.errorTitle)
                         .setMessage(R.string.missingInput)
                         .setPositiveButton(R.string.dismiss, null)
@@ -56,7 +56,7 @@ public class AddTermActivity extends AppCompatActivity {
             Cursor cursor = database.rawQuery("SELECT * FROM terms WHERE code=?;",
                     new String[]{etTermCode.getText().toString()});
 
-            if (cursor.getCount() != 0) {
+            if (cursor.getCount() == 0) {
                 new DatabaseTask().execute(new DatabaseStatement("INSERT INTO terms (code, title) VALUES (?,?)",
                         new String[]{etTermCode.getText().toString(), etTermTitle.getText().toString()}));
                 setResult(RESULT_OK, new Intent().putExtra("result", getString(R.string.addTermSuccess, etTermCode.getText().toString())));

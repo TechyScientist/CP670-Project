@@ -106,7 +106,7 @@ public class AddCourseActivity extends AppCompatActivity {
             Cursor crnCursor = database.rawQuery(sql,
                     new String[]{terms.get(spCourseTerm.getSelectedItemPosition()).code, etCRN.getText().toString()});
 
-            if (crnCursor.getCount() != 0) {
+            if (crnCursor.getCount() == 0) {
                 String prerequisites = etPrerequisites.getText() == null ||
                         etPrerequisites.getText().toString().isEmpty() ? null :
                         etPrerequisites.getText().toString(),
