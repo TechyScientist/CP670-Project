@@ -93,8 +93,8 @@ public class AddCourseActivity extends AppCompatActivity {
 
         findViewById(R.id.btAddCourse).setOnClickListener(view -> {
             if (etCRN.getText() == null || etCRN.getText().toString().isEmpty() ||
-                    etCourseCode.getText() == null || etCRN.getText().toString().isEmpty() ||
-                    etCourseTitle.getText() == null || etCRN.getText().toString().isEmpty()) {
+                    etCourseCode.getText() == null || etCourseCode.getText().toString().isEmpty() ||
+                    etCourseTitle.getText() == null || etCourseTitle.getText().toString().isEmpty()) {
                 new AlertDialog.Builder(this).setTitle(R.string.errorTitle)
                         .setMessage(R.string.missingInput)
                         .setPositiveButton(R.string.dismiss, null)
@@ -111,8 +111,8 @@ public class AddCourseActivity extends AppCompatActivity {
                         etPrerequisites.getText().toString().isEmpty() ? null :
                         etPrerequisites.getText().toString(),
                         exclusions = etExclusions.getText() == null ||
-                                etPrerequisites.getText().toString().isEmpty() ? null :
-                                etPrerequisites.getText().toString(),
+                                etExclusions.getText().toString().isEmpty() ? null :
+                                etExclusions.getText().toString(),
                         instructor = etInstructor.getText() == null ||
                                 etInstructor.getText().toString().isEmpty() ? null :
                                 etInstructor.getText().toString(),
