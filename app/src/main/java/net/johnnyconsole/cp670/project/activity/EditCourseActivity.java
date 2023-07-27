@@ -94,8 +94,8 @@ public class EditCourseActivity extends AppCompatActivity {
                 if (cursor.moveToFirst()) {
                     spCourseTerm.setEnabled(false);
                     etCRN.setEnabled(false);
-                    etCourseTitle.setText(cursor.getString(2));
-                    etCourseCode.setText(cursor.getString(3));
+                    etCourseCode.setText(cursor.getString(2));
+                    etCourseTitle.setText(cursor.getString(3));
                     etPrerequisites.setText(cursor.getString(4));
                     etExclusions.setText(cursor.getString(5));
                     etInstructor.setText(cursor.getString(6));

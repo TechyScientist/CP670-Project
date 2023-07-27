@@ -185,7 +185,7 @@ public class RegisterActivity extends AppCompatActivity {
                     String title = c.getString(1),
                             code = c.getString(2),
                             grade = c.getString(3);
-                    if (grade == null || grade.equals("--")) {
+                    if (grade.equals("--")) {
                         myCourses.add(new Course(crn, code, title));
                     }
                 }
@@ -212,11 +212,11 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
         findViewById(R.id.btSaveChanges).setOnClickListener(view -> {
-            new DatabaseTask().execute(new DatabaseStatement("DELETE FROM registrations WHERE student=? AND term=?;",
-                    new String[]{username, terms.get(spSearchTerm.getSelectedItemPosition()).code}));
+            new DatabaseTask().execute(new DatabaseStatement("DELETE FROM registrations WHERE student=? AND term=? AND grade=?;",
+                    new String[]{username, terms.get(spSearchTerm.getSelectedItemPosition()).code, "--"}));
             for (Course c : myCourses) {
-                new DatabaseTask().execute(new DatabaseStatement("INSERT INTO registrations (term, crn, student) VALUES (?,?,?);",
-                        new String[]{terms.get(spSearchTerm.getSelectedItemPosition()).code, c.crn + "", username}));
+                new DatabaseTask().execute(new DatabaseStatement("INSERT INTO registrations (term, crn, student, grade) VALUES (?,?,?,?);",
+                        new String[]{terms.get(spSearchTerm.getSelectedItemPosition()).code, c.crn + "", username, "--"}));
             }
             setResult(RESULT_OK, new Intent().putExtra("result", getString(R.string.registrationChanged)));
             finish();
