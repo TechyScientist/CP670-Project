@@ -34,7 +34,7 @@ public class CourseListFragment extends Fragment {
     private class CourseAdapter extends ArrayAdapter<String> {
 
         public CourseAdapter(Context context) {
-            super(context, R.layout.layout_list_item, R.id.tvCourse);
+            super(context, R.layout.layout_list_item_select, R.id.tvCourse);
         }
 
         public int getCount() {
