@@ -33,7 +33,7 @@
             android:textColor="@color/darkPurple" />
 
         <Spinner
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="48dp"
             android:entries="@array/grades"
             android:id="@+id/spGrade"
