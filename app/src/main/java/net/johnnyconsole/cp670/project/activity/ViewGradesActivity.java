@@ -92,7 +92,7 @@ public class ViewGradesActivity extends AppCompatActivity {
 
         tvCoursesAttempted.setText(registrations.size() + "");
         tvCoursesPassed.setText(((int) completed) + "");
-        tvPercentComplete.setText(getString(R.string.percentComplete, percent, '%'));
+        tvPercentComplete.setText(getString(R.string.percentComplete, registrations.size() == 0 ? 0 : percent, '%'));
         lvGradesList.setAdapter(new GradesListAdapter(this));
 
         cursor.close();
