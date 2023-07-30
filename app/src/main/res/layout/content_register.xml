@@ -37,6 +37,8 @@
                 android:inputType="text"
                 android:id="@+id/etSearchText"
                 android:ems="10"
+                android:backgroundTint="@color/darkPurple"
+                android:textCursorDrawable="@drawable/cursor"
                 android:autofillHints="no"
                 android:hint="@string/search" />
         </LinearLayout>

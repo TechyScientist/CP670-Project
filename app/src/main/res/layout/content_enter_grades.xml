@@ -36,6 +36,8 @@
             android:id="@+id/etCRN"
             android:hint="@string/CRN"
             android:ems="8"
+            android:backgroundTint="@color/darkPurple"
+            android:textCursorDrawable="@drawable/cursor"
             android:inputType="number"
             android:autofillHints="no" />
 

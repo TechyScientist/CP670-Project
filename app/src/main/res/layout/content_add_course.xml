@@ -24,6 +24,8 @@
             android:layout_height="48dp"
             android:id="@+id/etCRN"
             android:ems="13"
+            android:backgroundTint="@color/darkPurple"
+            android:textCursorDrawable="@drawable/cursor"
             android:inputType="number"
             android:hint="@string/CRN"
             android:autofillHints="no" />
@@ -69,6 +71,8 @@
             android:layout_height="48dp"
             android:id="@+id/etCourseCode"
             android:ems="13"
+            android:backgroundTint="@color/darkPurple"
+            android:textCursorDrawable="@drawable/cursor"
             android:inputType="text"
             android:hint="@string/courseCode"
             android:autofillHints="no" />
@@ -94,6 +98,8 @@
             android:layout_height="48dp"
             android:id="@+id/etCourseTitle"
             android:ems="13"
+            android:backgroundTint="@color/darkPurple"
+            android:textCursorDrawable="@drawable/cursor"
             android:inputType="text"
             android:hint="@string/courseTitle"
             android:autofillHints="no" />
@@ -119,6 +125,8 @@
             android:layout_height="48dp"
             android:id="@+id/etPrerequisites"
             android:ems="13"
+            android:backgroundTint="@color/darkPurple"
+            android:textCursorDrawable="@drawable/cursor"
             android:inputType="text"
             android:hint="@string/prerequisitesHint"
             android:autofillHints="no" />
@@ -144,6 +152,8 @@
             android:layout_height="48dp"
             android:id="@+id/etExclusions"
             android:ems="13"
+            android:backgroundTint="@color/darkPurple"
+            android:textCursorDrawable="@drawable/cursor"
             android:inputType="text"
             android:hint="@string/exclusionsHint"
             android:autofillHints="no" />
@@ -169,6 +179,8 @@
             android:layout_height="48dp"
             android:id="@+id/etInstructor"
             android:ems="13"
+            android:backgroundTint="@color/darkPurple"
+            android:textCursorDrawable="@drawable/cursor"
             android:inputType="text"
             android:hint="@string/instructorHint"
             android:autofillHints="no" />
@@ -194,6 +206,8 @@
             android:layout_height="48dp"
             android:id="@+id/etDateTime"
             android:ems="13"
+            android:backgroundTint="@color/darkPurple"
+            android:textCursorDrawable="@drawable/cursor"
             android:inputType="text"
             android:hint="@string/dateTimeHint"
             android:autofillHints="no" />

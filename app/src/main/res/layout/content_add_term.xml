@@ -24,6 +24,8 @@
             android:layout_height="48dp"
             android:id="@+id/etTermCode"
             android:ems="13"
+            android:backgroundTint="@color/darkPurple"
+            android:textCursorDrawable="@drawable/cursor"
             android:inputType="text"
             android:hint="@string/termCode"
             android:autofillHints="no" />
@@ -49,6 +51,8 @@
             android:layout_height="48dp"
             android:id="@+id/etTermTitle"
             android:ems="13"
+            android:backgroundTint="@color/darkPurple"
+            android:textCursorDrawable="@drawable/cursor"
             android:inputType="text"
             android:hint="@string/termTitle"
             android:autofillHints="no" />

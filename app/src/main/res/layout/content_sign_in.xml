@@ -11,16 +11,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/usernameLabel"
-        android:textColor="@color/lightPurple" />
+        android:textColor="@color/darkPurple" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:id="@+id/etUsername"
         android:inputType="text"
-        android:textColor="@color/lightPurple"
         android:hint="@string/usernameHint"
         android:ems="15"
+        android:backgroundTint="@color/darkPurple"
+        android:textCursorDrawable="@drawable/cursor"
         android:autofillHints="none"
         android:layout_marginBottom="15dp" />
 
@@ -28,16 +29,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/passwordLabel"
-        android:textColor="@color/lightPurple" />
+        android:textColor="@color/darkPurple" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:id="@+id/etPassword"
         android:inputType="textPassword"
-        android:textColor="@color/lightPurple"
         android:hint="@string/passwordHint"
         android:ems="15"
+        android:backgroundTint="@color/darkPurple"
+        android:textCursorDrawable="@drawable/cursor"
         android:autofillHints="none"
         android:layout_marginBottom="30dp"
         android:importantForAccessibility="no" />
