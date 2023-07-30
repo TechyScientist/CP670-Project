@@ -55,7 +55,7 @@ public class EnterGradesActivity extends AppCompatActivity {
 
     private class StudentListAdapter extends ArrayAdapter<String> {
         public StudentListAdapter(Context context) {
-            super(context, R.layout.layout_list_item, R.id.tvCourse);
+            super(context, R.layout.layout_list_item_select, R.id.tvCourse);
         }
 
         public int getCount() {
